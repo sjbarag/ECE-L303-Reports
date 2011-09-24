@@ -1,0 +1,8 @@
+# Vin (V)	State (On or Off)
+0			off
+1			off
+2			on (dim)
+3			on (brighter)
+4			on (full brightness)
+5			on (no change)
+
