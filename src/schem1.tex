@@ -1,0 +1,8 @@
+\begin{circuitikz}
+	\draw (0,0) to [vsourcesin, l=\SI{12.2}{\volt} (RMS) @ \SI{60}{\hertz}] ++(0,2)
+	to [short] ++(1,0)
+	to [Do, v^=$V_d \approx$ \SI{0.7}{\volt}, i_=$i$, l_=1N4006] ++(2, 0)
+	to [short] ++(1,0)
+	to [R, v^=$V_o$, l_=\SI{1}{\kilo\ohm}] ++(0, -2)
+	to [short] (0, 0);
+\end{circuitikz}\\
