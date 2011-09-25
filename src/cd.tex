@@ -1,12 +1,24 @@
-The first circuit built was a half-wave rectifier, utilizing a 1N4006 PN junction diode as the primary element because of its directional current flow property.  When forward biased (acheived when the voltage on the p-doped side is higher than the voltage on the n-doped side), a standard diode will allow current to flow; a reverse biased, however, no current will flow.  If said diode is connected in series with a load resistor between the two inputs of an AC signal as shown in Figure~\ref{fig:schem1}, a half-wave rectifier results.
+\subsection{Rectifier}
+The first circuit built was a half-wave rectifier, utilizing a 1N4006 PN
+junction diode as the primary element because of its directional current flow
+property.  When forward biased (acheived when the voltage on the p-doped side
+is higher than the voltage on the n-doped side), a standard diode will allow
+current to flow; a reverse biased, however, no current will flow.  If said
+diode is connected in series with a load resistor between the two inputs of an
+AC signal as shown in Figure~\ref{fig:schem1}, a half-wave rectifier results.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem1.tex}
-	\caption{herp derp}
+	\caption{Half-wave rectifier circuit, as originally suggested by the lab one instructions.}
 	\label{fig:schem1}
 \end{figure}
-, the voltage across the resistor will be equal to the input when the signal is greater than zero.  When the signal becomes negative, the voltage across
-
+%
+During phases where the input signal is positive, the voltage across the
+resistor will be roughly equal to the input.  When the signal becomes negative
+Ohm's Law states that the voltage across the resistor drops to zero, as no
+current flows.  The above circuit uses an input signal of \SI{12.2}{\volt}RMS
+and outputs a half-rectified signal with an average value of \SI{5.6}{\volt}DC.
 
 \begin{figure}[H]
 \input{schem2.tex}
