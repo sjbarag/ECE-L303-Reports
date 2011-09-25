@@ -44,10 +44,29 @@ turning on.  As the input voltage increases above the turn on voltage, the
 brightness of the diode should increase.
 
 
-
+\subsection{Voltage Regulator}
+Students were also tasked with creating a voltage regulator based on a simple
+zener diode --- a diode specially designed to be used in a reverse biased
+configuration near the voltage at which its semiconductor breaks down.
+Figure~\ref{fig:schem3} shows a functioning zener diode voltage regulator ($V_z$).
+%
 \begin{figure}[H]
-\input{schem3.tex}
+	\centering
+	\input{schem3.tex}
+	\caption{Voltage regulataor schematic.  This design was initially presented in the lab instructions.}
+	\label{fig:schem3}
 \end{figure}
+%
+For voltages below $V_z$, the diode acts as a standard reverse-biased diode,
+allowing only the reverse-saturation current to flow: typically, only a few
+microamps.  Because such a small amount of current is flowing, none is dropped
+across the resistor, thus the output is equal to the input voltage.  When the
+input exceeds $V_z$ current begins to flow, and the voltage drop across the
+resistor is equal to the difference between the voltages at the input and
+output.  This results in a nearly constant voltage of $V_z$ across the diode,
+and thus the output is constant.  The voltage was stepped from \SI{5}{\volt}DC
+to \SI{25}{\volt}{DC} in increments of one Volt in this test, while measuring
+the voltage across the diode at each value.
 
 \begin{figure}[H]
 \input{schem4.tex}
