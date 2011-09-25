@@ -20,9 +20,30 @@ Ohm's Law states that the voltage across the resistor drops to zero, as no
 current flows.  The above circuit uses an input signal of \SI{12.2}{\volt}RMS
 and outputs a half-rectified signal with an average value of \SI{5.6}{\volt}DC.
 
+\subsection{LED}
+Circuit number two allowed students to experiment with light-emitting diodes
+(LEDs).  LEDs behave nearly identically to regular diodes, in that current can
+only flow through them in the forward biased configuration.  As their name
+suggests, LEDs also emit light (at a wavelength determined by the chemicals
+used during construction) while current flows through them.  A functioning
+circuit to light an LED is shown in Figure~\ref{fig:schem2}.
+%
 \begin{figure}[H]
-\input{schem2.tex}
+	\centering
+	\input{schem2.tex}
+	\caption{Circuit to light an LED, as provided by the instructions.}
+	\label{fig:schem2}
 \end{figure}
+%
+In the above circuit, the input voltage is stepped from \SI{0}{\volt}DC to
+\SI{5}{\volt}DC in increments of one Volt.  This allows students to see the
+effects of input voltage to an LEDs brightness.  The provided LED ``turns on''
+(emits light) when roughtly \SI{1.5}{\volt} is dropped across the element, so
+input voltages that provide at least this much voltage result in the diode
+turning on.  As the input voltage increases above the trun on voltage, the
+brightness of the diode should increase.
+
+
 
 \begin{figure}[H]
 \input{schem3.tex}
