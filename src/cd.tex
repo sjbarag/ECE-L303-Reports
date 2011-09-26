@@ -68,7 +68,22 @@ and thus the output is constant.  The voltage was stepped from \SI{5}{\volt}DC
 to \SI{25}{\volt}{DC} in increments of one Volt in this test, while measuring
 the voltage across the diode at each value.
 
+\subsection{Constant Current Source}
+The fourth and final circuit utilized a JFET to create a constant current
+source.  By shorting the gate and source pins on the device as shown in
+Figure~\ref{fig:schem4}, the current through the drain pin becomes a constant
+based on the manufacturing process of the device.  This is significant because,
+regardless of the load, the current will change very little.
+%
 \begin{figure}[H]
-\input{schem4.tex}
+	\centering
+	\input{schem4.tex}
+	\caption{Schematic provided to create a constant current source using a JFET.}
+	\label{fig:schem4}
 \end{figure}
-
+%
+In the performed experiment, the DC source was set first to \SI{16}{\volt},
+while the load resistor was varied from \SI{50}{\ohm} to \SI{2}{\kilo\ohm} in
+steps of \SI{100}{\ohm} via a decade box.  The same test was repeated with the
+voltage set to \SI{32}{\volt}.  At each resistance value, the current through
+the drain was measured with a DC Ammeter.
