@@ -1,4 +1,29 @@
 \subsection{Rectifier}
+The half wave rectifier was buit according to the provided schematic (recreated
+in Figure~\ref{fig:schem1}, where the value of the resistor was provided
+as~\SI{1}{\kilo\ohm} in the instructions.  The input voltage was calculated by
+multiplying the specified average voltage of~\SI{5.6}{\volt}DC by~$\pi$ as
+shown in Equation~\ref{eq:v_avg}.  This resulted in a peak voltage
+of~\SI{17.6}{\volt}DC.
+%
+\begin{equation}
+	V_\text{avg} = \frac{V_p}{\pi}
+	\label{eq:v_avg}
+\end{equation}
+%
+To calculate the AC signal's root-mean-square (RMS) value, the peak voltage was
+then divided by~$\sqrt{2}$, as shown in Equation~\ref{eq:rms}.
+%
+\begin{equation}
+	V_\text{RMS} = \frac{V_p}{\sqrt{2}}
+	\label{eq:rms}
+\end{equation}
+%
+The resulting calculations provided a designed input of \SI{12.2}{\volt} (RMS).
+Using an oscilloscope in combination with a variac transformer, the input was
+adjusted to be as close to this value as possible. Data for the half-wave
+rectifier was captured by the oscilloscope.  Due to the large number of
+measurements taken, it is available by request to the author.
 
 \subsection{Logic Indicator}
 \begin{figure}[H]
