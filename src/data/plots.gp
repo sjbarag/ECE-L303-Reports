@@ -17,7 +17,6 @@ set terminal tikz color solid size 4.25in,2.25in
 unset key
 set xlabel 'Input Voltage, $V_{in}$ (V)'
 set ylabel 'Output Voltage, $V_{out}$ (V)'
-set title  'Measured output from a zener diode-based voltage regulator'
 set output "../img/circuit3.tex"
 plot "circuit3.dat" using 1:2 with linespoints
 
@@ -26,7 +25,6 @@ plot "circuit3.dat" using 1:2 with linespoints
 set key bottom left
 set xlabel 'Load Resistance, $R$ (\si{\kilo\ohm})'
 set ylabel 'Measured Current, $I_{out}$ (\si{\milli\ampere})'
-set title  'Measured current from a JFET-based constant current source'
 set output "../img/circuit4.tex"
 plot "circuit4.dat" using 1:2 title '16V source' with linespoints,\
 "circuit4.dat" using 1:3 title '32V source 'with linespoints
