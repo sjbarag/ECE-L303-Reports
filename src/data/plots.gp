@@ -23,6 +23,7 @@ plot "circuit3.dat" using 1:2 with linespoints
 
 # --- circuit 4 (constant current source) ----
 set key bottom left
+set log x
 set xlabel 'Load Resistance, $R$ (\si{\kilo\ohm})'
 set ylabel 'Measured Current, $I_{out}$ (\si{\milli\ampere})'
 set output "../img/circuit4.tex"
