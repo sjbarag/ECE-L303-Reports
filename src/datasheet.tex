@@ -23,7 +23,9 @@ The resulting calculations provided a designed input of \SI{12.2}{\volt} (RMS).
 Using an oscilloscope in combination with a variac transformer, the input was
 adjusted to be as close to this value as possible. Data for the half-wave
 rectifier was captured by the oscilloscope.  Due to the large number of
-measurements taken, it is available by request to the author.
+measurements taken, it is available by request to
+\texttt{<sean.barag@gmail.com>}.  Additionally, an I-V curve was traced in the
+lab and can be found in Figure~\ref{fig:diodeCurve}.
 
 \subsection{Logic Indicator}
 The logic indicator was built entirely to the specifications provided by the
@@ -59,7 +61,8 @@ zener diode's reverse breakdown voltage and the input voltage.  As long as the
 resistor is large enough to limit the current through the diode to safe levels
 (as indicated by the part's datasheet), its specific value does not affect the
 output drastically.  To confirm that a given resistor ensures diode safety,
-Ohm's law again becomes useful.
+Ohm's law again becomes useful.  Recorded values for the voltage regulator
+circuit are shown in Table~\ref{tab:ckt3data}.
 %
 \begin{figure}[H]
 	\centering
@@ -79,6 +82,11 @@ is mostly due to variances as the package temperature increases and the innate
 properties of the zener diode as a device.
 
 \subsection{Constant Current Source}
+There were no calculations required to build the constant current source
+circuit, as the resistance was set by a decade box, and the drain voltage was
+determined by the experiment instructions.  The curve tracer output for the
+JFET used is shown in Figure~\ref{fig:jfetCurve}.
+%
 \begin{figure}[H]
 	\centering
 	\input{tbl/circuit4.tex}
