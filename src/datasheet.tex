@@ -52,6 +52,15 @@ designed~4--\SI{5}{\volt} range, showing that the final design is adequate in
 functioning as a logic level indicator.
 
 \subsection{Voltage Regulator}
+As with the rectifier and logic indicator, the voltage regulator was built
+according to the provided design.  The value of the~\SI{400}{\ohm} resistor is
+mostly irrelevant, as its sole purpose is to drop the difference between the
+zener diode's reverse breakdown voltage and the input voltage.  As long as the
+resistor is large enough to limit the current through the diode to safe levels
+(as indicated by the part's datasheet), its specific value does not affect the
+output drastically.  To confirm that a given resistor ensures diode safety,
+Ohm's law again becomes useful.
+%
 \begin{figure}[H]
 	\centering
 	\input{tbl/circuit3.tex}
@@ -59,6 +68,15 @@ functioning as a logic level indicator.
 		regulator described in Figure~\ref{fig:schem3}.}
 	\label{tab:ckt3data}
 \end{figure}
+%
+The reverse breakdown voltage of the zener diode was tested in a curve tracer
+prior to the experiment, the results of which are shown in
+Figure~\ref{fig:zenerCurve}.  For this specific diode, $V_z$ is
+approximately~\SI{1.9}{\volt}.  As was expected, the data captured indicates
+that the voltage was regulated at roughly~\SI{10.2}{\volt}.  The zener diode is
+not a perfect regulator however, hence the variation in output voltage.  This
+is mostly due to variances as the package temperature increases and the innate
+properties of the zener diode as a device.
 
 \subsection{Constant Current Source}
 \begin{figure}[H]
