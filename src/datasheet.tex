@@ -1,5 +1,5 @@
 \subsection{Rectifier}
-The half wave rectifier was buit according to the provided schematic (recreated
+The half wave rectifier was built according to the provided schematic (recreated
 in Figure~\ref{fig:schem1}, where the value of the resistor was provided
 as~\SI{1}{\kilo\ohm} in the instructions.  The input voltage was calculated by
 multiplying the specified average voltage of~\SI{5.6}{\volt}DC by~$\pi$ as
@@ -26,6 +26,16 @@ rectifier was captured by the oscilloscope.  Due to the large number of
 measurements taken, it is available by request to the author.
 
 \subsection{Logic Indicator}
+The logic indicator was built entirely to the specifications provided by the
+course instructors.  Using a \SI{300}{\ohm} resistor in series with the LED
+allows for the required current of \SI{15}{\milli\ampere} to flow when the
+input voltage is between four and five volts.  That this resistance is correct
+can be confirmed via Ohm's law.
+
+In testing the logic indicator, the DC input voltage was stepped from zero to
+five volts, while recording the brightness of the LED subjectively at each
+step.  The results are listed in Table~\ref{tab:ckt2data}.
+%
 \begin{figure}[H]
 	\centering
 	\input{tbl/circuit2.tex}
@@ -33,6 +43,13 @@ measurements taken, it is available by request to the author.
 		Figure~\ref{fig:schem2}.}
 	\label{tab:ckt2data}
 \end{figure}
+%
+It is interesting to note that for inputs of both~\SI{2}{\volt}
+and~\SI{3}{\volt}, the diode appears to be on, albeit dim.  The~\SI{3}{\volt}
+case, while brighter than at two volts, is not yet at the full brightness of
+the diode.  Full brightness for this diode occurs in the
+designed~4--\SI{5}{\volt} range, showing that the final design is adequate in
+functioning as a logic level indicator.
 
 \subsection{Voltage Regulator}
 \begin{figure}[H]
