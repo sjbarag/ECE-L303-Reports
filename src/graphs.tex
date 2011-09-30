@@ -47,6 +47,12 @@ by~\SI{60}{\milli\volt\per\volt}, most likely due to inefficiencies associated
 with the diode package's now increased temperature.
 
 \subsection{Constant Current Source}
+The JFET chosen as a constant current source performed quite well for
+a~\SI{16}{\volt} drain voltage, as shown in Figure~\ref{fig:ckt4plot}.  It
+provided a constant current of roughly~\SI{5.68}{\milli\ampere} for loads less
+than~\SI{2.0}{\kilo\ohm}, after which the current decreased at a rate of
+roughly~\SI{0.89}{\milli\ampere\per\kilo\ohm}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/circuit4.tex}
@@ -57,3 +63,11 @@ with the diode package's now increased temperature.
 		while varying the resistance with a decade box.}
 	\label{fig:ckt4plot}}
 \end{figure}
+%
+With a~\SI{32}{\volt} drain voltage, the current regulation window is quite
+distorted.  Output current remains constant for loads
+between~\SI{0.05}{\kilo\ohm} and~\SI{1.0}{\kilo\ohm}, but then increases at a
+rate of~\SI{0.06}{\milli\ampere\per\kilo\ohm} until the load
+reaches~\SI{4.2}{\kilo\ohm}.  For loads greater than~\SI{4.2}{\kilo\ohm}, the
+output current decreases as expected, by
+approximately~\SI{.1375}{\milli\ampere\per\kilo\ohm}.
