@@ -1,7 +1,9 @@
+\subsection{Rectifier}
 After successfully building the voltage regulator circuit shown in
 Figure~\ref{fig:schem1}, an oscilloscope was used to compare the input and
-output waveforms.  As screen capture showing these signals (offset in the image
-for clarity), as well as the RMS value of the input and average of the output.
+output waveforms.  The screen was captured showing these signals (offset in the
+image for clarity), as well as the RMS value of the input and average of the
+output; it is included here in Figure~\ref{fig:ckt1plot}
 %
 \begin{figure}[H]
 	\centering
@@ -9,10 +11,10 @@ for clarity), as well as the RMS value of the input and average of the output.
 	\parbox{4.25in}{\caption{Oscilloscope screenshot of the completed half-wave rectifier
 		outlined in Figure~\ref{fig:schem1}.  Signal one is the input, whereas
 		signal two is the output across the resistor.}
-	\label{fig:ck1plot}}
+	\label{fig:ckt1plot}}
 \end{figure}
 %
-The circuit was intially designed for an input of~\SI{12.2}{\volt} RMS and an
+The circuit was initially designed for an input of~\SI{12.2}{\volt} RMS and an
 average output of~\SI{5.6}{\volt}.  As is shown, the input of~\SI{12.28}{\volt}
 RMS is well within reasonable expectations of accuracy.  The measured output
 of~\SI{5.251}{\volt}, while lower than expected, is still within reasonable
@@ -21,6 +23,12 @@ the variac transformer and a resistance that was slightly below its
 rated~\SI{1}{\kilo\ohm} likely contributed to this, along with small
 capacitances in the oscilloscopes.
 
+\subsection{Voltage Regulator}
+By plotting the data in Table~\ref{tab:ckt3data}, it is possible to get the
+accurate depiction of the voltage regulation capabilities of the 1N4740 zener
+diode shown in Figure~\ref{fig:ckt3plot}.  Clearly the diode begins regulating
+the input voltage at~\SI{10}{\volt}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/circuit3.tex}
@@ -30,7 +38,15 @@ capacitances in the oscilloscopes.
 		was used in this test.}
 	\label{fig:ckt3plot}}
 \end{figure}
+%
+As was previously stated, the zener diode is neither an ideal regulator nor a
+perfect regulator.  Between inputs of~\SI{10}{\volt} and~\SI{20}{\volt}, the
+output grows at a rate of~\SI{68.9}{\milli\volt\per\volt}, due to current
+leakage.  Above~\SI{20}{\volt}, the output decreases
+by~\SI{60}{\milli\volt\per\volt}, most likely due to inefficiencies associated
+with the diode package's now increased temperature.
 
+\subsection{Constant Current Source}
 \begin{figure}[H]
 	\centering
 	\input{img/circuit4.tex}
