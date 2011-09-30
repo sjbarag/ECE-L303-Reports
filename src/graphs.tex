@@ -1,10 +1,25 @@
+After successfully building the voltage regulator circuit shown in
+Figure~\ref{fig:schem1}, an oscilloscope was used to compare the input and
+output waveforms.  As screen capture showing these signals (offset in the image
+for clarity), as well as the RMS value of the input and average of the output.
+%
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.6\textwidth]{img/ss1.png}
-	\caption{Oscilloscope screenshot of the completed half-wave rectifier
-		outlined in Figure~\ref{fig:schem1}.}
-	\label{fig:ck1plot}
+	\includegraphics[width=4.25in]{img/ss1.png}
+	\parbox{4.25in}{\caption{Oscilloscope screenshot of the completed half-wave rectifier
+		outlined in Figure~\ref{fig:schem1}.  Signal one is the input, whereas
+		signal two is the output across the resistor.}
+	\label{fig:ck1plot}}
 \end{figure}
+%
+The circuit was intially designed for an input of~\SI{12.2}{\volt} RMS and an
+average output of~\SI{5.6}{\volt}.  As is shown, the input of~\SI{12.28}{\volt}
+RMS is well within reasonable expectations of accuracy.  The measured output
+of~\SI{5.251}{\volt}, while lower than expected, is still within reasonable
+limits, as it is just~6.23\% below the designed value.  Inconsistencies with
+the variac transformer and a resistance that was slightly below its
+rated~\SI{1}{\kilo\ohm} likely contributed to this, along with small
+capacitances in the oscilloscopes.
 
 \begin{figure}[H]
 	\centering
