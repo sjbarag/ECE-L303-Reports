@@ -1,7 +1,7 @@
 \subsection{Rectifier}
 The first circuit built was a half-wave rectifier, utilizing a 1N4006 PN
 junction diode as the primary element because of its directional current flow
-property.  When forward biased (acheived when the voltage on the p-doped side
+property.  When forward biased (achieved when the voltage on the p-doped side
 is higher than the voltage on the n-doped side), a standard diode will allow
 current to flow; a reverse biased, however, no current will flow.  If said
 diode is connected in series with a load resistor between the two inputs of an
@@ -10,15 +10,17 @@ AC signal as shown in Figure~\ref{fig:schem1}, a half-wave rectifier results.
 \begin{figure}[H]
 	\centering
 	\input{schem/schem1.tex}
-	\caption{Half-wave rectifier circuit, as originally suggested by the lab one instructions.}
-	\label{fig:schem1}
+	\parbox{3.5in}{
+	\caption{Half-wave rectifier circuit, as originally suggested by the lab
+	one instructions.}
+	\label{fig:schem1}}
 \end{figure}
 %
 During phases where the input signal is positive, the voltage across the
 resistor will be roughly equal to the input.  When the signal becomes negative
 Ohm's Law states that the voltage across the resistor drops to zero, as no
-current flows.  The above circuit uses an input signal of \SI{12.2}{\volt}RMS
-and outputs a half-rectified signal with an average value of \SI{5.6}{\volt}DC.
+current flows.  The above circuit uses an input signal of~\SI{12.2}{\volt}RMS
+and outputs a half-rectified signal with an average value of~\SI{5.6}{\volt}DC.
 
 \subsection{Logic Indicator}
 Circuit number two allowed students to experiment with light-emitting diodes
@@ -31,14 +33,15 @@ circuit to light an LED is shown in Figure~\ref{fig:schem2}.
 \begin{figure}[H]
 	\centering
 	\input{schem/schem2.tex}
+	\parbox{3.5in}{
 	\caption{Circuit to light an LED, as provided by the instructions.}
-	\label{fig:schem2}
+	\label{fig:schem2}}
 \end{figure}
 %
-In the above circuit, the input voltage is stepped from \SI{0}{\volt}DC to
-\SI{5}{\volt}DC in increments of one Volt.  This allows students to see the
+In the above circuit, the input voltage is stepped from~\SI{0}{\volt}DC
+to~\SI{5}{\volt}DC in increments of one Volt.  This allows students to see the
 effects of input voltage to an LEDs brightness.  The provided LED ``turns on''
-(emits light) when roughly \SI{15}{\milli\ampere} flows through the element, so
+(emits light) when roughly~\SI{15}{\milli\ampere} flows through the element, so
 input voltage and resistor pairs that provide at least this much current result
 in the diode turning on.  As the input voltage increases to provide more
 current, the brightness of the diode should increase.
@@ -52,9 +55,11 @@ Figure~\ref{fig:schem3} shows a functioning zener diode voltage regulator ($V_z$
 %
 \begin{figure}[H]
 	\centering
-	\input{schem/schem3.tex}
-	\caption{Voltage regulataor schematic.  This design was initially presented in the lab instructions.}
-	\label{fig:schem3}
+	\input{schem/schem3.tex}\\
+	\parbox{3.5in}{
+	\caption{Voltage regulator schematic.  This design was initially presented
+	in the lab instructions.}
+	\label{fig:schem3}}
 \end{figure}
 %
 For voltages below $V_z$, the diode acts as a standard reverse-biased diode,
@@ -64,8 +69,8 @@ across the resistor, thus the output is equal to the input voltage.  When the
 input exceeds $V_z$ current begins to flow, and the voltage drop across the
 resistor is equal to the difference between the voltages at the input and
 output.  This results in a nearly constant voltage of $V_z$ across the diode,
-and thus the output is constant.  The voltage was stepped from \SI{5}{\volt}DC
-to \SI{25}{\volt}{DC} in increments of one Volt in this test, while measuring
+and thus the output is constant.  The voltage was stepped from~\SI{5}{\volt}DC
+to~\SI{25}{\volt}{DC} in increments of one Volt in this test, while measuring
 the voltage across the diode at each value.
 
 \subsection{Constant Current Source}
@@ -77,13 +82,14 @@ regardless of the load, the current will change very little.
 %
 \begin{figure}[H]
 	\centering
-	\input{schem/schem4.tex}
+	\input{schem/schem4.tex}\\
+	\parbox{3.5in}{
 	\caption{Schematic provided to create a constant current source using a JFET.}
-	\label{fig:schem4}
+	\label{fig:schem4}}
 \end{figure}
 %
-In the performed experiment, the DC source was set first to \SI{16}{\volt},
-while the load resistor was varied from \SI{50}{\ohm} to \SI{2}{\kilo\ohm} in
-steps of \SI{100}{\ohm} via a decade box.  The same test was repeated with the
-voltage set to \SI{32}{\volt}.  At each resistance value, the current through
+In the performed experiment, the DC source was set first to~\SI{16}{\volt},
+while the load resistor was varied from~\SI{50}{\ohm} to~\SI{2}{\kilo\ohm} in
+steps of~\SI{100}{\ohm} via a decade box.  The same test was repeated with the
+voltage set to~\SI{32}{\volt}.  At each resistance value, the current through
 the drain was measured with a DC Ammeter.
