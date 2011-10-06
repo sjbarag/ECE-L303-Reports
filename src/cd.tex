@@ -1,8 +1,18 @@
 Each of the following circuits was captured using Cadence PSpice.  They are
-redrawn here for clarity, but screenshots of the PSpice circuits are shown in
+redrawn here for clarity and ease of understanding, but screenshots of the
+PSpice circuits are shown in
 the appendix.
 
 \subsection{Rectifier}
+The first circuit simulated was the  half-wave rectifier from lab one, which
+utilized a~1N4006~PN~junction diode as the primary element because of its
+directional current flow property.  When forward biased (achieved when the
+voltage on the p-doped side is higher than the voltage on the n-doped side), a
+standard diode will allow current to flow; a reverse biased, however, no
+current will flow.  If said diode is connected in series with a load resistor
+between the two inputs of an AC signal as shown in Figure~\ref{fig:schem1}, a
+half-wave rectifier results.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem/schem1.tex}
@@ -11,8 +21,20 @@ the appendix.
 		originally suggested by the lab one instructions.}
 	\label{fig:schem1}}
 \end{figure}
+%
+During phases where the input signal is positive, the voltage across the
+resistor will be roughly equal to the input.  When the signal becomes negative
+Ohm's Law states that the voltage across the resistor drops to zero, as no
+current flows.  The above circuit uses an input signal of~\SI{12.2}{\volt}RMS
+and outputs a half-rectified signal with an average value of~\SI{5.6}{\volt}DC.
 
 \subsection{Voltage Regulator}
+Students were also tasked with modeling a voltage regulator based on a simple
+zener diode --- a diode specially designed to be used in a reverse biased
+configuration near the voltage at which its semiconductor breaks down.
+Figure~\ref{fig:schem3} shows a functioning zener diode voltage regulator
+($V_z$), the design of which is identical to the one built in lab one.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem/schem3.tex}\\
@@ -21,8 +43,26 @@ the appendix.
 		This design was initially presented in the lab one instructions.}
 	\label{fig:schem3}}
 \end{figure}
+%
+For voltages below $V_z$, the diode acts as a standard reverse-biased diode,
+allowing only the reverse-saturation current to flow: typically, only a few
+microamps.  Because such a small amount of current is flowing, none is dropped
+across the resistor, thus the output is equal to the input voltage.  When the
+input exceeds $V_z$ current begins to flow, and the voltage drop across the
+resistor is equal to the difference between the voltages at the input and
+output.  This results in a nearly constant voltage of $V_z$ across the diode,
+and thus the output is constant.  The voltage was stepped from~\SI{5}{\volt}DC
+to~\SI{25}{\volt}{DC} in increments of one Volt in this simulation, while
+recording the voltage across the diode at each value.
 
 \subsection{Constant Current Source}
+The fourth circuit utilized a JFET to create a constant current source, as was
+initially required in the instructions for experiment one.  By shorting the
+gate and source pins on the device as shown in Figure~\ref{fig:schem4}, the
+current through the drain pin becomes a constant based on the manufacturing
+process of the device.  This is significant because, regardless of the load,
+the current will change very little.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem/schem4.tex}\\
@@ -31,6 +71,12 @@ the appendix.
 		experiment one to create a constant current source using a JFET.}
 	\label{fig:schem4}}
 \end{figure}
+%
+In the performed experiment, the DC source was set first to~\SI{16}{\volt},
+while the load resistor was varied from~\SI{50}{\ohm} to~\SI{2}{\kilo\ohm} in
+steps of~\SI{100}{\ohm} by changing a global parameter \texttt{RD}.  The same
+test was repeated with the voltage set to~\SI{32}{\volt}.  At each resistance
+value, the current through the drain was measured with a current probe.
 
 \subsection{High Input Resistance Buffer Amplifier}
 \begin{figure}[H]
