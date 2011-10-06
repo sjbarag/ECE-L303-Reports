@@ -32,13 +32,8 @@
 \newcommand{\perfDate}{30 September 2011}
 
 % paths
-\graphicspath{
-	{$HOME/texmf/graphics/}
-	{/img}
-	{/data}
-	{/tbl}
-	{/schem}
-}
+\graphicspath{{$HOME/texmf/graphics/}}
+
 
 % meta-data
 \pdfinfo{
@@ -75,6 +70,7 @@
 \maketitle
 \setcounter{page}{1} % fixes page numbering issues caused by cover sheet
 \tableofcontents % this helps
+\pagebreak
 \listoffigures   % there's over 9000 figures
 
 \newpage % I want object to be at the top of a new page
@@ -85,7 +81,7 @@
 \input{cd.tex}
 
 \section{Data Sheet}
-%\input{datasheet.tex}
+\input{datasheet.tex}
 
 \section{Graphs}
 %\input{graphs.tex}
