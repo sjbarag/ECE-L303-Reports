@@ -1,7 +1,7 @@
 \begin{circuitikz}
 	\draw(0,0) node[njfet,yscale=-1] (fet) {};
 	\draw(fet.gate) |- (fet.drain);
-	\draw(fet.source) to [vR, l_=Decade Box, mirror] ++(0,2)
+	\draw(fet.source) to [vR, l_=Param\{RD\}, mirror] ++(0,2)
 	to [short] ++(1,0)
 	to [ammeter] ++(0,-2) node[] (end) {};
 	\draw(fet.drain) to [short] ++(1,0)
