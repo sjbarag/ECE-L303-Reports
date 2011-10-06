@@ -56,7 +56,7 @@ to~\SI{25}{\volt}{DC} in increments of one Volt in this simulation, while
 recording the voltage across the diode at each value.
 
 \subsection{Constant Current Source}
-The fourth circuit utilized a JFET to create a constant current source, as was
+The third circuit utilized a JFET to create a constant current source, as was
 initially required in the instructions for experiment one.  By shorting the
 gate and source pins on the device as shown in Figure~\ref{fig:schem4}, the
 current through the drain pin becomes a constant based on the manufacturing
@@ -79,12 +79,37 @@ test was repeated with the voltage set to~\SI{32}{\volt}.  At each resistance
 value, the current through the drain was measured with a current probe.
 
 \subsection{High Input Resistance Buffer Amplifier}
+The final circuit simulated was not built in experiment one, but is still
+extremely important in modern electronics.  A buffer amplifier with high input
+impedance was created using a BJT according to the provided specifications, and
+is shown in Figure~\ref{fig:schem5}.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem/schem5.tex}\\
 	\parbox{3.5in}{
-	\caption[Schematic --- Buffer Amplifier]{Circuit diagram for the BJT-based high input
-		resistance buffer amplifier, originally presented to the student in
-		experiment one.}
+	\caption[Schematic --- Buffer Amplifier]{Circuit diagram for the BJT-based
+		high input resistance buffer amplifier, originally presented to the student
+		in experiment one.}
 	\label{fig:schem5}}
 \end{figure}
+%
+The presence of an emitter resistor as the load resistor in this circuit makes
+this an ``emitter follower'' circuit.  Such circuits tend to exhibit very low
+(near-unity) gain.  The input impedance, however, tends to be rather high, as
+it is defined by
+%
+\begin{equation}
+	R_\text{in} = R_B + \beta R_E \quad \text{,}
+	\label{eq:rin}
+\end{equation}
+%
+where~$\beta$ is the BJT's DC current gain, and~$R_B$ and~$R_E$ are the base
+and emitter resistors, respectively.  As the DC current gain is usually on the
+order of~100, even a small load resistor at the emitter will cause the input
+impedance to be very large.  This provides useful applications when dealing
+with various sensors, many of which should be isolated from the microcontroller
+monitoring their output.  The high input resistance amplifier was simulated by
+sweeping the input voltage from~\SI{6}{\volt} through~\SI{26}{\volt} in
+one-volt steps, while monitoring the output voltage.  The input resistance was
+also monitored as~$V_\text{in}$ varied, to ensure that it remains high.
