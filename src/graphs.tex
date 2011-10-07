@@ -74,7 +74,10 @@ This plot is reproduced below in Figure~\ref{fig:zenerPlotW}.
 	\centering
 	\includegraphics[width=\pwidth]{img/plot/zenerPowerPlot.PNG}
 	\parbox{\pwidth}{
-	\caption{}
+	\caption[PSpice Plot --- Voltage Regulator (Power)]{Simulated voltage
+		regulator power dissipation for both the resistor and zener diode.
+		This result shows that a quarter-watt resistor and diode are both
+		sufficient for the tested circuit.}
 	\label{fig:zenerPlotW}}
 \end{figure}
 %
@@ -107,7 +110,11 @@ shown in Figure~\ref{fig:ccPlot16}.
 	\centering
 	\includegraphics[width=\pwidth]{img/plot/constantCurrent16Plot.PNG}
 	\parbox{\pwidth}{
-	\caption{}
+	\caption[PSpice Plot --- Constant Current Source (\SI{16}{\volt})]{Constant
+		current source simulation results for the case of a~\SI{16}{\volt}
+		source, showing the affects of load resistance on output current.  Note
+		the low threshold resistance compared to the counterpart simulation in
+		Figure~\ref{fig:ccPlot32}.}
 	\label{fig:ccPlot16}}
 \end{figure}
 %
@@ -125,7 +132,13 @@ flowing through the drain.
 	\centering
 	\includegraphics[width=\pwidth]{img/plot/constantCurrent32Plot.PNG}
 	\parbox{\pwidth}{
-	\caption{}
+	\caption[PSpice Plot --- Constant Current Source
+		(\SI{32}{\volt})]{Simulated affects of load resistance on the output
+		current for the constant current source shown in
+		Figure~\ref{fig:schem4}, where the voltage source
+		measures~\SI{32}{\volt}.  Note that the current begins decreasing at a
+		higher resistance than its companion simulation in
+		Figure~\ref{fig:ccPlot16}.}
 	\label{fig:ccPlot32}}
 \end{figure}
 %
@@ -143,12 +156,16 @@ input.  PSpice's simulation data is plotted in Figure~\ref{fig:bjtPlotV}.
 	\centering
 	\includegraphics[width=\pwidth]{img/plot/bjtPlotV.PNG}
 	\parbox{\pwidth}{
-	\caption{}
+	\caption[PSpice Plot --- Buffer Amplifier (Voltage)]{Simulated output for
+		the BJT high input resistance buffer amplifier, or ``emitter follower''
+		amplifier.  Note the strong similarity between the input and output
+		signals.}
 	\label{fig:bjtPlotV}}
 \end{figure}
 %
-Clearly, the output voltage closely mimics the input.  There is a bit of a
-discrepancy, however; while the input grows at~\SI{1}{\volt\per\volt} as is
+Clearly, the output voltage closely mimics the input, thus justifying this
+circuit's alternate name of ``emitter follower'' amplifier.  There is a bit of
+a discrepancy, however; while the input grows at~\SI{1}{\volt\per\volt} as is
 expected, the output grows at a rate of~\SI{0.96}{\volt\per\volt}.  This slight
 difference means that such a configuration is not useful for high-voltage
 inputs, as there will be a comparatively large discrepancy between input and
@@ -167,7 +184,10 @@ in Figure~\ref{fig:bjtPlotR}.
 	\centering
 	\includegraphics[width=\pwidth]{img/plot/bjtPlotR.PNG}
 	\parbox{\pwidth}{
-	\caption{}
+	\caption[PSpice Plot --- Buffer Amplifier (Resistance)]{Plot of the
+		simulated input resistance, and how it changes with the input voltage.
+		At no point does it dip below the specified minimum value
+		of~\SI{320}{\kilo\ohm}.}
 	\label{fig:bjtPlotR}}
 \end{figure}
 %
