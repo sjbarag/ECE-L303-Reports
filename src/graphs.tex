@@ -98,6 +98,11 @@ quarter-Watt resistor be used for this experiment if the maximum input voltage
 will be larger than~\SI{25}{\volt}.
 
 \subsection{Constant Current Source}
+PSpice was used to simulate two different constant current sources: one driven
+by a~\SI{16}{\volt} source and one driven by a~\SI{32}{\volt} source.  The
+resulting output voltage where the voltage source measures~\SI{16}{\volt} is
+shown in Figure~\ref{fig:ccPlot16}.
+%
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\pwidth]{img/plot/constantCurrent16Plot.PNG}
@@ -105,7 +110,17 @@ will be larger than~\SI{25}{\volt}.
 	\caption{}
 	\label{fig:ccPlot16}}
 \end{figure}
+%
+By JFET used in this simulation is capable of regulating the current through
+its drain util the drain resistance reaches roughly~\SI{1.15}{\kilo\ohm}.  For
+loads above this value, the output current begins to decrease at a rate
+of~\SI{0.002}{\milli\ampere\per\kilo\ohm}.
 
+A similar effect occurred with the~\SI{32}{\volt} version of this circuit,
+shown in Figure~\ref{fig:ccPlot32}.  Once the load resistance crosses a
+threshold, the JFET begins to steadily lose its ability to regulate the current
+flowing through the drain.
+%
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\pwidth]{img/plot/constantCurrent32Plot.PNG}
@@ -113,6 +128,10 @@ will be larger than~\SI{25}{\volt}.
 	\caption{}
 	\label{fig:ccPlot32}}
 \end{figure}
+%
+Compared to the~\SI{16}{\volt} source, this simulation shows a threshold
+resistance of~\SI{2.4}{\kilo\ohm}.  For all greater resistances, the current
+through the drain decreases at roughly~\SI{2.4}{\milli\ampere\per\kilo\ohm}.
 
 \subsection{High Input Resistance Buffer Amplifier}
 \begin{figure}[H]
