@@ -7,19 +7,78 @@
 
 	% top pins
 	\draw
-	( -1, 1) node[topPin] (13) {Comp}
-	(-.5, 1) node[topPin] (12) {V+}
-	(  0, 1) node[topPin] (11) {$\text{V}_\text{C}$}
-	( .5, 1) node[topPin] (10) {$\text{V}_\text{out}$}
-	(  1, 1) node[topPin] (9)  {$\text{V}_\text{Z}$}
+	( -1, 1) node[topPin] {Comp}
+	(-.5, 1) node[topPin] {V+}
+	(  0, 1) node[topPin] {$\text{V}_\text{C}$}
+	( .5, 1) node[topPin] {$\text{V}_\text{out}$}
+	(  1, 1) node[topPin] {$\text{V}_\text{Z}$}
 
 
 	% bottom pins
-	(-1.25, -1) node[bottomPin] (2) {$\text{I}_\text{lim}$}
-	( -.75, -1) node[bottomPin] (3) {$\text{I}_\text{sense}$}
-	( -.25, -1) node[bottomPin] (4) {In--}
-	(  .25, -1) node[bottomPin] (5) {In+}
-	(  .75, -1) node[bottomPin] (6) {$\text{V}_\text{ref}$}
-	( 1.25, -1) node[bottomPin] (7) {V--};
+	(-1.25, -1) node[bottomPin] {$\text{I}_\text{lim}$}
+	( -.75, -1) node[bottomPin] {$\text{I}_\text{sense}$}
+	( -.25, -1) node[bottomPin] {In--}
+	(  .25, -1) node[bottomPin] {In+}
+	(  .75, -1) node[bottomPin] {$\text{V}_\text{ref}$}
+	( 1.25, -1) node[bottomPin] {V--};
+
+	% lines
+	\draw
+	% C1
+	(-1,1) to [short] ++(0, .5)
+	to [short] ++(-1.5, 0)
+	to [C] ++(0, -3.5)
+	to [short, -*] ++(2.25, 0)
+
+	% Vin +
+	(-.5, 1) to [short] ++(0, 1)
+	to [short] ++(-3, 0)
+	to [short, -o] ++(0, .5) node[anchor=south] {$\text{V}_\text{in}$+}
+
+	% VC
+	(0, 1) to [short] ++(0, .5)
+	to [short, -*] ++(-.5, 0)
+
+	% Vout
+	(.5, 1) to [short] ++(0, .5)
+	to [short, -*] ++(3, 0) node (vout-junc) {}
+	to [short, -o] ++(0, 1) node[anchor=south] {$\text{V}_\text{out}$}
+
+	% In -
+	(-.25, -1) to [short] ++(0, -2)
+	to [short] ++(2.25, 0)
+	to [short] ++(0, 3)
+	to [short, -*] ++(1.5, 0)
+
+	% R3
+	(.25, -1) to [short] ++(0, -.5)
+	to [short] ++(-.25, 0)
+	to [short] ++(0, -.75)
+	to [R] ++(1.5, 0)
+	to [short] ++(0, .5)
+	to [short] ++(-.75, 0)
+	to [short] (.75, -1)
+
+	% V-
+	(1.25, -1) to [short] ++(0, -.5)
+	to [short, -*] ++(2.25, 0)
+
+	% vout -> ... -> Vin -
+	(vout-junc) to [R] ++(0, -1.5)
+	to [R] ++(0, -1.5)
+	to [short] ++(0, -2) node (gnd-right) {}
+	to [short] ++(-3.5, 0) node (gnd-left) {}
+	to [short] ++(-3.5, 0)
+	to [short, -o] ++(0, -.5) node[anchor=north] {$\text{V}_\text{in}$--}
+
+	% grounds
+	(gnd-right) to [short] ++(0, -.25) node[ground] {}
+	(gnd-left)  to [short] ++(0, -.25) node[ground] {};
+
+	% non-connected
+	\draw[-|] (-1.25, -1) -- ++(0, -.25);
+	\draw[-|] (-.75,  -1) -- ++(0, -.25);
+	\draw[-|] (   1,   1) -- ++(0,  .25);
+
 
 \end{circuitikz}
