@@ -27,7 +27,7 @@
 	% C1
 	(-1,1) to [short] ++(0, .5)
 	to [short] ++(-1.5, 0)
-	to [C] ++(0, -3.5)
+	to [C, l_=$C_1$: \SI{200}{\pico\farad}] ++(0, -3.5)
 	to [short, -*] ++(2.25, 0)
 
 	% Vin +
@@ -54,7 +54,7 @@
 	(.25, -1) to [short] ++(0, -.5)
 	to [short] ++(-.25, 0)
 	to [short] ++(0, -.75)
-	to [R] ++(1.5, 0)
+	to [R, l_=$R_3$: \SI{2}{\kilo\ohm}] ++(1.5, 0)
 	to [short] ++(0, .5)
 	to [short] ++(-.75, 0)
 	to [short] (.75, -1)
@@ -64,8 +64,8 @@
 	to [short, -*] ++(2.25, 0)
 
 	% vout -> ... -> Vin -
-	(vout-junc) to [R] ++(0, -1.5)
-	to [R] ++(0, -1.5)
+	(vout-junc) to [R, l^=$R_1$] ++(0, -1.5)
+	to [R, l^=$R_2$] ++(0, -1.5)
 	to [short] ++(0, -2) node (gnd-right) {}
 	to [short] ++(-3.5, 0) node (gnd-left) {}
 	to [short] ++(-3.5, 0)
@@ -79,6 +79,5 @@
 	\draw[-|] (-1.25, -1) -- ++(0, -.25);
 	\draw[-|] (-.75,  -1) -- ++(0, -.25);
 	\draw[-|] (   1,   1) -- ++(0,  .25);
-
 
 \end{circuitikz}
