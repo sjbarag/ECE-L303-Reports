@@ -1,0 +1,25 @@
+\begin{circuitikz}
+	\tikzstyle{bottomPin} = [anchor=west, rotate=90]
+	\tikzstyle{topPin}    = [anchor=east, rotate=90]
+
+	% body
+	\draw[ultra thick] (-1.5,-1) rectangle (1.5,1);
+
+	% top pins
+	\draw
+	( -1, 1) node[topPin] (13) {Comp}
+	(-.5, 1) node[topPin] (12) {V+}
+	(  0, 1) node[topPin] (11) {$\text{V}_\text{C}$}
+	( .5, 1) node[topPin] (10) {$\text{V}_\text{out}$}
+	(  1, 1) node[topPin] (9)  {$\text{V}_\text{Z}$}
+
+
+	% bottom pins
+	(-1.25, -1) node[bottomPin] (2) {$\text{I}_\text{lim}$}
+	( -.75, -1) node[bottomPin] (3) {$\text{I}_\text{sense}$}
+	( -.25, -1) node[bottomPin] (4) {In--}
+	(  .25, -1) node[bottomPin] (5) {In+}
+	(  .75, -1) node[bottomPin] (6) {$\text{V}_\text{ref}$}
+	( 1.25, -1) node[bottomPin] (7) {V--};
+
+\end{circuitikz}
