@@ -13,7 +13,7 @@
 	% load resistor
 	to [short] ++(2,0) node (loadTop) {}
 	to [R, i=$i$, l=$R_\text{C}$] ++(0, -2) node[ground] (loadBottom) {}
-	to [short] ++($(-2, 0) + (-60pt, 0)$)
+	to [short, *-] ++($(-2, 0) + (-60pt, 0)$)
 	% bridge rectifier (right half)
 	to [short] ++(0, 2) node (bridgeLeft) {}
 	to [Do, *-] (bridgeTop)
