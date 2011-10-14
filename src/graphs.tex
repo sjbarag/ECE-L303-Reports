@@ -1,3 +1,52 @@
+\subsection{Rectifier Circuit}
+The rectifier circuit in Figure~\ref{fig:bridgeSchem} was tested in three
+configurations: once with no filter capacitor, once with a~\SI{1}{\micro\farad}
+capacitor, and once with a~\SI{100}{\micro\farad}.  Additionally, the
+peak-to-peak voltage, average voltage, and minimum voltage were measured using
+an oscilloscope in each configuration, a screenshot of which is shown in
+Figure~\ref{fig:rectShots}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[No capacitor]{\label{fig:noCapShot}\includegraphics[width=.3\textwidth]{img/shot/bridgeRectNoC.png}}
+	\quad
+	\subfloat[\SI{1}{\micro\farad} capacitor]{\label{fig:1uFCapShot}\includegraphics[width=.3\textwidth]{img/shot/bridgeRect1uF.png}}
+	\quad
+	\subfloat[\SI{100}{\micro\farad} capacitor]{\label{fig:100uFCapShot}\includegraphics[width=.3\textwidth]{img/shot/bridgeRect100uF.png}}
+
+	\parbox{.9\textwidth}{
+	\caption[Oscilloscope Screenshot --- Rectifier Circuit]{Various outputs of
+	the rectifier circuit shown in Figure~\ref{fig:bridgeSchem}.  Note that the
+	vertical scale in image~\subref{fig:100uFCapShot} is~\SI{.5}{\volt\per
+	div}, while the others are~\SI{5}{\volt\per div}.}
+	\label{fig:rectShots}}
+\end{figure}
+%
+Data measured by the oscilloscope matches almost exactly the output expected
+from the bridge rectifier shown in Figures~\ref{fig:bridgeRectOut}
+and~\ref{fig:bridgeRectOutFilt}.  As the size of the filtering capacitor
+increases, the output variation decreases.  For each rectifier circuit, the minimum, average, and maximum
+values of each waveform were recorded and tabulated into
+table~\ref{tab:rectData}.
+%
+\begin{table}[H]
+	\centering
+	\input{data/rectData.tex}
+	\parbox{.6\textwidth}{
+	\caption[Rectifier data]{Tabulated data from the experiments on the bridge
+	rectifier.  Note the sharp decrease in peak-to-peak voltage introduced by
+	the filtering capacitor.}
+	\label{tab:rectData}
+	}
+\end{table}
+%
+The recorded values match what is expected of these circuits: as the capacitor
+value increases, peak-to-peak voltage decreases sharply, the average value
+increases, and the minimum value greatly increases (as a result of the previous
+two changes).
+
+
+
 Once this procedure has been completed,
 a~\SI{2.2}{\kilo\ohm} resistor was placed in parallel with both~$R_1$ and~$R_2$
 to for an adequate load.  The source voltage was subsequently swept from~6
