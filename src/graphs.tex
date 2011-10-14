@@ -107,12 +107,25 @@ difference by the output with a nominal load, or
 \end{equation}
 %
 In the case of the voltage regulator IC on its own, the load regulation is
-equal to~$\frac{8.07-8.06}{8.07} \times 100$, or~\SI{0.123}{\percent}.
+equal to~$\frac{8.07-8.06}{8.06} \times 100$, or~\SI{0.12}{\percent}.
 
 
+\subsection{Full Regulator}
+Once the completed circuit was built as in Figure~\ref{fig:fullSchem}, the load
+regulation was again determined.  This time, however, the range of resistances
+was reduced to~100 to~\SI{2000}{\ohm}.  Output voltage measurements at each step are shown in Figure~\ref{fig:fullLoadReg}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/plot/fullLoadReg.tex}
-	\caption{}
+	\parbox{4.25in}{
+	\caption[Plot --- Load regulation of combined circuit]{Load regulation data
+	for the completed voltage regulator circuit.  The load resistance varied in
+	this test from~\SI{100}{\ohm} to~\SI{2}{\kilo\ohm}.}
 	\label{fig:fullLoadReg}
+	}
 \end{figure}
+%
+Utilizing again Equation~\eqref{eq:loadReg}, the load regulation for the
+completed voltage regulator is calculated to be~$\frac{8.06-8.03}{8.06} \times
+100$;~\SI{0.37}{\percent}.
