@@ -46,29 +46,69 @@ increases, and the minimum value greatly increases (as a result of the previous
 two changes).
 
 
-
-Once this procedure has been completed,
-a~\SI{2.2}{\kilo\ohm} resistor was placed in parallel with both~$R_1$ and~$R_2$
-to for an adequate load.  The source voltage was subsequently swept from~6
-to~\SI{30}{\volt} in order to test the line regulation of the IC, or the amount
-of change in output per change in input.  Simlarly, the load regulation (change
-in output per change in load) of the IC was tested by using a
-static~\SI{18}{\volt} source and replacing the load resistor for a decade box.
-This resistance was varied from~\SI{100}{\ohm} to~\SI{3.2}{\kilo\ohm}.
-
+\subsection{IC}
+Once this procedure has been completed, a~\SI{2.2}{\kilo\ohm} resistor was
+placed in parallel with both~$R_1$ and~$R_2$ to for an adequate load.  The
+source voltage was subsequently swept from~6 to~\SI{30}{\volt} in order to test
+the line regulation of the IC, or the amount of change in output per change in
+input.  Measurements at each step were recorded and plotted in
+Figure~\ref{fig:vrLineReg}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/plot/vrLineReg.tex}
-	\caption{}
+	\parbox{4.25in}{
+	\caption[Plot --- Line regulation of LM723]{Measured data for the line
+	regulation tests on the LM723 circuit shown in Figure~\ref{fig:icSchem}.  The
+	source voltage was varied from~6 to~\SI{30}{\volt}, while holding a constant
+	load.}
 	\label{fig:vrLineReg}
+	}
 \end{figure}
+%
+In the flat region of the graph (from inputs of~\SI{10}{\volt}
+to~\SI{30}{\volt}), the maximum value is~\SI{8.06}{\volt} and the minimum value
+is~\SI{8.01}{\volt}.  By using the formula for line regulation in
+Equation~\eqref{eq:lineReg}
+%
+\begin{equation}
+	\text{Line Regulation} = \frac{\Delta V_\text{out}}{V_\text{out}} \times 100 \qquad \text{,}
+	\label{eq:lineReg}
+\end{equation}
+%
+the line regulation of the IC regulator on its own is calculated to
+be~\SI{5.02}{\percent}.
 
+By a similar process, the load regulation (change in output per change in load)
+of the IC was tested by using a static~\SI{18}{\volt} source and replacing the
+load resistor for a decade box.  This resistance was varied from~\SI{100}{\ohm}
+to~\SI{3.2}{\kilo\ohm}, and measurements were plotted in
+Figure~\ref{fig:vrLoadReg}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/plot/vrLoadReg.tex}
-	\caption{}
+	\parbox{4.25in}{
+	\caption[Plot -- Load regulation of LM723]{Data recorded while testing the
+	load regulation of the LM723 circuit depicted in Figure~\ref{fig:icSchem}.
+	Unlike the line regulation tests, the source voltage was held constant
+	while the input resistance varied from~100 to~\SI{3200}{\ohm}.}
 	\label{fig:vrLoadReg}
+	}
 \end{figure}
+%
+Line regulation is calculated as in Equation~\eqref{eq:loadReg} by subtracting
+the output at the minimum load from the output at maximum load and dividing the
+difference by the output with a nominal load, or
+%
+\begin{equation}
+	\text{Load Regulation} = \frac{V_\text{max R} - V_\text{min R}}{V_\text{nominal}} \times 100 \qquad \text{.}
+	\label{eq:loadReg}
+\end{equation}
+%
+In the case of the voltage regulator IC on its own, the load regulation is
+equal to~$\frac{8.07-8.06}{8.07} \times 100$, or~\SI{0.123}{\percent}.
+
 
 \begin{figure}[H]
 	\centering
