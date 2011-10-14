@@ -15,9 +15,9 @@ is shown in Figure~\ref{fig:bridgeSchem}.
 	\centering
 	\input{schem/bridgeRect.tex}
 	\parbox{.6\textwidth}{
-	\caption{Bridge rectifier schematic as provided in the lab three
-	instructions.  Note that $C_1$ is added at a later period and is not part
-	of the bridge rectifier circuit.}
+	\caption[Schematic --- Bridge Rectifier]{Bridge rectifier schematic as
+	provided in the lab three instructions.  Note that $C_1$ is added at a
+	later period and is not part of the bridge rectifier circuit.}
 	\label{fig:bridgeSchem}}
 \end{figure}
 %
@@ -32,9 +32,10 @@ waveform and the half-wave rectifier built in lab one.
 	\centering
 	\input{img/plot/theory-Bridge1.tex}
 	\parbox{.6\textwidth}{
-	\caption{Theoretical input and output for a bridge rectifier such as the
-	one shown in Figure~\ref{fig:bridgeSchem}.  The input is shown in blue with
-	a solid line, whereas the output is shown in red with a dashed line.}
+	\caption[Plot --- Unfiltered Bridge Rectifier Output]{Theoretical input and
+	output for a bridge rectifier such as the one shown in
+	Figure~\ref{fig:bridgeSchem}.  The input is shown in blue with a solid
+	line, whereas the output is shown in red with a dashed line.}
 	\label{fig:bridgeRectOut}
 	}
 \end{figure}
@@ -60,8 +61,9 @@ provided twice: once as~\SI{1}{\micro\farad} and as~\SI{100}{\micro\farad}.
 	\centering
 	\input{img/plot/theory-Bridge2.tex}
 	\parbox{.6\textwidth}{
-	\caption{Output of the filtered bridge rectifier; waveform A depicts a
-	large~RC value compared to~$T$, while waveform B depicts a small one.}
+	\caption[Plot --- Filtered Bridge Rectifier Output]{Output of the filtered
+	bridge rectifier; waveform A depicts a large~RC value compared to~$T$,
+	while waveform B depicts a small one.}
 	\label{fig:bridgeRectOutFilt}
 	}
 \end{figure}
@@ -94,10 +96,11 @@ breakout board for the IC, input and output connections,~$C_1$, and~$R_3$.
 	\centering
 	\input{schem/ic.tex}
 	\parbox{.6\textwidth}{
-	\caption{Voltage regulator integrated circuit schematic, as provided by the
-	lab instructions.~$R_1$ was calculated by the student based on the
-	reference voltage of his or her specific breakout board, whereas the value
-	of~$R_2$ was provided as~\SI{2}{\kilo\ohm}}
+	\caption[Schematic --- Voltage Regulator IC]{Voltage regulator integrated
+	circuit schematic, as provided by the lab instructions.~$R_1$ was
+	calculated by the student based on the reference voltage of his or her
+	specific breakout board, whereas the value of~$R_2$ was provided
+	as~\SI{2}{\kilo\ohm}.}
 	\label{fig:icSchem}
 	}
 \end{figure}
@@ -124,8 +127,13 @@ Figure~\ref{fig:fullSchem} for clarity.
 \begin{figure}[H]
 	\centering
 	\input{schem/combined.tex}
-	\caption{}
+	\parbox{.6\textwidth}{
+	\caption[Schematic --- Combined Rectifier and IC]{Combined schematic for
+	the voltage regulator.  The initial stage is comprised of the bridge
+	rectifier in Figure~\ref{fig:bridgeSchem}, the output of which goes to the
+	second stage consisting of the IC in Figure~\ref{icSchem}.}
 	\label{fig:fullSchem}
+	}
 \end{figure}
 %
 The load regulation for this circuit was measured, using a decade box across
