@@ -14,14 +14,16 @@
 set terminal tikz color solid size 4.25in,2.25in
 
 # --- line regulation (regulator only) ----
+set border 15
 unset key
 set xrange[0:30]
 set yrange[0:8.5]
 set title 'Line Regulation: Voltage Regulator Only'
 set xlabel 'Input Voltage, $V_\text{in}$ (V)'
 set ylabel 'Output Voltage, $V_\text{out}$ (V)'
+set grid
 set output "../img/plot/vrLineReg.tex"
-plot "vrLineReg.dat" using 1:3 with linespoints
+plot "vrLineReg.dat" using 1:3 with linespoints lw 3
 
 # --- load regulation (regulator only) ---
 set autoscale x
@@ -30,8 +32,9 @@ set yrange [8.025:8.07]
 set title 'Load Regulation: Voltage Regulator Only'
 set xlabel 'Load Current, $I_\text{L}$ (A)'
 set ylabel 'Output Voltage, $V_\text{out}$ (V)'
+set grid mxtics xtics ytics
 set output "../img/plot/vrLoadReg.tex"
-plot "vrLoadReg.dat" using 3:2 with linespoints
+plot "vrLoadReg.dat" using 3:2 with linespoints lw 3
 
 
 # --- load regulation (regulator + rectifier) ----
@@ -39,5 +42,6 @@ set log x
 set title 'Load Regulation: Voltage Regulator with AC Rectifier'
 set xlabel 'Load Current, $I_\text{L}$ (A)'
 set ylabel 'Output Voltage, $V_\text{out}$ (V)'
+set grid mxtics xtics ytics
 set output "../img/plot/fullLoadReg.tex"
-plot "fullLoadReg.dat" using 3:2 with linespoints
+plot "fullLoadReg.dat" using 3:2 with linespoints lw 3
