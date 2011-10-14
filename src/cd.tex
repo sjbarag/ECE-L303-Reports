@@ -21,10 +21,12 @@ is shown in Figure~\ref{fig:bridgeSchem}.
 	\label{fig:bridgeSchem}}
 \end{figure}
 %
-The input and output of the bridge rectifier (after the signal passes through the transformer) is shown
-in Figure~\ref{fig:bridgeRectOut} for the case that the input signal is defined
-by~$12 \sin(60t)$.  Note the differences between this waveform and the
-half-wave rectifier built in lab one.
+The bridge rectifier configuration here was replaced with an IC that contains
+the same parts, and the value of~$R_C$ was provided as~\SI{1}{\kilo\ohm}.  The
+input and output of the bridge rectifier (after the signal passes through the
+transformer) is shown in Figure~\ref{fig:bridgeRectOut} for the case that the
+input signal is defined by~$12 \sin(60t)$.  Note the differences between this
+waveform and the half-wave rectifier built in lab one.
 %
 \begin{figure}[H]
 	\centering
@@ -51,7 +53,8 @@ means resemble a constant DC voltage.  To fix this, a filtering capacitor
 the value of the capacitor is chosen such that the time constant~$RC$ is much
 larger than the period~$T$ of the signal it filters, then a significant
 improvement in output consistency results, as displayed in
-Figure~\ref{fig:bridgeRectOutFilt}.
+Figure~\ref{fig:bridgeRectOutFilt}.  In the experiment, the value of~$C_1$ was
+provided twice: once as~\SI{1}{\micro\farad} and as~\SI{100}{\micro\farad}.
 %
 \begin{figure}[H]
 	\centering
@@ -74,6 +77,7 @@ output to an~LM723 voltage regulation IC.
 
 
 \subsection{IC}
+
 \begin{figure}[H]
 	\centering
 	\input{schem/ic.tex}
