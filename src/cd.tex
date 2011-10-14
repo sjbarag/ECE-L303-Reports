@@ -44,6 +44,34 @@ at~$V_\text{avg} = \frac{2 V_p}{\pi}$.  Conversely, the peak value of the
 output is calculated using the same method as the input,
 where~$V_P=\sqrt{2}V_\mathrm{RMS}$.
 
+\subsection{Filtered Rectifier}
+The bridge rectifier shown in Figure~\ref{fig:bridgeSchem} does not by any
+means resemble a constant DC voltage.  To fix this, a filtering capacitor
+(drawn in dashed lines) is installed in parallel with the load resistor.  If
+the value of the capacitor is chosen such that the time constant~$RC$ is much
+larger than the period~$T$ of the signal it filters, then a significant
+improvement in output consistency results, as displayed in
+Figure~\ref{fig:bridgeRectOutFilt}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/theory-Bridge2.tex}
+	\parbox{.6\textwidth}{
+	\caption{Output of the filtered bridge rectifier; waveform A depicts a
+	large~RC value compared to~$T$, while waveform B depicts a small one.}
+	\label{fig:bridgeRectOutFilt}
+	}
+\end{figure}
+%
+Whereas in the unfiltered case the average value of the output was~$\frac{2
+V_p}{\pi}$, the DC level of the filtered signal is measured as halfway between
+the maximum and minimum values shown in Figure~\ref{fig:bridgeRectOutFilt}.
+Additionally, the ``ripple voltage,''~$V_r$ is greatly reduced here, as it is
+calculated by~$V_\text{max} - V_\text{min}$.  This is a tremendous improvement
+over the bridge rectifier alone, but will be improved further by passing this
+output to an~LM723 voltage regulation IC.
+
+
 
 \subsection{IC}
 \begin{figure}[H]
