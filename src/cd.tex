@@ -116,7 +116,18 @@ The results of both the load and line regulation tests can be seen in
 Figures~\ref{fig:vrLineReg} and~\ref{fig:vrLoadReg}.
 
 \subsection{Full Regulator}
+At this point in the experiment, the completed voltage regulator was ready to
+be constructed by simply wiring the output of the filtered bridge rectifier to
+the input of the IC breakout board.  This circuit is shown in
+Figure~\ref{fig:fullSchem} for clarity.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem/combined.tex}
+	\caption{}
+	\label{fig:fullSchem}
 \end{figure}
+%
+The load regulation for this circuit was measured, using a decade box across
+resistors one and two to modulate the load.  Results of this resistance sweep
+are plotted in Figure~\ref{fig:fullLoadReg}.
