@@ -74,14 +74,46 @@ calculated by~$V_\text{max} - V_\text{min}$.  This is a tremendous improvement
 over the bridge rectifier alone, but will be improved further by passing this
 output to an~LM723 voltage regulation IC.
 
-
-
 \subsection{IC}
-
+The voltage regulator integrated circuit was provided on a breakout board with
+several of its external components already installed.  Students were provided
+with a nominal value for~$R_2$ of~\SI{10}{\kilo\ohm}, and were told to
+calculate~$R_1$ based on the measured value of~$V_\text{ref}$ and the design
+goal of~$V_\text{out} = $\SI{8}{\volt}, using the equation
+%
+\begin{equation}
+	V_\text{out} = \frac{R_1 + R_2}{R_2} V_\text{ref} \quad \text{.}
+	\label{eq:calcR1}
+\end{equation}
+%
+After adjusting a~\SI{2}{\kilo\ohm} potentiometer to the correct value, the
+circuit shown in Figure~\ref{fig:icSchem} was built, utilizing the provided
+breakout board for the IC, input and output connections,~$C_1$, and~$R_3$.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem/ic.tex}
+	\parbox{.6\textwidth}{
+	\caption{Voltage regulator integrated circuit schematic, as provided by the
+	lab instructions.~$R_1$ was calculated by the student based on the
+	reference voltage of his or her specific breakout board, whereas the value
+	of~$R_2$ was provided as~\SI{2}{\kilo\ohm}}
+	\label{fig:icSchem}
+	}
 \end{figure}
+%
+This board was initially powered by a constant DC signal of~\SI{18}{\volt} from
+the lab power supply, thus ensuring that the IC functioned correctly with the
+chosen values.  This also allowed the value of~$R_1$ to be tuned further,
+providing an output of~\SI{8}{\volt}.  Once this procedure had been completed,
+a resistor was placed in parallel with both~$R_1$ and~$R_2$ to provide an
+adequate load and the line regulation (change in output per change in input)
+was calculated.  Finally, the load regulation (change in output per change in
+load) was calculated by replacing the varying source for a static one, and the
+static load resistor for a decade box.
+
+The results of both the load and line regulation tests can be seen in
+Figures~\ref{fig:vrLineReg} and~\ref{fig:vrLoadReg}.
 
 \subsection{Full Regulator}
 \begin{figure}[H]
