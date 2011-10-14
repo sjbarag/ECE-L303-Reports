@@ -3,10 +3,47 @@ the bridge rectifier on its own, and one to test the voltage regulator IC.  The
 design process for each of these stages is explained below.
 
 \subsection{Bridge Rectifier}
+In order to output a constant DC voltage, the AC component of
+the~\SI{120}{\volt} input must first be removed.  After passing the input
+through a~10:1 transformer, the input signal is routed through a configuration
+of PN junctions known as a bridge rectifier.  This configuration allows current
+to flow through its output resistor in only one direction, thus removing the AC
+characteristics from the signal in favor of a varying DC one.  Such a circuit
+is shown in Figure~\ref{fig:bridgeSchem}.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem/bridgeRect.tex}
+	\parbox{.6\textwidth}{
+	\caption{Bridge rectifier schematic as provided in the lab three
+	instructions.  Note that $C_1$ is added at a later period and is not part
+	of the bridge rectifier circuit.}
+	\label{fig:bridgeSchem}}
 \end{figure}
+%
+The input and output of the bridge rectifier (after the signal passes through the transformer) is shown
+in Figure~\ref{fig:bridgeRectOut} for the case that the input signal is defined
+by~$12 \sin(60t)$.  Note the differences between this waveform and the
+half-wave rectifier built in lab one.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/theory-Bridge1.tex}
+	\parbox{.6\textwidth}{
+	\caption{Theoretical input and output for a bridge rectifier such as the
+	one shown in Figure~\ref{fig:bridgeSchem}.  The input is shown in blue with
+	a solid line, whereas the output is shown in red with a dashed line.}
+	\label{fig:bridgeRectOut}
+	}
+\end{figure}
+%
+As is clearly shown, the period of the output signal is twice that of the
+input, or in this case~$\frac{1}{120}$\si{\second} and the average value of the
+output is, as intuition would dictate, also twice the average of the input,
+at~$V_\text{avg} = \frac{2 V_p}{\pi}$.  Conversely, the peak value of the
+output is calculated using the same method as the input,
+where~$V_P=\sqrt{2}V_\mathrm{RMS}$.
+
 
 \subsection{IC}
 \begin{figure}[H]
