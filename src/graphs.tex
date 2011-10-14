@@ -15,7 +15,7 @@ Figure~\ref{fig:rectShots}.
 	\subfloat[\SI{100}{\micro\farad} capacitor]{\label{fig:100uFCapShot}\includegraphics[width=.3\textwidth]{img/shot/bridgeRect100uF.png}}
 
 	\parbox{.9\textwidth}{
-	\caption[Oscilloscope Screenshot --- Rectifier Circuit]{Various outputs of
+	\caption[Oscilloscope Screenshots --- Rectifier Circuit]{Various outputs of
 	the rectifier circuit shown in Figure~\ref{fig:bridgeSchem}.  Note that the
 	vertical scale in image~\subref{fig:100uFCapShot} is~\SI{.5}{\volt\per
 	div}, while the others are~\SI{5}{\volt\per div}.}
@@ -27,11 +27,11 @@ from the bridge rectifier shown in Figures~\ref{fig:bridgeRectOut}
 and~\ref{fig:bridgeRectOutFilt}.  As the size of the filtering capacitor
 increases, the output variation decreases.  For each rectifier circuit, the minimum, average, and maximum
 values of each waveform were recorded and tabulated into
-table~\ref{tab:rectData}.
+Table~\ref{tab:rectData}.
 %
 \begin{table}[H]
 	\centering
-	\input{data/rectData.tex}
+	\input{tbl/rectData.tex}
 	\parbox{.6\textwidth}{
 	\caption[Rectifier data]{Tabulated data from the experiments on the bridge
 	rectifier.  Note the sharp decrease in peak-to-peak voltage introduced by
@@ -128,4 +128,76 @@ was reduced to~100 to~\SI{2000}{\ohm}.  Output voltage measurements at each step
 %
 Utilizing again Equation~\eqref{eq:loadReg}, the load regulation for the
 completed voltage regulator is calculated to be~$\frac{8.06-8.03}{8.06} \times
-100$;~\SI{0.37}{\percent}.
+100$, or just~\SI{0.37}{\percent}.
+
+\subsection{Graphical Measurements}
+After completing the load regulation measurements on the combined circuit, the
+oscilloscope was used to help compare the output of the transofmer, output of
+the filtered bridge rectifier, and the final output of the system.  Screenshots
+of these waveforms can be seen in Figure~\ref{fig:100uFshots}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[Transformer Output]{\label{fig:transOut100}\includegraphics[width=.3\textwidth]{img/shot/4a1.png}}
+	\quad
+	\subfloat[Rectifier Output]{\label{fig:rectOut100}\includegraphics[width=.3\textwidth]{img/shot/4a2.png}}
+	\quad
+	\subfloat[Regulator Output]{\label{fig:regOut100}\includegraphics[width=.3\textwidth]{img/shot/4a3.png}}
+
+	\parbox{.9\textwidth}{
+	\caption[Oscilloscope Screenshots --- Completed Circuit
+	w/\SI{100}{\micro\farad} Capacitor]{Outputs of each of the three stages in
+	the overall voltage amplifier with a~\SI{100}{\micro\farad} capacitor.
+	These shown the different transformations that the signal must undergo to
+	become the regulated output suitable for any DC purpose.  Note the
+	difference in vertical axis scaling for each output.}
+	\label{fig:100uFshots}
+	}
+\end{figure}
+%
+Each screenshot shows the minimum, average, and peak-to-peak voltage for the
+contained waveform.
+
+The capacitor~$C_1$ in the rectifier's filter was swapped out for
+the~\SI{1}{\micro\farad} capacitor used previously, and the same oscilloscope
+screenshots were taken.  These are shown in Figure~\ref{fig:1uFshots}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[Transformer Output]{\label{fig:transOut1}\includegraphics[width=.3\textwidth]{img/shot/4b1.png}}
+	\quad
+	\subfloat[Rectifier Output]{\label{fig:rectOut1}\includegraphics[width=.3\textwidth]{img/shot/4b2.png}}
+	\quad
+	\subfloat[Regulator Output]{\label{fig:regOut1}\includegraphics[width=.3\textwidth]{img/shot/4b3.png}}
+
+	\parbox{.9\textwidth}{
+	\caption[Oscilloscope Screenshots --- Completed Circuit
+	w/\SI{1}{\micro\farad} Capacitor]{Outputs of each of the three stages in
+	the overall voltage amplifier with a~\SI{1}{\micro\farad} filtering
+	capacitor.  These shown the different transformations that the signal must
+	undergo to become the regulated output suitable for any DC purpose.  Note
+	the difference in vertical axis scaling for each output, as well as the
+	differences from the images shown in Figure~\ref{fig:100uFshots}.}
+	\label{fig:1uFshots}
+	}
+\end{figure}
+%
+Clearly this configuration does not provided enough voltage for the IC to
+remain on, as there are flat spots in Figure~\ref{fig:regOut1} and a very large
+peak-to-peak variance remaining.
+
+The values depicted in the final sets of oscilloscope screenshots  have been
+combined into Tables~\ref{tab:100uFdata} and~\ref{tab:1uFdata}, below, for
+better ease of understanding and comparison.
+%
+\begin{table}[H]
+	\centering
+	\subfloat[\SI{100}{\micro\farad} Capacitor]{\label{tab:100uFdata}\input{tbl/100uFdata.tex}}
+	\quad
+	\subfloat[\SI{1}{\micro\farad} Capacitor]{\label{tab:1uFdata}\input{tbl/1uFdata.tex}}
+
+	\parbox{.8\textwidth}{
+	\caption[Tables --- Final Oscilloscope Data]{Final oscilloscope data for
+	the completed voltage regulator circuit.}
+	\label{tab:100uFdata}}
+\end{table}
