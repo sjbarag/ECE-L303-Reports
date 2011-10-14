@@ -2,9 +2,9 @@
     %\draw[very thin,color=gray] (-0.1,-1.1) grid (8*pi, 1.1);
     \draw[->, thick] (-0.2,0) -- (8*pi+.3,0) node[right] {$t$, sec};
     \draw[->, thick] (0,-1.2) -- (0,1.2) node[above] {$V_L$};
-    \draw[color=blue, smooth] plot[id=sin] function{sin(.5 * x)}
+    \draw[color=blue] plot[id=sin,samples=1000] function{sin(.5 * x)}
         node[below right, yshift=-.5\baselineskip] {$\text{Input} = 12 \sin(60 t)$};
-    \draw[color=red, dashed] plot[id=abs-sin] function{abs(sin(.5 * x))}
+    \draw[color=red, dashed] plot[id=abs-sin,samples=1000] function{abs(sin(.5 * x))}
         node[above right, yshift=.5\baselineskip] {$\text{Output} = \left| 12 \sin(60 t) \right|$};
 
 	% vertical axis values
