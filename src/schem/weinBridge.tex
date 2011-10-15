@@ -1,0 +1,32 @@
+\begin{circuitikz}
+	\draw (0,0) node[op amp] (opamp) {}
+	% supplies
+	(opamp.up) ++(0, .25) node[above] {\SI{25}{\volt}} -- (opamp.up)
+	(opamp.down) node[ground] {}
+
+	% input
+	(opamp.-) to [R] ++(-2, 0)
+	to [short] ++(0, -1) node[ground] {}
+
+	% negative feedback
+	(opamp.-) to [short] ++(0, 1.5) coordinate (topleft)
+	(opamp.out) to [short] ++($(0, 14pt) + (0, 1.5)$) to [R] (topleft)
+
+	% positive feedback
+	(opamp.out) to [R] ++(0, -1.5) coordinate (r-c)
+	to [C] ++(0, -1) coordinate (bottomright)
+	(opamp.+) node[left] {$V_f$}
+	(opamp.+) to [short, -*] ++($(0, 14pt) + (0, -2.5)$) coordinate (zp)
+	node[above left] {$Z_p$}
+	to [short] (bottomright)
+	(r-c) node[right=5pt] {$Z_s$}
+
+	% -> R || C -> gnd
+	(zp) to [short] ++(-1, 0)
+	to [R] ++(0, -1.5)
+	to [short] ++(1, 0) node[ground] {}
+	(zp) to [C] ++(0, -1.5)
+
+	% output
+	(opamp.out) to [short, -o] ++(.5, 0) node[above] {$V_2$};
+\end{circuitikz}
