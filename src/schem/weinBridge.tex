@@ -5,28 +5,29 @@
 	(opamp.down) node[ground] {}
 
 	% input
-	(opamp.-) to [R] ++(-2, 0)
+	(opamp.-) to [R, l_=$R_4$] ++(-2, 0)
 	to [short] ++(0, -1) node[ground] {}
 
 	% negative feedback
 	(opamp.-) to [short] ++(0, 1.5) coordinate (topleft)
-	(opamp.out) to [short] ++($(0, 14pt) + (0, 1.5)$) to [R] (topleft)
+	(opamp.out) to [short] ++($(0, 14pt) + (0, 1.5)$)
+	to [R, l_=$R_3$] (topleft)
 
 	% positive feedback
-	(opamp.out) to [R] ++(0, -1.5) coordinate (r-c)
-	to [C] ++(0, -1) coordinate (bottomright)
+	(opamp.out) to [R, l^=$R$] ++(0, -1.5) coordinate (r-c)
+	to [C, l^=$C$] ++(0, -1) coordinate (bottomright)
 	(opamp.+) node[left] {$V_f$}
 	(opamp.+) to [short, -*] ++($(0, 14pt) + (0, -2.5)$) coordinate (zp)
 	node[above left] {$Z_p$}
 	to [short] (bottomright)
-	(r-c) node[right=5pt] {$Z_s$}
+	(r-c) node[right] {$Z_s$}
 
 	% -> R || C -> gnd
 	(zp) to [short] ++(-1, 0)
-	to [R] ++(0, -1.5)
+	to [R, l_=$R$] ++(0, -1.5)
 	to [short] ++(1, 0) node[ground] {}
-	(zp) to [C] ++(0, -1.5)
+	(zp) to [C, l^=$C$] ++(0, -1.5)
 
 	% output
-	(opamp.out) to [short, -o] ++(.5, 0) node[above] {$V_2$};
+	(opamp.out) to [short, *-o] ++(.5, 0) node[above] {$V_2$};
 \end{circuitikz}
