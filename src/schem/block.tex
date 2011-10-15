@@ -1,0 +1,20 @@
+\begin{tikzpicture}[node distance=2cm, auto,>=latex']
+	\tikzstyle{function}=[circle, draw, node distance=1cm]
+	\tikzstyle{stage}=[rectangle, minimum width=5em, minimum height=3em,
+		text centered, draw]
+	\tikzstyle{line}=[draw, thin, -latex']
+
+	% nodes
+	\node (in) {$V_1$};
+	\node [function, right of=in] (sum) {+};
+	\node [stage, right of=sum] (As) {$A(s)$};
+	\node [stage, below of=As]  (Bs) {$B(s)$};
+	\node [right of=As] (out) {$V_2$};
+
+	% paths
+	\path [line] (in) -- (sum);
+	\path [line] (sum) -- node {$V_e$} (As);
+	\path [line] (As) node[above=14pt] {Forward Circuit} -- node [name=junc] {} (out);
+	\path [line] (junc) |- (Bs);
+	\path [line] (Bs) node[below=14pt] {Feedback Circuit} -| node[near end] {$V_f$} (sum);
+\end{tikzpicture}
