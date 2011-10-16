@@ -26,5 +26,5 @@ set ylabel 'Output Voltage, $V_\mathrm{P-P}$ (V)'
 set y2label 'Output Frequency, $f$ (kHZ)'
 set grid
 set output "../img/plot/vSweep.tex"
-plot "vSweep.dat" using 1:2 with lines axis x1y1 lw 3 title '$V_\mathrm{P-P}$', \
-     "vSweep.dat" using 1:3 with lines axis x1y2 lw 3 title '$f$'
+plot "vSweep.dat" using 1:2 with linespoints axis x1y1 lw 3 title '$V_\mathrm{P-P}$', \
+     "vSweep.dat" using 1:3 with linespoints axis x1y2 lw 3 pt 5 title '$f$'
