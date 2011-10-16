@@ -11,25 +11,20 @@
 #
 # Author: Sean Barag <sjb89@drexel.edu>
 
-set terminal tikz color solid size 2.25in,2.25in
+set terminal tikz color solid size 4.25in,2.25in
 
-# --- line regulation (regulator only) ----
+# --- Voltage Sweep ----
 set border 15
-unset key
+set key center left width -10 box height 1
 set xrange[0:30]
-set yrange[0:30]
+set yrange[0:35]
+set y2range[0:3.5]
+set y2tics auto
 set title 'Voltage Sweep: Output Voltage'
 set xlabel 'Power Supply Voltage, $V_\mathrm{PS}$ (V)'
 set ylabel 'Output Voltage, $V_\mathrm{P-P}$ (V)'
+set y2label 'Output Frequency, $f$ (kHZ)'
 set grid
-set grid
-set output "../img/plot/vSweepV.tex"
-plot "vSweep.dat" using 1:2 with lines lw 3 title '$V_\mathrm{P-P}$'
-
-unset key
-set yrange[0:3.5]
-set title 'Voltage Sweep: Output Frequency'
-set ylabel 'Output Frequency, $f$ (kHz)'
-set output "../img/plot/vSweepFreq.tex"
-plot "vSweep.dat" using 1:3 with lines lw 3 title '$f$'
-
+set output "../img/plot/vSweep.tex"
+plot "vSweep.dat" using 1:2 with lines axis x1y1 lw 3 title '$V_\mathrm{P-P}$', \
+     "vSweep.dat" using 1:3 with lines axis x1y2 lw 3 title '$f$'
