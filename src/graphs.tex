@@ -5,6 +5,23 @@
 	\caption[Voltage Sweep Data]{Data recorded from the voltage sweep,
 		measuring the peak-to-peak voltage~($V_\mathrm{P-P}$) and
 		frequency~($f$) on an oscilloscope as a function of the power supply
-		voltage~($V_\mathrm{PS}$).}}
-	\label{tab:vSweepData}
+		voltage~($V_\mathrm{PS}$).}
+	\label{tab:vSweepData}}
 \end{table}
+
+\begin{figure}[H]
+	\centering
+	\subfloat[Output voltage.  Note that the output voltage increases linearly
+	with the supply voltage, as is expected by the characteristics of an
+	opamp.]{\input{img/plot/vSweepV.tex}\label{fig:vSweepV}}
+	\qquad
+	\subfloat[Output frequency.  Despite the varying power supply voltage, the
+	frequency remains nearly
+	constant.]{\input{img/plot/vSweepFreq.tex}\label{fig:vSweepFreq}}
+
+	\parbox{.8\textwidth}{
+	\caption[Voltage Sweep Plots]{Plotted measurements from a supply voltage
+	sweep.  The measured values from this test is in
+	Table~\ref{tab:vSweepData}.}
+	\label{fig:vSweepPlots}}
+\end{figure}
