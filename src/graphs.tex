@@ -4,9 +4,9 @@ using resistors of size~\SI{10}{\kilo\ohm} for all elements except~$R_3$, which
 was represented by a~\SI{25}{\kilo\ohm} potentiometer.  The specific value
 of~$R_4$ was measured on the in-lab digital voltage meters, allowing students
 to tune~$R_3$ to exactly twice the value of~$R_4$ via the same meter.  While it
-was not possible to tune the capacitance to a required value, students used an
-assortment of capacitor combinations to create a balanced pair of elements as
-near the calculated~\SI{4.822}{\nano\farad} as possible.
+was not possible to dynamically tune the capacitance to a required value,
+students used an assortment of capacitor combinations to create a balanced pair
+of elements as near the calculated~\SI{4.822}{\nano\farad} as possible.
 
 Once constructed, the output of the circuit was monitored on an oscilloscope.
 It was expected to not be functioning properly, so the value of~$R_3$ was
@@ -25,10 +25,12 @@ output with a correctly-tuned system is shown in Figure~\ref{fig:goodShot}.
 	\label{fig:goodShot}}
 \end{figure}
 %
-The output frequency, as shown in the screenshot, was just below
-the~\SI{3.3}{\kilo\hertz} frequency for which the system was designed.  By
-using~\eqref{eq:frequency} with the average of the measured values, the
-expected frequency was re-calculated:
+The output voltage was measured peak-to-peak to be~\SI{21.56}{\volt}, below the
+logical upper-limit of the~\SI{25}{\volt} supply.  Similarly, the output
+frequency was just below the~\SI{3.3}{\kilo\hertz} frequency for which the
+system was designed at~\SI{3.205}{\kilo\hertz}  By using~\eqref{eq:frequency}
+with the average of the measured values, the expected frequency was
+re-calculated:
 %
 \begin{align*}
 	R_\text{avg} &= \frac{R_1 + R_2 + R_4}{3}
@@ -73,7 +75,15 @@ Figure~\ref{fig:badPotLow}.  When the potentiometer was tuned too high as in
 Figure~\ref{fig:badPotHigh}, a wave of proper frequency was created, but the
 waveform became clipped due to the limited supply voltage.
 
-\todo[inline]{Intro voltage sweep.  Parallel to line regulation?}
+Much as it was important in experiment three for the voltage regulator to
+function properly at different source voltages, it is equally important for the
+sine wave generator to create a usable signal for varying sources.  This was
+tested by varying the opamp's DC power supply voltage~(shown as a
+static~\SI{25}{\volt} in Figure~\ref{fig:weinBridgeSchem}'s schematic)
+from~\SI{30}{\volt} down to~\SI{5}{\volt} and monitoring the effects of the
+output frequency and voltage.  Results of this voltage sweep are shown in
+Table~\ref{tab:vSweepData} and Figure~\ref{fig:vSweepPlot}.
+%
 \begin{table}[H]
 	\centering
 	\input{tbl/vSweepData.tex}\\
@@ -84,6 +94,11 @@ waveform became clipped due to the limited supply voltage.
 		voltage~($V_\mathrm{PS}$).}
 	\label{tab:vSweepData}}
 \end{table}
+%
+This data shows that regardless of the input voltage, the output frequency will
+remain roughly unchanged, increasing just~\SI{0.68}{\kilo\hertz} over the
+course of the voltage sweep, or~\SI{-0.027}{\kilo\hertz\per\volt}.
+%
 \todo[inline]{Explain voltage sweep results}
 \begin{figure}[H]
 	\centering
@@ -94,8 +109,15 @@ waveform became clipped due to the limited supply voltage.
 	Table~\ref{tab:vSweepData}.  Note that the output voltage increases
 	linearly with the supply voltage, while the frequency remains nearly
 	constant.}
-	\label{fig:vSweepPlots}}
+	\label{fig:vSweepPlot}}
 \end{figure}
+%
+As is expected, the peak-to-peak voltage of the output signal decreases with
+the supply voltage.  This is a direct result of the characteristics of an
+operational amplifier, a device that outputs a voltage somewhere between its
+two supply nodes ---~$V_\text{PS}$ and~0, in this case.  An oscilloscope
+screenshot was captured for each step of the sween, some of which are shown in
+the Appendix \todo{Add ref} of this document.
 
 \todo[inline,color=green]{Multi-fig of plots: 30V, 15V, 5V in appendix}
 
