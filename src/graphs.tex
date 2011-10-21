@@ -1,7 +1,7 @@
 After confirming that the operational amplifier circuit was functioning
 correctly, students built the circuit in Figure~\ref{fig:weinBridgeSchem},
 using resistors of size~\SI{10}{\kilo\ohm} for all elements except~$R_3$, which
-was represented by a~\SI{20}{\kilo\ohm} potentiometer.  The specific value
+was represented by a~\SI{25}{\kilo\ohm} potentiometer.  The specific value
 of~$R_4$ was measured on the in-lab digital voltage meters, allowing students
 to tune~$R_3$ to exactly twice the value of~$R_4$ via the same meter.  While it
 was not possible to tune the capacitance to a required value, students used an
@@ -47,9 +47,31 @@ thus
 %
 Because this value is so close to the designed value, it is clear that the
 aforementioned element variance had only a very minor effect on the output
-frequency.
+frequency.  In fact, students subsequently varied the resistance across the
+potentiometer~$R_3$ to monitor its contribution to the output waveform.
+Oscilloscope screenshots were captured when the potentiometer was adjusted both
+higher and lower than its correctly-tuned resistance of~\SI{20.149}{\kilo\ohm},
+and can be seen in Figure~\ref{fig:badPotShots}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[Potentiometer too low]{\label{fig:badPotLow}\includegraphics[width=.4\textwidth]{img/shot/pt3lowShot.png}}
+	\quad
+	\subfloat[Potentiometer too high]{\label{fig:badPotHigh}\includegraphics[width=.4\textwidth]{img/shot/pt3hiShot.png}}
 
-\todo[inline]{talk about pot variations}
+	\parbox{.8\textwidth}{
+	\caption{Output of two improperly-tuned~$R_3$ potentiometers.  Note in the
+	case of~\subref{fig:badPotLow} that the output only momentarily looks like
+	this, as it becomes simply noise soon after.  Also note the clipping that
+	occurs in~\subref{fig:badPotHigh}.}
+	\label{fig:badPotShots}}
+\end{figure}
+%
+When the potentiometer was tuned too low, the output amplitude shrinks very
+quickly to merely noise, resembling only momentarily the wave shown in
+Figure~\ref{fig:badPotLow}.  When the potentiometer was tuned too high as in
+Figure~\ref{fig:badPotHigh}, a wave of proper frequency was created, but the
+waveform became clipped due to the limited supply voltage.
 
 \todo[inline]{Intro voltage sweep.  Parallel to line regulation?}
 \begin{table}[H]
