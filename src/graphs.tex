@@ -99,7 +99,6 @@ This data shows that regardless of the input voltage, the output frequency will
 remain roughly unchanged, increasing just~\SI{0.68}{\kilo\hertz} over the
 course of the voltage sweep, or~\SI{-0.027}{\kilo\hertz\per\volt}.
 %
-\todo[inline]{Explain voltage sweep results}
 \begin{figure}[H]
 	\centering
 	\input{img/plot/vSweep.tex}
@@ -128,6 +127,44 @@ resistance) increased, the output voltage decreased by roughly~\SI{0.5}{\volt}
 and the output signal's frequency increased by roughly~\SI{0.02}{\kilo\hertz}.
 While these are not major changes, their existence shows the importance of
 using stable and accurate resistors.
-\missingfigure[figwidth=.6\textwidth]{part6 plots}
 
-
+Just as the load regulation was tested for the voltage regulator, the effect of
+a varying load on the sine wave generator was tested.  Using a decade box to
+provide the resistance, the value of~$R_L$ between node~$V_2$ and ground was
+varied from~\SI{100}{\kilo\ohm} down to~\SI{100}{\ohm}.  The results of this
+resistance sweep, measuring the output voltage and frequency at each step, are
+shown in Table~\ref{tab:rSweepData}.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/rSweepData.tex}\\
+	\parbox[Resistance Sweep Data]{.6\textwidth}{
+	\caption{Measured values from the load regulation tests.  Note that at a
+	load of~\SI{100}{\ohm}, a sine wave is not actually produced, but the
+	output does oscillate.}
+	\label{tab:rSweepData}
+	}
+\end{table}
+%
+As is shown, the frequency again remains nearly constant, while the
+peak-to-peak output voltage decreases with decreasing load.  It is interesting
+to note, however, the case of a~\SI{100}{\ohm} resistor.  In this
+configuration, the output no longer resembles a sine function, but instead the
+signal shown in Figure~\ref{fig:lowLoad}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/pt5_100Shot.png}
+	\parbox{.6\textwidth}{
+	\caption[Oscilloscope Screenshot --- Insufficient Load]{Oscilloscope output
+	for an insufficient load resistance.  Note that while the signal does not
+	greatly resemble a sine wave, it does oscillate.}
+	\label{fig:lowLoad}
+	}
+\end{figure}
+%
+This abnormal and unexpected output is the result of a detrimnetal feedback
+loop.  Because the load is low, the output will also be low, forcing a low
+feedback signal; because the feedback signal is low, the output must be again
+lowered.  As a result, this circuit is not suitable for loads
+below~\SI{1}{\kilo\ohm}.
