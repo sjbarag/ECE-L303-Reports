@@ -1,0 +1,35 @@
+\begin{circuitikz}
+	\tikzstyle{leftPin}  = [anchor=west]
+	\tikzstyle{rightPin} = [left]
+
+	% body
+	\draw[ultra thick] (-2, -4) rectangle (2, 4);
+
+	% left pins
+
+	% right pins
+	\foreach \y in {7, ..., 0}
+	{
+		\draw (2, \y-3.5) node[rightPin] (b\y) {B\y}
+		to [short] ++(.5,0) to [R, l=$R$] ++(1.5,0)
+		++(1.5, 0) to [led, *-] ++(-1.5, 0);
+	}
+
+	\foreach \pin in {11,...,18}
+	{
+		\draw (2, 14.5-\pin) node[above right] {\pin};
+	}
+
+	\draw (b7) node[left=4pt] {MSB}
+	(b0) node[left=4pt] {LSB};
+
+	% 5V rail
+	\draw (5.5, -3.5) to [short] ++(0, 8.5) node[above] {\SI{5.2}{\volt}};
+
+	\draw (0, 4) node[above left] {20} to [short] ++(0, 2) coordinate (top junc) to [short] ++(1, 0)
+	to [C, l=$C_4$: \SI{10}{\micro\farad}] ++(0, -1) node[ground] {}
+	(top junc) to [short] ++(0, .5) node[above] {\SI{5.12}{\volt}};
+
+	% left pins
+
+\end{circuitikz}
