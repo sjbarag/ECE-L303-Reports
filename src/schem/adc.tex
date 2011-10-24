@@ -1,7 +1,4 @@
 \begin{circuitikz}
-	\tikzstyle{leftPin}  = [anchor=west]
-	\tikzstyle{rightPin} = [left]
-
 	% body
 	\draw[ultra thick] (-2, -4) rectangle (2, 4);
 
@@ -21,7 +18,7 @@
 	% resistors, LEDs, and pin ames
 	\foreach \y in {7, ..., 0}
 	{
-		\draw (2, \y-3.5) node[rightPin] (b\y) {B\y}
+		\draw (2, \y-3.5) node[left] (b\y) {B\y}
 		to [short] ++(.5,0) to [R, l=$R$] ++(1.5,0)
 		++(1.5, 0) to [led] ++(-1.5, 0);
 	}
