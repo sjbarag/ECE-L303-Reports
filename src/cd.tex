@@ -48,36 +48,33 @@ students were required to understand:  pin~6~($V_\text{IN}+$),
 pin~9~($V_\text{REF}$), pins~11 through~18~(the LED outputs), and
 pin~20~($V_\text{CC}$).
 
-\begin{center}
-	\parbox{.8\textwidth}{
-	\begin{description}
-		\item[Pin 6]{Pin six is the interface between the ADC and the input signal.
-		For this experiment it was either a DC voltage supply or a function
-		generator.}
+\begin{description}
+	\item[Pin 6]{Pin six is the interface between the ADC and the input signal.
+	For this experiment it was either a DC voltage supply or a function
+	generator.}
 
-		\item[Pin 9]{The voltage at~$V_\text{REF}$ is used to determine the
-		full-scale voltage, previously defined as~$V_\text{FS}$.  If left
-		un-connected,~$V_\text{FS}$ defaults to~$V_\text{CC}$, or the ADC's drive
-		voltage; if connected to a voltage source,~$V_\text{FS}$ is set to twice
-		the voltage measured at pin nine.  This allows the circuit to be driven at
-		a TTL-compliant~\SI{5}{\volt} while measuring voltages that are
-		comparatively much lower, ensuring that the device does not turn off.}
+	\item[Pin 9]{The voltage at~$V_\text{REF}$ is used to determine the
+	full-scale voltage, previously defined as~$V_\text{FS}$.  If left
+	un-connected,~$V_\text{FS}$ defaults to~$V_\text{CC}$, or the ADC's drive
+	voltage; if connected to a voltage source,~$V_\text{FS}$ is set to twice
+	the voltage measured at pin nine.  This allows the circuit to be driven at
+	a TTL-compliant~\SI{5}{\volt} while measuring voltages that are
+	comparatively much lower, ensuring that the device does not turn off.}
 
-		\item[Pins 11-18]{Pins eleven through eighteen represent the LED
-		outputs of the system, used to display a binary value corresponding to
-		the sampled input voltage~(where pin 11 is the least-significant bit.)
-		The configuration of the LEDs is notable here, as they share a
-		common~\SI{5}{\volt} source and are turned on by pulling the
-		corresponding pin to ground.  While this is counter-intuitive as far as
-		binary logic is concerned, it is necessary.  Had the LEDs been
-		installed with a common ground in place of the~\SI{5}{\volt} source,
-		the ADC IC would not be able to source enough
-		current~(roughly~\SI{40}{\milli\ampere}) for the case that all LEDs
-		would be on.  By using the IC to sink said current, all devices will
-		remain undamaged.}
+	\item[Pins 11-18]{Pins eleven through eighteen represent the LED
+	outputs of the system, used to display a binary value corresponding to
+	the sampled input voltage~(where pin 11 is the least-significant bit.)
+	The configuration of the LEDs is notable here, as they share a
+	common~\SI{5}{\volt} source and are turned on by pulling the
+	corresponding pin to ground.  While this is counter-intuitive as far as
+	binary logic is concerned, it is necessary.  Had the LEDs been
+	installed with a common ground in place of the~\SI{5}{\volt} source,
+	the ADC IC would not be able to source enough
+	current~(roughly~\SI{40}{\milli\ampere}) for the case that all LEDs
+	would be on.  By using the IC to sink said current, all devices will
+	remain undamaged.}
 
-		\item[Pin 20]{Pin twenty is the source voltage~$V_\text{CC}$ of the entire
-		system, used to drive both the IC and the LEDs.  It was tuned in-lab for
-		the given experiment to ensure that all elements function properly.}
-	\end{description}}
-\end{center}
+	\item[Pin 20]{Pin twenty is the source voltage~$V_\text{CC}$ of the entire
+	system, used to drive both the IC and the LEDs.  It was tuned in-lab for
+	the given experiment to ensure that all elements function properly.}
+\end{description}
