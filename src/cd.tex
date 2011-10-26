@@ -1,11 +1,11 @@
 An $n$-bit analog-to-digital converter functions --- at least at a high level
---- by mapping a capped range of input voltages~(typically starting at zero and ending
-at some full-scale voltage~$V_\text{FS}$) into~$2^n$ discrete, non-intersecting
-values, sometimes labeled~$V_i$.  The output voltage is simply the largest
-discretized voltage that the input exceeds.  Because an analog input voltage is
-being represented by one of a finite set of discrete values, the index~$i$ of
-the corresponding output~$V_i$ can be expressed as a series of~$2^n$ binary
-bits.
+--- by mapping a capped range of input voltages~(typically starting at zero and
+ending at some full-scale voltage~$V_\text{FS}$) into~$2^n$ discrete,
+non-intersecting values, sometimes labeled~$V_i$.  The output voltage is simply
+the largest discretized voltage that the input exceeds.  Because an analog
+input voltage is being represented by one of a finite set of discrete values,
+the index~$i$ of the corresponding output~$V_i$ can be expressed as a series
+of~$2^n$ binary bits.
 
 When the input is a time-varying signal, the converter samples the input
 at a regular frequency~$f_s$, producing a new output as previously described
@@ -16,8 +16,13 @@ can be seen in Figure~\ref{fig:theory}.
 	\centering
 	\subfloat[Analog input]{\label{fig:theoryAnalog}\input{img/theoryA.tex}}
 	\subfloat[Discrete output]{\label{fig:theoryDiscrete}\input{img/theoryB.tex}}
-	\caption{}
-	\label{fig:theory}
+
+	\parbox{.8\textwidth}{
+	\caption[Theory Plots]{Theoretical input and output for an
+	analog-to-digital signal.  This is not a very accurate representation as
+	the sampling frequency~$f_s$ and resolution are fairly large, leading to a
+	loss of information.}
+	\label{fig:theory}}
 \end{figure}
 %
 While the digital output of this arbitrary signal resembles the input, it is
