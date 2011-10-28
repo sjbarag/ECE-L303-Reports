@@ -33,10 +33,29 @@ As can be seen by comparing the screenshots, the frequency increased by~\SI{53}{
 \subsection{Zero Input}
 To ensure that the converter was powered correctly, students shorted the input at pin~6 to ground to ensure that there was zero input voltage.  This should produce a binary output value of~\texttt{0000~0000}, resulting in all eight LEDs being turned on.  Once this happened, the short between~$V_\text{in}+$ and ground was removed.
 
+\subsection{DC Input}
+At this point in the experiment students were properly prepared to begin testing the ADC.  Using the in-lab DC power supply, the input voltage at pin~6 was varied from zero to five volts in one-volt increments, recording the output of the LEDs (and the associated binary representation) at each step.  These results can be seen in Figure~\ref{fig:pt4bars}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/pt4bars.tex}
+	\parbox{.6\textwidth}{
+	\caption[LED output for untuned ADC]{Various outputs for the input voltage sweep performed in part four.  Note that the output corresponding to a two-volt input appears anomalous.}
+	\label{fig:pt4bars}}
 \end{figure}
+%
+Output values for this test ranged from a binary zero~(as expected for a grounded input) to~233 for a five-volt input.  Using these values, students calculated the voltage resolution of the ADC in this form by dividing the voltage range by the output bit range, as in~\eqref{eq:resolution}:
+%
+\begin{equation}
+	\text{V resolution} = \frac{V_\text{max} - V_\text{min}}{\text{Out}_\text{max} - \text{Out}_\text{min}}
+	\label{eq:resolution}
+\end{equation}
+%
+Hence, the untuned ADC has a resolution of eight bits and a voltage resolution of~\SI{0.0214}{\volt\per bit}.
+
+In order to confirm that no bars were being erroneously lit, a voltage reading was taken for several~``on'' and~``off'' LEDs.  These followed a trend of reading roughly~\SI{0.26}{\volt} for~``off'' LEDs and~\SI{5.02}{\volt} for~``on'' ones, implying that there were no lighting issues.
+
+
 
 \begin{figure}[H]
 	\centering
