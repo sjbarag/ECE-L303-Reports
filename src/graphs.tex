@@ -30,6 +30,8 @@ Next, students placed another~\SI{10}{\kilo\ohm} resistor in parallel with~$R_1$
 %
 As can be seen by comparing the screenshots, the frequency increased by~\SI{53}{\percent} to~\SI{568.2}{\kilo\hertz}, while the peak-to-peak voltage decreased~\SI{4}{\percent} to~\SI{4.562}{\volt}.  This increased frequency is actually below its theoretical value by~\SI{15}{\percent}, as~\eqref{eq:clock} states that the frequency should have actually doubled to~\SI{666.666}{\kilo\hertz} with a halved resistance~$R_1$.  Once this measurement was made, the extra resistor was removed to restore the system back to its proper state.
 
+\subsection{Zero Input}
+To ensure that the converter was powered correctly, students shorted the input at pin~6 to ground to ensure that there was zero input voltage.  This should produce a binary output value of~\texttt{0000~0000}, resulting in all eight LEDs being turned on.  Once this happened, the short between~$V_\text{in}+$ and ground was removed.
 
 \begin{figure}[H]
 	\centering
