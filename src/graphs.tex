@@ -56,7 +56,7 @@ Hence, the untuned ADC has a resolution of eight bits and a voltage resolution o
 In order to confirm that no bars were being erroneously lit, a voltage reading was taken for several~``on'' and~``off'' LEDs.  These followed a trend of reading roughly~\SI{0.26}{\volt} for~``off'' LEDs and~\SI{5.02}{\volt} for~``on'' ones, implying that there were no lighting issues.
 
 \subsection{Fine Tuning for 5 Volts}
-In order to improve the voltage resolution of the ADC, students placed a voltage at pin~9 and adjusted~$V_\text{REF}$ so that a change of around~\SI{0.01}{\volt} in input would result in flipping only the least-significant bit.  After some experimentation, this was found to occur at~$V_\text{REF} = \SI{2.29}{\volt}$.  The voltage sweep from the untuned system was repeated with the now-tuned system, resulting in the outputs shown in Figure~\ref{fig:pt5bars}.
+In order to improve the voltage resolution of the ADC, students placed a voltage at pin~9 and adjusted it so that a change of around~\SI{0.01}{\volt} in~$V_\text{REF}$ for a full-scale~(\SI{5}{\volt}) input would result in flipping only the least-significant bit.  After some experimentation, this was found to occur at~$V_\text{REF} = \SI{2.29}{\volt}$.  The voltage sweep from the untuned system was repeated with the now-tuned system, resulting in the outputs shown in Figure~\ref{fig:pt5bars}.
 %
 \begin{figure}[H]
 	\centering
@@ -68,7 +68,13 @@ In order to improve the voltage resolution of the ADC, students placed a voltage
 %
 While the resolution of this system is still eight bits, applying this new output range to~\eqref{eq:resolution} shows that the voltage resolution of the system has improved to~\SI{0.019}{\volt\per bit}.
 
+\subsection{Re-tuning for 2 Volts}
+After correctly tuning the ADC for a full-scale voltage of five volts, students were instructed to adapt the system for a full-scale voltage of just two volts.  This was accomplished using a method similar to the one used to tune for a five-volt system.  Once an appropriate value for~$V_\text{REF}$ was determined, the input voltage was varied from~\SI{0}{\volt} through~\SI{0.5}{\volt} in steps of one-tenth, then to~\SI{0.8}{\volt}, one volt, and finally two volts.  The observed LED configurations for this non-linear voltage sweep are shown in Figure~\ref{fig:pt6bars}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/pt6bars.tex}
+	\parbox{.6\textwidth}{
+	\caption[LED output for tuned ADC; $V_\text{FS} = \SI{2}{\volt}$]{Recorded LED output for an ADC tuned to a full-scale input of two volts.}
+	\label{fig:pt6bars}}
 \end{figure}
