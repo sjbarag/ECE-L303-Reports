@@ -1,3 +1,36 @@
+\subsection{Investigation}
+Students were first instructed to explore the provided circuit and become familiar with the appropriate pin locations.  This was accomplished by testing the values of~$V_\text{CC}$~(measured at~\SI{5.03}{\volt}) and~$V_\text{REF}$~(measured to be~\SI{2.509}{\volt}) to ensure that they were within reasonable limits of the expected values.  Once this was accomplished, the frequency and peak-to-peak voltage of the ADC's clock signal were measured to be~\SI{370.4}{\kilo\hertz} and~\SI{4.75}{\volt}, respectively.  This clock signal can be seen in the oscilloscope screenshot in Figure~\ref{fig:normalClock}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/part2shot.png}
+	\parbox{.6\textwidth}{
+	\caption[Typical ADC clock signal]{Oscilloscope of a typical clock signal
+	for the ADC circuit.  No additional components were added here.}
+	\label{fig:normalClock}}
+\end{figure}
+%
+The lab instructions provide that the peak-to-peak voltage should be roughly~\SI{5}{\volt}, implying that the measured value is~\SI{5}{\percent} lower than designed. The instructions also state that the clock frequency can be calculated via~\eqref{eq:clock}:
+%
+\begin{equation}
+	f_\text{CLK} = \frac{1}{2 R_T C_3} \label{eq:clock}
+\end{equation}
+%
+where~$R_T$ is equal to the value of~$R_1$ for the schematic in Figure~\ref{fig:adcSchem} and~$C_3$ is as shown in the schematic, or~\SI{10}{\kilo\ohm} and~\SI{150}{\pico\farad} respectively.  These values equate to a theoretical clock frequency of~\SI{333.333}{\kilo\hertz}, meaning that the measured value is~\SI{11}{\percent} higher than the theoretical.  As it requires~70 clock pulses to complete the analog-to-digital conversion for one sample, this implies an experimental sampling frequency~$f_s$ of~\SI{5.29}{\kilo\hertz}~--- a difference of~\SI{12.5}{\percent} over the~\SI{4.7}{\kilo\hertz} frequency for which the system was designed.  This will actually make the system more accurate however, as was previously discussed.
+%
+Next, students placed another~\SI{10}{\kilo\ohm} resistor in parallel with~$R_1$ to monitor the effects of a halved resistance.  This resulted in the clock signal shown in Figure~\ref{fig:fastClock}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/part2bshot.png}
+	\parbox{.6\textwidth}{
+	\caption[Atypical ADC clock signal]{Measured clock signal after placing an additional~\SI{10}{\kilo\ohm} resistor across~$R_1$, thus halving the equivalent resistance.  Note that this had a profound effect on the signal's frequency compared to Figure~\ref{fig:normalClock} but a minor effect on its peak-to-peak voltage.}
+	\label{fig:fastClock}}
+\end{figure}
+%
+As can be seen by comparing the screenshots, the frequency increased by~\SI{53}{\percent} to~\SI{568.2}{\kilo\hertz}, while the peak-to-peak voltage decreased~\SI{4}{\percent} to~\SI{4.562}{\volt}.  This increased frequency is actually below its theoretical value by~\SI{15}{\percent}, as~\eqref{eq:clock} states that the frequency should have actually doubled to~\SI{666.666}{\kilo\hertz} with a halved resistance~$R_1$.  Once this measurement was made, the extra resistor was removed to restore the system back to its proper state.
+
+
 \begin{figure}[H]
 	\centering
 	\input{img/pt4bars.tex}
