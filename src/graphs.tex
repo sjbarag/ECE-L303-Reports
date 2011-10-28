@@ -51,7 +51,7 @@ Output values for this test ranged from a binary zero~(as expected for a grounde
 	\label{eq:resolution}
 \end{equation}
 %
-Hence, the untuned ADC has a resolution of eight bits and a voltage resolution of~\SI{0.0214}{\volt\per bit}.
+Hence, the untuned ADC has a resolution of eight bits and a voltage resolution of~\SI{0.0214}{\volt\per\bit}.
 
 In order to confirm that no bars were being erroneously lit, a voltage reading was taken for several~``on'' and~``off'' LEDs.  These followed a trend of reading roughly~\SI{0.26}{\volt} for~``off'' LEDs and~\SI{5.02}{\volt} for~``on'' ones, implying that there were no lighting issues.
 
@@ -66,7 +66,7 @@ In order to improve the voltage resolution of the ADC, students placed a voltage
 	\label{fig:pt5bars}}
 \end{figure}
 %
-While the resolution of this system is still eight bits, applying this new output range to~\eqref{eq:resolution} shows that the voltage resolution of the system has improved to~\SI{0.019}{\volt\per bit}.
+While the resolution of this system is still eight bits, applying this new output range to~\eqref{eq:resolution} shows that the voltage resolution of the system has improved to~\SI{0.019}{\volt\per\bit}.
 
 \subsection{Re-tuning for 2 Volts}
 After correctly tuning the ADC for a full-scale voltage of five volts, students were instructed to adapt the system for a full-scale voltage of just two volts.  This was accomplished using a method similar to the one used to tune for a five-volt system, resulting in~$V_\text{REF} = \SI{1.000}{\volt}$.  Once an appropriate value for~$V_\text{REF}$ was determined, the input voltage was varied from~\SI{0}{\volt} through~\SI{0.5}{\volt} in steps of one-tenth, then to~\SI{0.8}{\volt}, one volt, and finally two volts.  The observed LED configurations for this non-linear voltage sweep are shown in Figure~\ref{fig:pt6bars}.
@@ -79,4 +79,17 @@ After correctly tuning the ADC for a full-scale voltage of five volts, students 
 	\label{fig:pt6bars}}
 \end{figure}
 %
-Using~\eqref{eq:resolution}, the bit resolution of this system is determined to be~\SI{7.84}{\milli\volt\per bit}.  Logically, this makes sense, as the resolution must be higher for a smaller input range and an unchanged bit resolution.
+Using~\eqref{eq:resolution}, the bit resolution of this system is determined to be~\SI{7.84}{\milli\volt\per\bit}.  Logically, this makes sense, as the resolution must be higher for a smaller input range and an unchanged bit resolution.
+
+\subsection{ADC as a Binary Counter}
+As an exploratory task, students were instructed to pass a slowly-varying triangular wave~(similar to the one shown in Figure~\ref{fig:triangle}) into the input of the system while observing the output, assuming~$R_\text{REF} = \SI{2}{\volt}$.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/part7shot.png}
+	\parbox{.6\textwidth}{
+	\caption[Example triangular signal]{Triangular signal used to create a binary counter from an ADC.  This class of signal was used several other times, with frequencies of~10,~0.1, and~\SI{0.01}{\hertz}.}
+	\label{fig:triangle}}
+\end{figure}
+%
+As would be expected, the linearly increasing and decreasing signal is represented by a linearly increasing binary output.  Because the input is smoothly changing, the output will detect very small changes and will increment or decrement the binary output.  This produces a smooth counter.
