@@ -45,4 +45,10 @@
 		to [R] ++(0, -1.5) node[ground] {}
 	(3.5, -1) node[right] {$V_0 = - V_\text{REF} \left( \frac{A_1}{2} + \frac{A_2}{4} + \ldots + \frac{A_8}{256} \right)$} to [short, i_=$I_0$, o-] ++(-.5, 0);
 
+	% pins 15 & 2
+	\draw
+	(2, .5) node[above right] {2} to [short] ++(2.5, 0) node[ground] {}
+		to [short] ++(0, 1)
+	(2, 1.5) node[above right] {15} to [short] ++(.5, 0)
+		to [R] ++(2, 0);
 \end{circuitikz}
