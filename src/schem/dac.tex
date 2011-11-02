@@ -51,4 +51,9 @@
 		to [short] ++(0, 1)
 	(2, 1.5) node[above right] {15} to [short] ++(.5, 0)
 		to [R] ++(2, 0);
+
+	% pins 14
+	\draw
+	(2, 3.5) node[above right] {14} to [short] ++(.5, 0)
+		to [R, -o] ++(2, 0) node[right] {$V_\text{REF} = \SI{5}{\volt}$};
 \end{circuitikz}
