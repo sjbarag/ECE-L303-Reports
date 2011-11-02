@@ -1,0 +1,83 @@
+\begin{circuitikz}
+	% body
+	\draw[ultra thick] (-2, -4) rectangle (2, 4);
+
+	% chip name
+	\draw (0,0) node[rotate=90] {DAC0808};
+
+	% -------------------- top --------------------
+	\draw
+	(0, 4) node[above left] {13} node[below] {$V_\text{CC}$}
+		to [short, -o] ++(0, 1) node[above] {+\SI{5}{\volt}};
+
+
+	% -------------------- left pins --------------------
+
+	% resistors, LEDs, and pin ames
+	\foreach \y in {7, ..., 0}
+	{
+		\draw (-2, \y-3.5) node[right] (b\y) {B\y}
+		to [short, -o] ++(-0.5, 0);
+	}
+
+	% pin numbers
+	\foreach \pin in {5,...,12}
+	{
+		\draw (-2, 8.5-\pin) node[above left] {\pin};
+	}
+
+	% LSB and MSB
+	\draw (b7) node[right=4.5pt] {(MSB)}
+	(b0) node[right=4.5pt] {(LSB)};
+
+	% -------------------- right pins --------------------
+
+	% Vee and cap
+	\draw
+	(0, -4) node[below right] {3} node[above]{$V_\text{EE}$}
+		to [short, -o] ++(0, -1.5) node[below] {\SI{-15}{\volt}}
+	(2, -3.5) node[above right] {16} to [short] ++(1, 0) to [C] ++(0, -1.5)
+		to [short] ++(-3, 0);
+%
+%	% grounds
+%	\draw
+%	(-2, -3.5) node [right] {DGND} node[above left] {10}
+%		to [short] ++(-1, 0)
+%	(-2, -3)   node [right] {AGND} node[above left] {8}
+%		to [short] ++(-1, 0)
+%	(-2, -2.5) node [right] {$V_\text{in} (-)$} node [above left] {7}
+%		to [short] ++(-1, 0)
+%	(-2, -2)   node [right] {$\over{\text{RD}}$} node[above left] {2}
+%		to [short] ++(-1, 0)
+%	(-2, -1.5) node [right] {$\over{\text{CS}}$} node[above left] {1}
+%		to [short] ++(-1, 0)
+%	to [short] ++(0, -2) node[ground] {};
+%
+%	% clocks
+%	\draw
+%	(-2, -.75)  node[right] {CLKR} node[above left] {19}
+%		to [short] ++(-0.5, 0) to [R, l=$R_1$: \SI{10}{\kilo\ohm}] ++(-1.5, 0) to [short] ++(0, 0.5)
+%	(-2, -.25) node[right] {CLK}  node[above left] {4}
+%		to [short] ++(-3, 0) to [C, l_={$C_3$: \SI{150}{\pico\farad}}] ++(0, -1) node[ground] {};
+%
+%	% WR and INTR
+%	\draw
+%	(-2, 1) node[right] {$\over{\text{INTR}}$} node[above left] {5}
+%		to [short] ++(-1,0) to [short] ++(0, .5)
+%	(-2, 1.5) node[right] {$\over{\text{WR}}$} node[above left] {3}
+%		to [short] ++(-3, 0) to [short, -*] ++(0, -.25) node[right] {N.O.}
+%		to [open] ++(0, -0.5) node[ground] {} to [short, *-] ++(-.3, .4)
+%	(-5,1) node[left=4.5pt] {Start Switch};
+%
+%	% Vin +
+%	\draw
+%	(-2, 3) node[right] {$V_\text{in} (+)$} node[above left] {6}
+%		to [short] ++(-1, 0) to [C, l_=$C_2$: \SI{0.1}{\micro\farad}] ++(0, -.75) node[ground] {}
+%		(-2, 3) to [short, -o] ++(-3, 0) node[left] {$V_\text{in}$};
+%	\draw
+%	(-2, 3.5) node[right] {$V_\text{REF}$} node[above left] {9}
+%		to [short] ++(-1, 0) to [short] ++(0, 2) to [short] ++(-1, 0)
+%		to [C, l_=$C_1$: \SI{0.1}{\micro\farad}] ++(0, -.75) node[ground] {}
+%		(-2, 3.5) to [short, -o] ++(-3, 0) node[left] {$V_\text{REF}$};
+
+\end{circuitikz}
