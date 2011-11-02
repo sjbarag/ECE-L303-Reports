@@ -38,6 +38,10 @@
 		to [short, -o] ++(0, -1.5) node[below] {\SI{-15}{\volt}}
 	(2, -3.5) node[above right] {16} to [short] ++(1, 0) to [C] ++(0, -1.5)
 		to [short] ++(-3, 0);
+	\draw
+	(2, -1) node[above right] {4} to [short] ++(1, 0)
+		to [R] ++(0, -1.5) node[ground] {}
+	(3.5, -1) node[right] {$V_0 = - V_\text{REF} \left( \frac{A_1}{2} + \frac{A_2}{4} + \ldots + \frac{A_8}{256} \right)$} to [short, i_=$I_0$, o-] ++(-.5, 0);
 %
 %	% grounds
 %	\draw
