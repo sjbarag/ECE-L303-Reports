@@ -60,8 +60,8 @@
 
 	% pins 14
 	\draw
-	(2, 3.5) node[above right] {14} to [short] ++(.5, 0)
-		to [R, l=\SI{5}{\kilo\ohm}, -o] ++(2, 0) node[right] {$V_\text{REF} = \SI{5}{\volt}$};
+	(2, 3.5) node[above right] {14} node[left] {$V_\text{REF}$} to [short] ++(.5, 0)
+		to [R, l=\SI{5}{\kilo\ohm}, -o] ++(2, 0) node[below] {+\SI{5}{\volt}};
 
 
 	% = - V_\text{REF} \left( \frac{A_1}{2} + \frac{A_2}{4} + \ldots + \frac{A_8}{256} \right)$}
