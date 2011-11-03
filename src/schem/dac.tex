@@ -49,7 +49,7 @@
 	\draw
 	(2, -1) node[above right] {4} to [short] ++(1, 0)
 		to [R, l=\SI{5}{\kilo\ohm}] ++(0, -1.5) node[ground] {}
-	(3.5, -1) node[right] {$V_0$} to [short, i_=$I_0$, o-] ++(-.5, 0);
+	(4, -1) node[right] {$V_0$} to [short, i_=$I_0$, o-] ++(-1, 0);
 
 	% pins 15 & 2
 	\draw
@@ -58,10 +58,10 @@
 	(2, 1.5) node[above right] {15} to [short] ++(.5, 0)
 		to [R, l=\SI{5}{\kilo\ohm}] ++(2, 0);
 
-	% pins 14
+	% pin 14
 	\draw
 	(2, 3.5) node[above right] {14} node[left] {$V_\text{REF}$} to [short] ++(.5, 0)
-		to [R, l=\SI{5}{\kilo\ohm}, -o] ++(2, 0) node[below] {+\SI{5}{\volt}};
+		to [R, l=\SI{5}{\kilo\ohm}, -o] ++(2, 0) node[above] {+\SI{5}{\volt}};
 
 
 	% = - V_\text{REF} \left( \frac{A_1}{2} + \frac{A_2}{4} + \ldots + \frac{A_8}{256} \right)$}
