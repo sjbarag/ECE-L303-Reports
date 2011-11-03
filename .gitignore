@@ -10,3 +10,4 @@ raw/
 *.swo
 *.zip
 *.out
+lab[0-9]*/
