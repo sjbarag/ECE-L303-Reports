@@ -1,4 +1,5 @@
 Unlike the analog-to-digital converter (ADC) explored in lab five, a digital-to-analog converter (DAC) attempts to take a stream of binary values and convert it into a continuous waveform.  Because there is a limited set of~$2^n$ values that can possibly be described by an~$n$-bit DAC, the resulting signal appears to be quantized as in the example in Figure~\ref{fig:theory}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/theory.tex}
@@ -6,8 +7,11 @@ Unlike the analog-to-digital converter (ADC) explored in lab five, a digital-to-
 	\caption[Theory Plot]{Theoretical input and output for a~3-bit digital-to-analog converter.  Note that while the output is a sequence of discrete values, they form an analog voltage signal.}
 	\label{fig:theory}}
 \end{figure}
+%
 While the output signal is not continuous as a~``traditional'' analog signal would be, it is still considered analog because of its varying voltage.  Additionally, consider the case of a higher-quality DAC with faster clock frequency and higher resolution.  As the difference between any two time steps~$t_i$ and~$T_{i+1}$ approaches zero and the difference between any two voltages~$V_i$ and~$V_{i+1}$ approaches zero, the output more greatly resembles a continuous and~``traditional'' analog signal.
 
+As with the ADC, a pre-constructed DAC circuit was provided to students in order to simplify the process of exploring the properties of such a system.  A schematic for the pre-built DAC is shown below in Figure~\ref{fig:dacSchem}.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem/dac.tex}
@@ -17,3 +21,4 @@ While the output signal is not continuous as a~``traditional'' analog signal wou
 	experiment six.}
 	\label{fig:dacSchem}}
 \end{figure}
+%
