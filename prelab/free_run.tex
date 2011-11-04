@@ -4,8 +4,10 @@ Figure~\ref{fig:free_run}, where the switch is fixed closed.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.6\textwidth]{img/shot/free_run.pdf}
-	\caption{}
-	\label{fig:free_run}
+	\parbox{.6\textwidth}{
+	\caption{Free-running oscilloscope circuit schematic, as provided in Figure~1 of the
+	Intersil datasheet for an ICL8038 integrated circuit [1].}
+	\label{fig:free_run}}
 \end{figure}
 %
 Using this circuit, the period of the output signal can be calculated by using~\eqref{eq:t0}:
@@ -40,3 +42,6 @@ varied from~\SI{100}{\pico\farad} to~\SI{100}{\micro\farad} in steps of an
 order of magnitude, while using an oscilloscope to measure the output frequency
 at each step.  By~\eqref{eq:t0_even}, the frequency will vary linearly with
 changing capacitance.
+
+
+%www.intersil.com/data/FN/FN2864.pdf
