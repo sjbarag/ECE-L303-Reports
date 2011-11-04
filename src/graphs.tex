@@ -1,1 +1,15 @@
+\subsection{Initial Testing}
+Upon beginning the experiment, students were first instructed to test the provided circuit to ensure that it is working.  While powered, the pin labeled~$V_\text{CC}$ was to measure~\SI{5}{\volt}, the LEDs were to measure~\SI{3.2}{\volt}, and pin 3 of the DAC was to measure around~\SI{-14}{\volt}.  These values were recorded and are tabulated in Table~\ref{tab:initTest}.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/initTest.tex}
+	\parbox{.6\textwidth}{
+	\caption[Measured Initial Values]{List of values recorded during the initial testing phases.  The voltages were within reasonable limits, allowing the student to safely assume that the board was operating correctly.}
+	\label{tab:initTest}}
+\end{table}
+%
+Next, the student shorted the input terminal to ground, ensuring that all eight LEDs from the ADC were lit.  The voltage at the DAC's output was measured at~\SI{-1.4}{\milli\volt}~--- reasonably close to the expected value of zero volts, implying proper operation.
+
+\subsection{ADC/DAC DC Test}
 
