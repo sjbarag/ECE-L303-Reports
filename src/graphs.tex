@@ -72,7 +72,7 @@ Just as the DC system was tested for various DIP switch configurations, the AC s
 	\subfloat[Bit seven open]{\label{subfig:pt4b_bit7}\includegraphics[width=.3\textwidth]{img/shot/pt4b_bit7.png}}
 
 	\parbox{.8\textwidth}{
-	\caption[\SI{400}{\hertz} Sine Wave --- DIP Switches]{Results of varying the open DIP switch.  Note that, where bit five is opened in~\subref{subfig:pt4b_bit5}, the upper portions of the sinusoid are not represented.  Similarly,~\subref{subfig:pt4b_bit7} shows a nearly complete loss of a recognizable signal when bit seven is opened.}
+	\caption[\SI{400}{\hertz} Sine Wave --- DIP Switches]{Results of varying the open DIP switch for a~\SI{400}{\hertz} sinusoidal input.  Note that, where bit five is opened in~\subref{subfig:pt4b_bit5}, the upper portions of the sinusoid are not represented.  Similarly,~\subref{subfig:pt4b_bit7} shows a nearly complete loss of a recognizable signal when bit seven is opened.}
 	\label{fig:pt4b}}
 \end{figure}
 %
@@ -87,3 +87,42 @@ Just as the DC system was tested for various DIP switch configurations, the AC s
 \end{table}
 %
 While in the DC case the output voltage distorted, in the AC case the effects are exaggerated.  The frequency of the output appears to remain roughly constant (this was difficult to measure due to the oscilloscope limitations), but the peak-to-peak voltage accuracy degrades as more-significant bits are opened via DIP switch.  This, coupled with the loss of accurate value representation, produces an increasingly distorted signal that becomes almost unrecognizable in the case of the most-significant bit's opening.
+
+\subsection{Square Wave Input}
+The function generator was now tuned to create a square wave with the same amplitude and frequency as the previously-used sine wave.  The DAC output for an input of the aforementioned square wave can be seen in the lower signal of Figure~\ref{fig:pt5a}, while the input is shown in the upper signal.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/pt5a_noopen.png}
+	\parbox{.6\textwidth}{
+	\caption[\SI{400}{\hertz} Square Wave --- All Closed]{DAC input and output signal for a~\SI{400}{\hertz} square wave.  The input is shown above with the output below.  Note that, like the sinusoid and DC signals previously, the output is of opposite polarity to the input.}
+	\label{fig:pt5a}}
+\end{figure}
+%
+A square wave --- just as a sinusoidal wave --- produces an output that is similar in shape and magnitude to the input, but has a reversed polarity.
+
+In order to confirm the previously found effects of opened DIP switches on the output waveform, a similar test was again repeated for a square wave input.  The least-significant and most-significant bits were opened separately, producing the outputs shown in Figure~\ref{fig:pt5b}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[Bit zero open] {\label{subfig:pt5b_bit0}\includegraphics[width=.45\textwidth]{img/shot/pt5b_bit0.png}}
+	\quad
+	\subfloat[Bit seven open]{\label{subfig:pt5b_bit7}\includegraphics[width=.45\textwidth]{img/shot/pt5b_bit7.png}}
+
+	\parbox{.8\textwidth}{
+	\caption[\SI{400}{\hertz} Square Wave --- DIP Switches]{Results of varying the open DIP for a~\SI{400}{\hertz} square wave input.  In an identical result to the sinusoidal case, the output signal's amplitude degrades as a more significant bit is opened.  Opening bit zero has little effect, but opening the most significant bit causes the output to barely resemble the input.}
+	\label{fig:pt5b}}
+\end{figure}
+%
+\emph{Because the changing shape of the output is the intended focus of this test, screenshots for each configuration are shown next to each other for easy comparison.  Full-sized versions are available in the Appendix, and specific measurements from each are aggregated in Table~\ref{tab:pt5b}.}
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/squareDIPs.tex}
+	\parbox{.6\textwidth}{
+	\caption[]{}
+	\label{tab:pt5b}}
+\end{table}
+%
+Similar to the case of the sinusoidal wave, the peak-to-peak voltage of the output signal decreases for an increasing significance of opened bit.  For the most significant bit, a loss of resolution and decreased amplitude combine to produce a nearly unidentifiable output signal, shown in Figure~\ref{subfig:pt5b_bit7}.
+
