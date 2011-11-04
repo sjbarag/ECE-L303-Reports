@@ -48,4 +48,42 @@ The DIP switch test was repeated with an input of five volts.  The results of th
 %
 The ADC output associated with a~\SI{5}{\volt} input in this case was~\texttt{1110 0010}; as with the~\SI{1}{\volt} test, only bits of value zero (as output by the ADC) are effected by a change in DIP switch.  In this case, only bits zero and three have the potential to change the output voltage of the DAC.  While a change in output is visible for bit three, there is a negligible change due to bit zero, as it is the least significant.
 
+\subsection{ADC/DAC AC Test}
+Once the properties of a DAC had been examined for a static input, a sinusoidal input was used in place of the DC source to test the system's performance under varying conditions.  With the in-lab function generator providing a~\SI{400}{\hertz} signal ranging from zero to~\SI{4}{\volt} as shown in the upper signal~(A1) of Figure~\ref{fig:pt4a}, the DAC produced the lower waveform~(A2).
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/pt4ashot.png}
+	\parbox{.6\textwidth}{
+	\caption[\SI{400}{\hertz} Sine Wave --- All Closed]{DAC output for a~\SI{400}{\hertz} sine wave input.  Note that the output does resemble the input (albeit of the opposite polarity) despite its quantized nature.}
+	\label{fig:pt4a}}
+\end{figure}
+%
+As can be seen in the above image, the output waveform greatly resembles the input waveform.  While the output is a negative representation of the input, this is expected behavior.
 
+Just as the DC system was tested for various DIP switch configurations, the AC system was tested.  For each of bits zero, five, and seven, a single switch was opened, and the output recaptured (displayed in Figure~\ref{fig:pt4b}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[Bit zero open] {\label{subfig:pt4b_bit0}\includegraphics[width=.3\textwidth]{img/shot/pt4b_bit0.png}}
+	\quad
+	\subfloat[Bit five open] {\label{subfig:pt4b_bit5}\includegraphics[width=.3\textwidth]{img/shot/pt4b_bit5.png}}
+	\quad
+	\subfloat[Bit seven open]{\label{subfig:pt4b_bit7}\includegraphics[width=.3\textwidth]{img/shot/pt4b_bit7.png}}
+
+	\parbox{.8\textwidth}{
+	\caption[\SI{400}{\hertz} Sine Wave --- DIP Switches]{Results of varying the open DIP switch.  Note that, where bit five is opened in~\subref{subfig:pt4b_bit5}, the upper portions of the sinusoid are not represented.  Similarly,~\subref{subfig:pt4b_bit7} shows a nearly complete loss of a recognizable signal when bit seven is opened.}
+	\label{fig:pt4b}}
+\end{figure}
+%
+\emph{Because the changing shape of the output is the intended focus of this test, screenshots for each configuration are shown next to each other for easy comparison.  Full-sized versions are available in the Appendix, and specific measurements from each are aggregated in Table~\ref{tab:pt4b}.}
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/sinDIPs.tex}
+	\parbox{.6\textwidth}{
+	\caption[\SI{400}{\hertz} DIP Switches]{Measured output of a varying state of DIP switch positions for a~\SI{400}{\hertz} sinusoidal input.}
+	\label{tab:pt4b}}
+\end{table}
+%
+While in the DC case the output voltage distorted, in the AC case the effects are exaggerated.  The frequency of the output appears to remain roughly constant (this was difficult to measure due to the oscilloscope limitations), but the peak-to-peak voltage accuracy degrades as more-significant bits are opened via DIP switch.  This, coupled with the loss of accurate value representation, produces an increasingly distorted signal that becomes almost unrecognizable in the case of the most-significant bit's opening.
