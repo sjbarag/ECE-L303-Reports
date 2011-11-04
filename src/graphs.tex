@@ -12,4 +12,40 @@ Upon beginning the experiment, students were first instructed to test the provid
 Next, the student shorted the input terminal to ground, ensuring that all eight LEDs from the ADC were lit.  The voltage at the DAC's output was measured at~\SI{-1.4}{\milli\volt}~--- reasonably close to the expected value of zero volts, implying proper operation.
 
 \subsection{ADC/DAC DC Test}
+The input short to ground was removed in place of the in-lab DC voltage supply.  With the current limited to~\SI{0.2}{\ampere}, the voltage was varied from zero to five volts in increments of one, measuring the output voltage at each step and tabulating all recorded voltages in Table~\ref{tab:dcSweep}.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/dcSweep.tex}
+	\parbox{.6\textwidth}{
+	\caption[DC Sweep Results]{Data recorded from a DC sweep performed with all eight DIP switches closed.}
+	\label{tab:dcSweep}}
+\end{table}
+%
+As is clearly visible in the recorded values, the output tended to be slightly higher than the expected output (note that since the output was expected to be negative as previously stated, the error is still calculated to be negative as well).  Since all eight of the switches between the ADC and DAC were closed for this sweep, the output voltages were close to their theoretical values.  Additionally, theoretical values were simply the negative value of the input and were not directly calculated.  This is a result of the known-working ADC being used to create a valid series of bits for the DAC's input.
+
+Next, the input voltage was locked at one volt and a series of DIP switches between the ADC and DAC were opened so that students could observe the effects of a changing digital input.  The switches associated with bits~0,~1,~3,~5, and~7 were opened one at a time, while recording the output voltage corresponding to each configuration.  Table~\ref{tab:1vDIPs} contains the measured voltages for each state.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/1vDIPs.tex}
+	\parbox{.6\textwidth}{
+	\caption[\SI{1}{\volt}DC DIP Switches]{Measured output for various DIP switch configurations with a~\SI{1}{\volt} input.}
+	\label{tab:1vDIPs}}
+\end{table}
+%
+For a one volt input, the associated ADC output is~\texttt{0011 0010}.  The DAC is logic-one based but the LEDs are logic-zero activated, so each bit passes through an inverter before entering the DAC (after leaving the DIP switches).  This means that opening a switch will only have an effect on bits that are zero as they pass through the switches~(i.e. bits~0,~2,~3,~6, and~7).  Note the drastic effect that bit seven has on the output voltage, as it is the most-significant bit.
+
+The DIP switch test was repeated with an input of five volts.  The results of this test are tabulated in Table~\ref{tab:5vDIPs}.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/5vDIPs.tex}
+	\parbox{.6\textwidth}{
+	\caption[]{}
+	\label{tab:5vDIPs}}
+\end{table}
+%
+The ADC output associated with a~\SI{5}{\volt} input in this case was~\texttt{1110 0010}; as with the~\SI{1}{\volt} test, only bits of value zero (as output by the ADC) are effected by a change in DIP switch.  In this case, only bits zero and three have the potential to change the output voltage of the DAC.  While a change in output is visible for bit three, there is a negligible change due to bit zero, as it is the least significant.
+
 
