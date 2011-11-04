@@ -1,0 +1,13 @@
+raw/
+*.aux
+*.fdb_latexmk
+*.lof
+*.log
+*.lot
+*.pdf
+*.toc
+*.swp
+*.swo
+*.zip
+*.out
+lab[0-9]*/

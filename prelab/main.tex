@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}     %for 1inch margins that play nice with fancyhdr
+\usepackage{amsmath,amssymb}          % math and junk
+\usepackage{fancyhdr}                 % for a nice running header and footer
+\usepackage{lastpage}                 % for nice "X of Y" footer
+\usepackage[per-mode=symbol,alsoload=binary,detect-all=true]{siunitx}
+                                      % for nice units and junk!
+\usepackage{gnuplot-lua-tikz}         % enable tikz plots made from gnuplot
+\usepackage{float}                    % [H] option for floats
+\usepackage[american]{circuitikz}     % for teh circuit diagrams
+\usepackage[hidelinks]{hyperref}                 % get those sweet, sweet, links
+\usepackage{framed}                   % for framed titlepage
+\usepackage{subfig}
+
+\usetikzlibrary{shapes,arrows}
+
+% unused, but common for other experiments
+%\usepackage{rotating}                 % for sideways stuff!
+%\usepackage{cancel}                   % for `canceling out' parts of equations. fancy!
+%\usepackage{mdwlist}                  % itemize* and friends
+%\usepackage{verbatim}                 % for \verbatiminput command and comment environment
+\usepackage[colorinlistoftodos]{todonotes}                % todo's, if used/needed
+%\usepackage{multirow}                 % for multi-row spans in tabular environment
+
+
+% values!
+\newcommand{\docAuthor}{Sean Barag}
+\newcommand{\docCoAuthor}{}
+\newcommand{\ta}{Kaloyan Popov}
+\newcommand{\docTitle}{Voltage-Controlled Oscillator Proposal}
+\newcommand{\courseName}{ECE-L303}
+\newcommand{\labNum}{Lab 7-pre}
+\newcommand{\labSec}{062}
+\newcommand{\dueDate}{4 November 2011}
+\newcommand{\perfDate}{4 November 2011}
+
+% paths
+\graphicspath{{$HOME/texmf/graphics/}}
+
+
+% meta-data
+\pdfinfo{
+	/Title    (\labNum: \docTitle)
+	/Author   (\docAuthor)
+	/Keywords (\docTitle, \labNum)
+}
+
+% for fancy header
+\pagestyle{fancy}
+\lhead{\courseName\ $|$ \labSec}
+\chead{\labNum: \docTitle}
+\rhead{\docAuthor}
+\cfoot{\thepage\ of \pageref{LastPage}}
+
+% title info
+\title{\courseName\ \labNum: \\ \docTitle}
+\author{\docAuthor}
+\date{}
+
+% shortcuts, cause I'm lazy
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\tbf}[1]{\textbf{#1}}
+
+\begin{document}
+% Cover page written by Bryndon Blackburn
+\input{titlePage.tex}
+
+% Blank page so two-sided printing leaves the cover page on its own sheet
+\thispagestyle{empty}
+\newpage
+\mbox{}
+
+\maketitle
+\setcounter{page}{1} % fixes page numbering issues caused by cover sheet
+\tableofcontents % this helps
+\newpage
+
+\newpage % I want object to be at the top of a new page
+\section{Free Running Oscillator}
+\input{free_run.tex}
+
+\section{DC Sweep}
+
+\section{FM Modulation}
+
+\newpage
+\appendix
+\section{License}
+\input{license.tex}
+
+\end{document}
