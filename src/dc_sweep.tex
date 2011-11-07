@@ -1,0 +1,16 @@
+Next, a DC sweep will be performed on the circuit to view the effects of input
+voltage on the duty cycle.  This circuit will be based on the one shown in
+Figure~\ref{fig:dc_sweep}.
+%
+\begin{figure}[H]
+	\centering
+	%\includegraphics[width=.6\textwidth]{img/shot/dc_sweep.pdf}
+	\caption{DC sweep schematic shown in Figure~5B of the Intersil ICL8038 datasheet [1].  All component values are the same as in Figure~\ref{fig:free_run}}
+	\label{fig:dc_sweep}
+\end{figure}
+%
+In this configuration, the negative lead of a DC voltage is connected to pin~8.
+With all components as defined as in Figure~\ref{fig:dc_sweep}, the DC voltage
+is varied from~\SI{1}{\volt} to~\SI{8}{\volt} in steps of
+roughly~\SI{1}{\volt}.  When the input approaches eight volts, the output
+quality will degrade.
