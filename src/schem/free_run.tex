@@ -1,0 +1,21 @@
+\begin{circuitikz}
+	\draw[ultra thick] (-2, -1.5) rectangle (2, 1.5);
+	\draw
+	(-1.5, 1.5) node[below] {4} to [R, l=\SI{10}{\kilo\ohm}] ++(0, 1.5)
+		to [short, -o] (4, 3) node[right] {\SI{+10}{\volt}}
+	(0, 1.5) node[below] {5} to [R, l=\SI{10}{\kilo\ohm}] ++(0, 1.5)
+	(1.5, 1.5) node[below] {6} to [short] ++(0, 1.5)
+	(3, 3) to [R, l_=\SI{10}{\kilo\ohm}] ++(0, -2)
+
+	(2, 1) node[left] {9} to [short, -o] ++(2, 0)
+	(2, .5) node[left] {3} to [short, -o] ++(2, 0)
+		(3, .5) to [R, l=$R_\text{TRI}$] ++(0, -1) node[ground] {}
+	(2, -1) node[left] {2} to [short, -o] ++(2, 0)
+
+	(1.5, -1.5) node[above] {12} to [R, l=\SI{82}{\kilo\ohm}] ++(0, -1.5)
+	(0, -1.5) node[above] {11} to [short] ++(0, -1.5)
+	(-1.5, -1.5) node[above] {10} to [C, l=\SI{3.3}{\micro\farad}] ++(0, -1.5)
+		to [short, -o] (4, -3) node[right] {\SI{-10}{\volt}};
+
+
+\end{circuitikz}
