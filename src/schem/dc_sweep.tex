@@ -2,7 +2,7 @@
 	\draw[ultra thick] (-2, -1.5) rectangle (2, 1.5);
 	\draw[/tikz/circuitikz/bipoles/length=1cm]
 	(-1.5, 1.5) node[below] {4} to [R, l=\SI{10}{\kilo\ohm}] ++(0, 1.5)
-		to [short, -o] (4, 3) node[right] {\SI{+10}{\volt}}
+		to [short, -o] (4, 3) node[right] {$V+$}
 	(0, 1.5) node[below] {5} to [R, l=\SI{+10}{\kilo\ohm}] ++(0, 1.5)
 	(1.5, 1.5) node[below] {6} to [short] ++(0, 1.5)
 	(3, 3) to [R, l_=\SI{10}{\kilo\ohm}] ++(0, -1.5) to [short] ++(0, -.5)
@@ -10,7 +10,7 @@
 	(1.5, -1.5) node[above] {12} to [R, l=\SI{82}{\kilo\ohm}] ++(0, -1.5)
 	(0, -1.5) node[above] {11} to [short] ++(0, -1.5)
 	(-1.5, -1.5) node[above] {10} to [C, l=\SI{3.3}{\micro\farad}] ++(0, -1.5)
-		to [short, -o] (4, -3) node[right] {\SI{-10}{\volt}}
+		to [short, -o] (4, -3) node[right] {$V-$}
 
 	(-2, 0) node[right] {8} to [short, -o] ++(-.5, 0)
 		to [open, o-o, v^>={Sweep Voltage}] ++(0, 3) to [short, o-] ++(1, 0);
