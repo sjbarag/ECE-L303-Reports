@@ -1,0 +1,17 @@
+#1 V (p-p)
+#f(Hz)	delta t(us)		1/delta t(kHz)
+1		5.8				172.4
+1.5		7				142.9
+2		7				142.9
+
+#2 V (p-p)
+#f(Hz)	delta t(us)		1/delta t(kHz)
+1		12.2			81.97
+1.5		14.4			69.44
+2		15.0			66.67
+
+#3 V (p-p)
+#f(Hz)	delta t(us)		1/delta t(kHz)
+1		18.6			53.76
+1.5		21.6			46.3
+2		23.2			43.1
