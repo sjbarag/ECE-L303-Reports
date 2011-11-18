@@ -16,12 +16,12 @@
 \usetikzlibrary{shapes,arrows}
 
 % unused, but common for other experiments
-%\usepackage{rotating}                 % for sideways stuff!
+\usepackage{rotating}                 % for sideways stuff!
 %\usepackage{cancel}                   % for `canceling out' parts of equations. fancy!
 %\usepackage{mdwlist}                  % itemize* and friends
 %\usepackage{verbatim}                 % for \verbatiminput command and comment environment
-\usepackage[colorinlistoftodos]{todonotes}                % todo's, if used/needed
-%\usepackage{multirow}                 % for multi-row spans in tabular environment
+%\usepackage[colorinlistoftodos]{todonotes}                % todo's, if used/needed
+\usepackage{multirow}                 % for multi-row spans in tabular environment
 
 
 % values!
@@ -89,6 +89,9 @@
 
 \newpage
 \appendix
+\section{Tables}
+\input{a_tbl.tex}
+\newpage
 \section{References}
 \input{ref.tex}
 \section{License}
