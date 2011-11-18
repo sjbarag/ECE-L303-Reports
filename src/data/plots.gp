@@ -21,7 +21,7 @@ set ytics 30
 set y2range[0:55]
 set y2tics auto
 set title 'Free-running Oscillator: Varying Capacitor'
-set xlabel 'Capacitance, $C_A$ (\si{\micro\farad})'
+set xlabel 'Capacitance, $C_T$ (\si{\micro\farad})'
 set ylabel 'Output Frequency, $f$ (\si{\kilo\hertz})'
 set y2label 'Output Duty Cycle, (\si{\percent})'
 set grid
