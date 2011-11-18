@@ -144,8 +144,56 @@ to~\SI{50}{\percent} throughout this test, matching the value measured for
 a~\SI{5}{\volt} input.
 
 \subsection{Frequency Modulation}
-After reconfiguring the circuit to match the schematic shown in Figure~\ref{fig:freq_mod}, students recorded and measured
+After reconfiguring the circuit to match the schematic shown in
+Figure~\ref{fig:freq_mod}, students recorded and measured the variance in
+output period resulting from a sinusoidal input wave.  The results of such a
+test are shown in Figure~\ref{fig:freq_mod_period}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/plot/freq_mod.tex}
+	\parbox{.6\textwidth}{
+	\caption[Frequency Modulation --- Period Variance]{Recorded data for the
+	frequency modulated test.  Note that the period changes more drastically as
+	the amplitude of the signal increases.}
+	\label{fig:freq_mod_period}}
+\end{figure}
+%
+While the output period varied very little~(just~\SI{1.2}{\micro\second}) in
+the case of a~\SI{1}{\volt} sinusoid, the variance increased as the amplitude
+of the signal increased: a~\SI{2}{\volt} signal caused the period to increase
+by~\SI{2.8}{\micro\second}, and a~\SI{3}{\volt} sinusoid caused an increase
+of~\SI{4.6}{\micro\second}.
+%
+Oscilloscope screenshots for each of the three input amplitudes can be seen in
+Figures~\ref{fig:shot7} through~\ref{fig:shot9}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot7.png}
+	\parbox{.6\textwidth}{
+	\caption[Frequency Modulation --- \SI{1}{\volt} peak-to-peak]{Captured
+	output from the FM test, where the amplitude of the signal
+	was~\SI{1}{\volt} peak-to-peak.}
+	\label{fig:shot7}}
+\end{figure}
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot8.png}
+	\parbox{.6\textwidth}{
+	\caption[Frequency Modulation --- \SI{2}{\volt} peak-to-peak]{Captured
+	output from the FM test, where the amplitude of the signal
+	was~\SI{2}{\volt} peak-to-peak.}
+	\label{fig:shot8}}
+\end{figure}
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot9.png}
+	\parbox{.6\textwidth}{
+	\caption[Frequency Modulation --- \SI{3}{\volt} peak-to-peak]{Captured
+	output from the FM test, where the amplitude of the signal
+	was~\SI{3}{\volt} peak-to-peak.}
+	\label{fig:shot9}}
 \end{figure}
