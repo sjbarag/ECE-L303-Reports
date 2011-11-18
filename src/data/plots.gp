@@ -13,14 +13,14 @@ set terminal tikz color solid size 4.25in,2.25in
 
 # ---- Varying C ----
 set border 15
-set key center right width 1 box height 1
+set key bottom left width 1 box height 1
 set log x
 set log y
 set xrange[0.0001:5]
-set yrange[0.1:1000]
+set yrange[0.01:1000]
 set ytics auto
 set y2range[0:60]
-set y2tics 15
+set y2tics 12
 set title 'Free-running Oscillator: Varying Capacitor'
 set xlabel 'Capacitance, $C_T$ (\si{\micro\farad})'
 set ylabel 'Output Frequency, $f$ (\si{\kilo\hertz})'
