@@ -18,8 +18,8 @@ set log x
 set xrange[0.0001:5]
 set yrange[0:150]
 set ytics 30
-set y2range[0:55]
-set y2tics auto
+set y2range[0:60]
+set y2tics 12
 set title 'Free-running Oscillator: Varying Capacitor'
 set xlabel 'Capacitance, $C_T$ (\si{\micro\farad})'
 set ylabel 'Output Frequency, $f$ (\si{\kilo\hertz})'
