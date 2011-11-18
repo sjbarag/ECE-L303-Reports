@@ -104,10 +104,24 @@ duty cycle of the output wave will extend toward~\SI{100}{\percent}
 or~\SI{0}{\percent}, respectively.
 
 \subsection{DC Sweep}
+Next, the effects of a varying input voltage on the frequency of the output
+square wave were examined.  A graphical representation of the measured results
+can be seen in Figure~\ref{fig:dc_sweep_plot}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/plot/dc_sweep.tex}
+	\parbox{.6\textwidth}{
+	\caption[DC Sweep Results]{Measured results of varying the input
+	voltage~$V+$ on the frequency of the output square wave.}
+	\label{fig:dc_sweep_plot}}
 \end{figure}
+%
+Even without careful consideration, it is quite obvious that the output
+frequency increases linearly with increasing input voltage at a rate
+of~\SI{1.824}{\kilo\hertz\per\volt}.  This intuitively makes sense, as
+varying~$V+$ linearly varies the voltage across each of the~\SI{10}{\kilo\ohm}
+resistors shown in Figure~\ref{fig:dc_sweep} by Ohm's Law.
 
 \subsection{Frequency Modulation}
 \begin{figure}[H]
