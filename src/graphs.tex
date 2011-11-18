@@ -1,3 +1,6 @@
+In the interest of maintaining the flow and ease of readibility of this
+document, all measured data is tabulated in the Appendix.
+
 \subsection{Free Running Oscillator}
 After completing a full capacitance test, the recorded data was graphed, as
 shown in Figure~\ref{fig:free_run_c}.
@@ -76,8 +79,8 @@ be seen in Figure~\ref{fig:shot4}.
 \end{figure}
 %
 As is expected, the frequency~(\SI{10.72}{\kilo\ohm} here
-vs\.~\SI{10.97}{\kilo\ohm} previously) and duty cycle~(\SI{49.2}{\percent} here
-vs\.~\SI{48.7}{\percent} previously) match closely the values recorded for the
+vs.\ \SI{10.97}{\kilo\ohm} previously) and duty cycle~(\SI{49.2}{\percent} here
+vs.\ \SI{48.7}{\percent} previously) match closely the values recorded for the
 system when~$C_T$ was varied, under roughly the same element values.  As an
 extension of this test, students were asked to examine the fringe behavior of a
 varying $R_A$ when it grows to be too large.  A maximum value
@@ -121,9 +124,27 @@ Even without careful consideration, it is quite obvious that the output
 frequency increases linearly with increasing input voltage at a rate
 of~\SI{1.824}{\kilo\hertz\per\volt}.  This intuitively makes sense, as
 varying~$V+$ linearly varies the voltage across each of the~\SI{10}{\kilo\ohm}
-resistors shown in Figure~\ref{fig:dc_sweep} by Ohm's Law.
+resistors shown in Figure~\ref{fig:dc_sweep} by Ohm's Law.  An oscilloscope
+screenshot for the system fed with a~\SI{5}{\volt} DC signal is shown below in
+Figure~\ref{fig:shot5}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot5.png}
+	\parbox{.6\textwidth}{
+	\caption[DC Sweep at \SI{5}{\volt}]{Oscilloscope capture of the square wave
+	output during the DC sweep test, where the input voltage was set
+	to~\SI{5}{\volt}.  Note that the duty cycle remained
+	roughly~\SI{50}{\percent} across the entire range of input voltages.}
+	\label{fig:shot5}}
+\end{figure}
+%
+The duty cycle of the output square wave remained reasonably close
+to~\SI{50}{\percent} throughout this test, matching the value measured for
+a~\SI{5}{\volt} input.
 
 \subsection{Frequency Modulation}
+After reconfiguring the circuit to match the schematic shown in Figure~\ref{fig:freq_mod}, students recorded and measured
 \begin{figure}[H]
 	\centering
 	\input{img/plot/freq_mod.tex}
