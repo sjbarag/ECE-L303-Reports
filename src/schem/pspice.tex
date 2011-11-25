@@ -1,0 +1,16 @@
+\begin{circuitikz}
+	\draw
+	(0, 0) to [R, l=$R_0$, o-] ++(2.0, 0) coordinate (j1)
+	to [L, l=$L:$ $\frac{4 R_0}{3 \omega_c}$] ++(2.0, 0)
+	to [R, l=$R_L$] ++(2, 0) coordinate (j2)
+	to [short, -o] ++(2.0, 0)
+	% yeah, it's the golden ratio on the next uncommented line.  What are you
+	% gonna do about it?
+	to [open, v^=$V_o$, o-o] ++(0, -1.53)
+
+	(0, 0) to [open, v=$V_i$, o-o] ++(0, -1.53)
+	to [short, o-o] ++(8, 0)
+
+	(j1) to [C, l_=\small$C_1$: $\frac{1}{2 R_0 \omega_c}$] ++(0, -1.53)
+	(j2) to [C, l^=\small$C_2$: $\frac{3}{2 R_0 \omega_c}$] ++(0, -1.53);
+\end{circuitikz}
