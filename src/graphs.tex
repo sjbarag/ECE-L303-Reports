@@ -1,8 +1,33 @@
+\subsection{Impulse Response}
+After completing a simulation of the system's impulse response, the plot shown
+in Figure~\ref{f:impulseSim} was produced by PSpice.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/plot/impulsePlotSim.tex}
+	\parbox{.6\textwidth}{
+	\caption[Simulated Impulse Response]{PSpice representation of the impulse
+	response for the circuit shown in Figure~\ref{f:pspiceSchem}.  Note that
+	the square signal in red is the input to the system, whereas the green
+	curved signal is the output.}
+	\label{f:impulseSim}}
+\end{figure}
+%
+This same test was repeated for the constructed circuit shown in
+Figure~\ref{f:realSchem}, while measuring the output on the in-lab
+oscilloscope.  The resulting waveforms are shown in Figure~\ref{f:impulseReal}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.8\textwidth]{img/shot/squareWaveShot.png}
+	\parbox{.6\textwidth}{
+	\caption[Measured Impulse Response]{Results of the impulse response for a
+	square wave input, as measured by an oscilloscope.  In this screenshot, the
+	upper signal~(A1) is the input, while the lower~(A2) is the output.}
+	\label{f:impulseReal}}
 \end{figure}
 
+\subsection{Frequency Response}
 \begin{figure}[H]
 	\centering
 	\input{img/plot/bodePlotSim.tex}
