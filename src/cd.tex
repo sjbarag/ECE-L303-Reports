@@ -50,7 +50,22 @@ This circuit was tested with two inputs: a five volt square wave with a
 frequency equal to the target corner frequency~(\SI{363}{\hertz}), and a
 sinusoidal signal of varying frequency.
 
+\subsection{Measurement}
+When the simulation was complete, students first supplied a five-volt square
+wave at~\SI{363}{\hertz} to the system while measuring the input and output
+waveforms on the oscilloscope.  A~\SI{50}{\ohm} resistor was placed across the
+input terminals as shown in Figure~\ref{f:realSchem} in order to improve the
+input waveform, and it remained in place for the remaining tests.
+%
 \begin{figure}[H]
 	\centering
 	\input{schem/filter2.tex}
+	\label{f:realSchem}
 \end{figure}
+%
+Next, a one-volt sinusoidal wave was placed at the input terminals.  First with
+a frequency equal to~$f_c$, then with a frequency of~$10 \times f_c$ and
+finally with a frequency of~$\frac{1}{10} \times f_c$.  At each of the input
+frequencies, the input and output waveforms were measured and the gain of the
+system was calculated.  Finally, the frequency response of the low-pass filter
+was measured using the LabView Virtual Instrument~(VI) on the in-lab PC.
