@@ -55,8 +55,8 @@ set xtics auto
 set autoscale y
 set ytics auto
 # --- Simulated ---
-set key outside right center
-set title 'Simulated Impulse Response of Third-order Low Pass Filter'
+set key above center height 0.5
+set title 'Simulated Step Response of Third-order Low Pass Filter'
 set output "../img/plot/impulsePlotSim.tex"
 plot "pulseData.txt" using (1000*$1):3 with lines lw 2 title 'Input', \
 	"pulseData.txt" using (1000*$1):2 with lines lw 2 title 'Output'
