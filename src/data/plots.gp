@@ -11,6 +11,8 @@
 
 set terminal tikz color solid size 4.25in,2.25in
 
+# ===== Frequency Response =====
+
 # ---- Simulated ----
 set border 15
 unset key
@@ -44,3 +46,17 @@ plot "bodeData.txt" using 1:2 with lines lw 2 title 'Simulated', \
 	"labViewData.txt" using 1:5 with lines lw 2 title 'Measured', \
 	"matlabBodeData.txt" using 1:3 with lines lw 2 title 'Calculated'
 
+# ===== Square Wave =====
+set xlabel 'Time (\si{\milli\second})'
+set ylabel 'Voltage (\si{\volt})'
+unset log x
+set autoscale x
+set xtics auto
+set autoscale y
+set ytics auto
+# --- Simulated ---
+set key outside right center
+set title 'Simulated Impulse Response of Third-order Low Pass Filter'
+set output "../img/plot/impulsePlotSim.tex"
+plot "pulseData.txt" using (1000*$1):3 with lines lw 2 title 'Input', \
+	"pulseData.txt" using (1000*$1):2 with lines lw 2 title 'Output'
