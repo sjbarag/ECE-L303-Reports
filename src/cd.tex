@@ -17,13 +17,41 @@ After students completed their computation,~$R_0$ was found to
 be~\SI{513}{\ohm}, $C_1$ to be~\SI{142}{\nano\farad}, and~$C_2$ to
 be~\SI{427}{\nano\farad}.
 
+\subsection{Simulation}
+Students next obtained circuit components that were as close to the required
+values as possible.  The measured and required values are tabulated below in
+Table~\ref{t:components}.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/components.tex}
+	\parbox{.6\textwidth}{
+	\caption[Required and Measured Element Values]{Measured and required
+	element values for the circuit shown in Figure~\ref{f:prelabSchem}.  The
+	element~$R_L$ refers to the intrinsic resistance of the inductor.}
+	\label{t:components}}
+\end{table}
+%
+These element values were used to create a PSpice simulation, the schematic for
+which is shown in Figure~\ref{f:pspiceSchem}.  Note the presence of the
+element~$R_L$, which was used in PSpice to simulate the intrinsic resistance of
+the inductor.  This is reflected in the circuit schematic.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/pspice.tex}
+	\parbox{.6\textwidth}{
+	\caption[PSpice Circuit Diagram]{Circuit diagram used to produce the PSpice
+	simulations for the system's pulse response and its frequency response.}
+	\label{f:pspiceSchem}}
+\end{figure}
+%
+This circuit was tested with two inputs: a five volt impulse lasting for a time
+equal to half the period of the target corner
+frequency~($\frac{1}{\SI{363}{\hertz}} \cdot \frac{1}{2}$), and a sinusoidal
+signal of varying frequency.
 
 \begin{figure}[H]
 	\centering
 	\input{schem/filter2.tex}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\input{schem/pspice.tex}
 \end{figure}
