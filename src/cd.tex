@@ -1,6 +1,6 @@
 \subsection{Design}
 Students designed the appropriate circuit during the pre-lab phase of the
-experiment.  Given a target corner frequency of~\SI{363}{\hertz} and
+experiment.  Given a target corner frequency~$f_c$ of~\SI{363}{\hertz} and
 a~\SI{100}{\milli\henry} inductor, students calculated values for the
 capacitors~$C_1$ and~$C_2$ and the resistor~$R_0$ from the provided layout
 shown in Figure~\ref{f:prelabSchem}.
@@ -46,10 +46,9 @@ the inductor.  This is reflected in the circuit schematic.
 	\label{f:pspiceSchem}}
 \end{figure}
 %
-This circuit was tested with two inputs: a five volt impulse lasting for a time
-equal to half the period of the target corner
-frequency~($\frac{1}{\SI{363}{\hertz}} \cdot \frac{1}{2}$), and a sinusoidal
-signal of varying frequency.
+This circuit was tested with two inputs: a five volt square wave with a
+frequency equal to the target corner frequency~(\SI{363}{\hertz}), and a
+sinusoidal signal of varying frequency.
 
 \begin{figure}[H]
 	\centering
