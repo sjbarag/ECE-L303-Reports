@@ -34,10 +34,25 @@ effects of Gibbs' phenomena, in fact failing to exceed the amplitude of the
 input.
 
 \subsection{Frequency Response}
+% -117.523 - -57.519 dB/dec
+The frequency sweep simulation described above produced the plot shown in
+Figure~\ref{f:bodePlotSim}.
+%
 \begin{figure}[H]
 	\centering
 	\input{img/plot/bodePlotSim.tex}
+	\parbox{.6\textwidth}{
+	\caption[Simulated Bode Plot]{Resulting data from the PSpice simulation of
+	the third-order low pass filter for a sweeping input frequency.}
+	\label{f:bodePlotSim}}
 \end{figure}
+%
+As can be seen, the system's frequency response represents a low pass filter
+with a corner frequency near the target~$f_c$ of~\SI{363}{\hertz}.  The
+terminal slope of the linear region is equal
+to~\SI{-60.004}{\decibel\per dec}, which aligns with the expected behavior
+of an ideal third-order filter~(i.e.~\SI{20}{\decibel\per dec} for
+first-order,~\SI{40}{\decibel\per dec} for second-order, etc.).
 
 \begin{figure}[H]
 	\centering
