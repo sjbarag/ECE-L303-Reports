@@ -1,0 +1,86 @@
+\begin{circuitikz}
+	\tikzstyle{bottomPin} = [anchor=west, rotate=90]
+	\tikzstyle{topPin}    = [anchor=east, rotate=90]
+
+	% body
+	\draw[ultra thick] (-1.5,-1) rectangle (1.5,1);
+
+	% IC label
+	\draw (1.5, 1) node[anchor=north west] {LM723};
+
+	% top pins
+	\draw
+	( -1, 1) node[topPin] {Comp}
+	(-.5, 1) node[topPin] {V+}
+	(  0, 1) node[topPin] {$\text{V}_\text{C}$}
+	( .5, 1) node[topPin] {$\text{V}_\text{out}$}
+	(  1, 1) node[topPin] {$\text{V}_\text{Z}$}
+
+
+	% bottom pins
+	(-1.25, -1) node[bottomPin] {$\text{I}_\text{lim}$}
+	( -.75, -1) node[bottomPin] {$\text{I}_\text{sense}$}
+	( -.25, -1) node[bottomPin] {In--}
+	(  .25, -1) node[bottomPin] {In+}
+	(  .75, -1) node[bottomPin] {$\text{V}_\text{ref}$}
+	( 1.25, -1) node[bottomPin] {V--};
+
+	% lines
+	\draw
+	% C1
+	(-1,1) to [short] ++(0, .5)
+	to [short] ++(-1.5, 0)
+	to [C, l_=$C_1$: \SI{200}{\pico\farad}] ++(0, -3.5)
+	to [short, -*] ++(2.25, 0)
+
+	% Vin +
+	(-.5, 1) to [short] ++(0, 1)
+	to [short] ++(-3, 0)
+	to [short, -o] ++(0, .5) node[anchor=south] {$\text{V}_\text{in}$+}
+
+	% VC
+	(0, 1) to [short] ++(0, .5)
+	to [short, -*] ++(-.5, 0)
+
+	% Vout
+	(.5, 1) to [short] ++(0, .5)
+	to [short, -*] ++(3, 0) node (vout-junc) {}
+	to [short, -o] ++(0, 1) node[anchor=south] {$\text{V}_\text{out}$}
+
+	% In -
+	(-.25, -1) to [short] ++(0, -2)
+	to [short] ++(2.25, 0)
+	to [short] ++(0, 3)
+	to [short, -*] ++(1.5, 0)
+
+	% R3
+	(.25, -1) to [short] ++(0, -.5)
+	to [short] ++(-.25, 0)
+	to [short] ++(0, -.75)
+	to [R, l_=$R_3$: \SI{2}{\kilo\ohm}] ++(1.5, 0)
+	to [short] ++(0, .5)
+	to [short] ++(-.75, 0)
+	to [short] (.75, -1)
+
+	% V-
+	(1.25, -1) to [short] ++(0, -.5)
+	to [short, -*] ++(2.25, 0)
+
+	% vout -> ... -> Vin -
+	(vout-junc) to [R, l^=$R_1$] ++(0, -1.5)
+	to [R, l^=$R_2$] ++(0, -1.5)
+	to [short] ++(0, -2) node (gnd-right) {}
+	to [short] ++(-3.5, 0) node (gnd-left) {}
+	to [short] ++(-3.5, 0)
+	to [short, -o] ++(0, -.5) node[anchor=north] {$\text{V}_\text{in}$--}
+
+	% grounds
+	(gnd-right) to [short] ++(0, -.25) node[ground] {}
+	(gnd-left)  to [short] ++(0, -.25) node[ground] {};
+
+	% non-connected
+	\draw[-|] (-1.25, -1) -- ++(0, -.25);
+	\draw[-|] (-.75,  -1) -- ++(0, -.25);
+	\draw[-|] (   1,   1) -- ++(0,  .25);
+
+\end{circuitikz}

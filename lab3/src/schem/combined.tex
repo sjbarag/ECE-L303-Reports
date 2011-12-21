@@ -1,0 +1,133 @@
+\scalebox{.75}{ % comment this line if you want to put this on its own page in
+                % a sideways environment
+\begin{circuitikz}
+	\draw (0,0) node[transformer core] (T) {\qquad \SI{12}{\volt}}
+	(T.A2) to [short] ++(-.5, 0)
+	to [vsourcesin, l=\SI{120}{\volt} @ \SI{60}{\hertz}] ($(T.A1) - (.5,0)$)
+	to [short] (T.A1)
+	(T.base) node{10:1}
+
+	% bridge rectifier (left half)
+	(T.B1) to [short] ++(2.5,0) node (bridgeTop) {}
+	to [Do] ++(30pt,-30pt)  % gota love non-sane measurements
+	(T.B2) to [short] ++(2.5,0) node (bridgeBottom) {}
+	to [Do, -*] ++(30pt, 30pt)
+	% load resistor
+	to [short] ++(2,0) node (loadTop) {}
+	to [R, i=$i$, l=$R_\text{C}$] ++(0, -2) node[ground] (loadBottom) {}
+	to [short, *-] ++($(-2, 0) + (-60pt, 0)$)
+	% bridge rectifier (right half)
+	to [short] ++(0, 2) node (bridgeLeft) {}
+	to [Do, *-] (bridgeTop)
+	(bridgeLeft) to [Do] (bridgeBottom)
+
+	% output terminals
+	(loadTop) to [short, -o] ++(1, 0) node (rect-out+) {}
+	to [open] ++(0, -2) node (rect-out-) {}
+	to [short, o-] (loadBottom);
+
+	% capacitor
+	\draw[densely dashed]
+		($(loadTop) - (1, 0)$) to [C, l_=$C_1$ ] ($(loadBottom) - (1, 0)$);
+
+
+
+
+
+	\begin{scope}[shift={(12, -1.5)}]
+
+	\tikzstyle{bottomPin} = [anchor=west, rotate=90]
+	\tikzstyle{topPin}    = [anchor=east, rotate=90]
+
+	% body
+	\draw[ultra thick] (-1.5,-1) rectangle (1.5,1);
+
+	% IC label
+	\draw (1.5, 1) node[anchor=north west] {LM723};
+
+	% top pins
+	\draw
+	( -1, 1) node[topPin] {Comp}
+	(-.5, 1) node[topPin] {V+}
+	(  0, 1) node[topPin] {$\text{V}_\text{C}$}
+	( .5, 1) node[topPin] {$\text{V}_\text{out}$}
+	(  1, 1) node[topPin] {$\text{V}_\text{Z}$}
+
+
+	% bottom pins
+	(-1.25, -1) node[bottomPin] {$\text{I}_\text{lim}$}
+	( -.75, -1) node[bottomPin] {$\text{I}_\text{sense}$}
+	( -.25, -1) node[bottomPin] {In--}
+	(  .25, -1) node[bottomPin] {In+}
+	(  .75, -1) node[bottomPin] {$\text{V}_\text{ref}$}
+	( 1.25, -1) node[bottomPin] {V--};
+
+	% lines
+	\draw
+	% C1
+	(-1,1) to [short] ++(0, .5)
+	to [short] ++(-1.5, 0)
+	to [C, l_=$C_1$] ++(0, -3.5)
+	to [short, -*] ++(2.25, 0)
+
+	% Vin +
+	(-.5, 1) to [short] ++(0, 1)
+	to [short, -o] ++(-3, 0) node (ic-in+) {} node[anchor=south] {$\text{V}_\text{in}$+}
+
+	% VC
+	(0, 1) to [short] ++(0, .5)
+	to [short, -*] ++(-.5, 0)
+
+	% Vout
+	(.5, 1) to [short] ++(0, .5)
+	to [short, -*] ++(3, 0) node (vout-junc) {}
+	to [short, -o] ++(0, 1) node[anchor=south] {$\text{V}_\text{out}$}
+
+	% In -
+	(-.25, -1) to [short] ++(0, -2)
+	to [short] ++(2.25, 0)
+	to [short] ++(0, 3)
+	to [short, -*] ++(1.5, 0)
+
+	% R3
+	(.25, -1) to [short] ++(0, -.5)
+	to [short] ++(-.25, 0)
+	to [short] ++(0, -.75)
+	to [R, l_=$R_3$] ++(1.5, 0)
+	to [short] ++(0, .5)
+	to [short] ++(-.75, 0)
+	to [short] (.75, -1)
+
+	% V-
+	(1.25, -1) to [short] ++(0, -.5)
+	to [short, -*] ++(2.25, 0)
+
+	% vout -> ... -> Vin -
+	(vout-junc) to [R, l^=$R_1$] ++(0, -1.5)
+	to [R, l^=$R_2$] ++(0, -1.5)
+	to [short] ++(0, -2) node (gnd-right) {}
+	to [short] ++(-3.5, 0) node (gnd-left) {}
+	to [short, -o] ++(-3.5, 0) node (ic-in-) {} node[anchor=north] {$\text{V}_\text{in}$--}
+
+	% grounds
+	(gnd-right) to [short] ++(0, -.25) node[ground] {}
+	(gnd-left)  to [short] ++(0, -.25) node[ground] {};
+
+	% non-connected
+	\draw[-|] (-1.25, -1) -- ++(0, -.25);
+	\draw[-|] (-.75,  -1) -- ++(0, -.25);
+	\draw[-|] (   1,   1) -- ++(0,  .25);
+
+
+	\end{scope}
+
+	% interconnect  -- this is a major hack...
+	\draw (rect-out+) |- (ic-in+)
+	(rect-out+) to [short, o-] ++(0, .5)
+	(ic-in+) to [short, o-] ++(-.5, 0)
+	(rect-out-) |- (ic-in-)
+	(rect-out-) to [short, o-] ++(0, -.5)
+	(ic-in-) to [short, o-] ++(-.5, 0);
+
+\end{circuitikz}
+}

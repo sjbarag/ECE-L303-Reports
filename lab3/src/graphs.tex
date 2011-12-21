@@ -1,0 +1,203 @@
+\subsection{Rectifier Circuit}
+The rectifier circuit in Figure~\ref{fig:bridgeSchem} was tested in three
+configurations: once with no filter capacitor, once with a~\SI{1}{\micro\farad}
+capacitor, and once with a~\SI{100}{\micro\farad}.  Additionally, the
+peak-to-peak voltage, average voltage, and minimum voltage were measured using
+an oscilloscope in each configuration, a screenshot of which is shown in
+Figure~\ref{fig:rectShots}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[No capacitor]{\label{fig:noCapShot}\includegraphics[width=.3\textwidth]{img/shot/bridgeRectNoC.png}}
+	\quad
+	\subfloat[\SI{1}{\micro\farad} capacitor]{\label{fig:1uFCapShot}\includegraphics[width=.3\textwidth]{img/shot/bridgeRect1uF.png}}
+	\quad
+	\subfloat[\SI{100}{\micro\farad} capacitor]{\label{fig:100uFCapShot}\includegraphics[width=.3\textwidth]{img/shot/bridgeRect100uF.png}}
+
+	\parbox{.9\textwidth}{
+	\caption[Oscilloscope Screenshots --- Rectifier Circuit]{Various outputs of
+	the rectifier circuit shown in Figure~\ref{fig:bridgeSchem}.  Note that the
+	vertical scale in image~\subref{fig:100uFCapShot} is~\SI{.5}{\volt\per
+	div}, while the others are~\SI{5}{\volt\per div}.}
+	\label{fig:rectShots}}
+\end{figure}
+%
+Data measured by the oscilloscope matches almost exactly the output expected
+from the bridge rectifier shown in Figures~\ref{fig:bridgeRectOut}
+and~\ref{fig:bridgeRectOutFilt}.  As the size of the filtering capacitor
+increases, the output variation decreases.  For each rectifier circuit, the minimum, average, and maximum
+values of each waveform were recorded and tabulated into
+Table~\ref{tab:rectData}.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/rectData.tex}
+	\parbox{.6\textwidth}{
+	\caption[Rectifier data]{Tabulated data from the experiments on the bridge
+	rectifier.  Note the sharp decrease in peak-to-peak voltage introduced by
+	the filtering capacitor.}
+	\label{tab:rectData}
+	}
+\end{table}
+%
+The recorded values match what is expected of these circuits: as the capacitor
+value increases, peak-to-peak voltage decreases sharply, the average value
+increases, and the minimum value greatly increases (as a result of the previous
+two changes).
+
+
+\subsection{IC}
+Once this procedure has been completed, a~\SI{2.2}{\kilo\ohm} resistor was
+placed in parallel with both~$R_1$ and~$R_2$ to for an adequate load.  The
+source voltage was subsequently swept from~6 to~\SI{30}{\volt} in order to test
+the line regulation of the IC, or the amount of change in output per change in
+input.  Measurements at each step were recorded and plotted in
+Figure~\ref{fig:vrLineReg}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/vrLineReg.tex}
+	\parbox{4.25in}{
+	\caption[Plot --- Line regulation of LM723]{Measured data for the line
+	regulation tests on the LM723 circuit shown in Figure~\ref{fig:icSchem}.  The
+	source voltage was varied from~6 to~\SI{30}{\volt}, while holding a constant
+	load.}
+	\label{fig:vrLineReg}
+	}
+\end{figure}
+%
+In the flat region of the graph (from inputs of~\SI{10}{\volt}
+to~\SI{30}{\volt}), the maximum value is~\SI{8.06}{\volt} and the minimum value
+is~\SI{8.01}{\volt}.  By using the formula for line regulation in
+Equation~\eqref{eq:lineReg}
+%
+\begin{equation}
+	\text{Line Regulation} = \frac{\Delta V_\text{out}}{V_\text{out}} \times 100 \qquad \text{,}
+	\label{eq:lineReg}
+\end{equation}
+%
+the line regulation of the IC regulator on its own is calculated to
+be~\SI{5.02}{\percent}.
+
+By a similar process, the load regulation (change in output per change in load)
+of the IC was tested by using a static~\SI{18}{\volt} source and replacing the
+load resistor for a decade box.  This resistance was varied from~\SI{100}{\ohm}
+to~\SI{3.2}{\kilo\ohm}, and measurements were plotted in
+Figure~\ref{fig:vrLoadReg}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/vrLoadReg.tex}
+	\parbox{4.25in}{
+	\caption[Plot -- Load regulation of LM723]{Data recorded while testing the
+	load regulation of the LM723 circuit depicted in Figure~\ref{fig:icSchem}.
+	Unlike the line regulation tests, the source voltage was held constant
+	while the input resistance varied from~100 to~\SI{3200}{\ohm}.}
+	\label{fig:vrLoadReg}
+	}
+\end{figure}
+%
+Line regulation is calculated as in Equation~\eqref{eq:loadReg} by subtracting
+the output at the minimum load from the output at maximum load and dividing the
+difference by the output with a nominal load, or
+%
+\begin{equation}
+	\text{Load Regulation} = \frac{V_\text{max R} - V_\text{min R}}{V_\text{nominal}} \times 100 \qquad \text{.}
+	\label{eq:loadReg}
+\end{equation}
+%
+In the case of the voltage regulator IC on its own, the load regulation is
+equal to~$\frac{8.07-8.06}{8.06} \times 100$, or~\SI{0.12}{\percent}.
+
+
+\subsection{Full Regulator}
+Once the completed circuit was built as in Figure~\ref{fig:fullSchem}, the load
+regulation was again determined.  This time, however, the range of resistances
+was reduced to~100 to~\SI{2000}{\ohm}.  Output voltage measurements at each step are shown in Figure~\ref{fig:fullLoadReg}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/fullLoadReg.tex}
+	\parbox{4.25in}{
+	\caption[Plot --- Load regulation of combined circuit]{Load regulation data
+	for the completed voltage regulator circuit.  The load resistance varied in
+	this test from~\SI{100}{\ohm} to~\SI{2}{\kilo\ohm}.}
+	\label{fig:fullLoadReg}
+	}
+\end{figure}
+%
+Utilizing again Equation~\eqref{eq:loadReg}, the load regulation for the
+completed voltage regulator is calculated to be~$\frac{8.06-8.03}{8.06} \times
+100$, or just~\SI{0.37}{\percent}.
+
+\subsection{Graphical Measurements}
+After completing the load regulation measurements on the combined circuit, the
+oscilloscope was used to help compare the output of the transofmer, output of
+the filtered bridge rectifier, and the final output of the system.  Screenshots
+of these waveforms can be seen in Figure~\ref{fig:100uFshots}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[Transformer Output]{\label{fig:transOut100}\includegraphics[width=.3\textwidth]{img/shot/4a1.png}}
+	\quad
+	\subfloat[Rectifier Output]{\label{fig:rectOut100}\includegraphics[width=.3\textwidth]{img/shot/4a2.png}}
+	\quad
+	\subfloat[Regulator Output]{\label{fig:regOut100}\includegraphics[width=.3\textwidth]{img/shot/4a3.png}}
+
+	\parbox{.9\textwidth}{
+	\caption[Oscilloscope Screenshots --- Completed Circuit
+	w/\SI{100}{\micro\farad} Capacitor]{Outputs of each of the three stages in
+	the overall voltage amplifier with a~\SI{100}{\micro\farad} capacitor.
+	These shown the different transformations that the signal must undergo to
+	become the regulated output suitable for any DC purpose.  Note the
+	difference in vertical axis scaling for each output.}
+	\label{fig:100uFshots}
+	}
+\end{figure}
+%
+Each screenshot shows the minimum, average, and peak-to-peak voltage for the
+contained waveform.
+
+The capacitor~$C_1$ in the rectifier's filter was swapped out for
+the~\SI{1}{\micro\farad} capacitor used previously, and the same oscilloscope
+screenshots were taken.  These are shown in Figure~\ref{fig:1uFshots}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[Transformer Output]{\label{fig:transOut1}\includegraphics[width=.3\textwidth]{img/shot/4b1.png}}
+	\quad
+	\subfloat[Rectifier Output]{\label{fig:rectOut1}\includegraphics[width=.3\textwidth]{img/shot/4b2.png}}
+	\quad
+	\subfloat[Regulator Output]{\label{fig:regOut1}\includegraphics[width=.3\textwidth]{img/shot/4b3.png}}
+
+	\parbox{.9\textwidth}{
+	\caption[Oscilloscope Screenshots --- Completed Circuit
+	w/\SI{1}{\micro\farad} Capacitor]{Outputs of each of the three stages in
+	the overall voltage amplifier with a~\SI{1}{\micro\farad} filtering
+	capacitor.  These shown the different transformations that the signal must
+	undergo to become the regulated output suitable for any DC purpose.  Note
+	the difference in vertical axis scaling for each output, as well as the
+	differences from the images shown in Figure~\ref{fig:100uFshots}.}
+	\label{fig:1uFshots}
+	}
+\end{figure}
+%
+Clearly this configuration does not provided enough voltage for the IC to
+remain on, as there are flat spots in Figure~\ref{fig:regOut1} and a very large
+peak-to-peak variance remaining.
+
+The values depicted in the final sets of oscilloscope screenshots  have been
+combined into Tables~\ref{tab:100uFdata} and~\ref{tab:1uFdata}, below, for
+better ease of understanding and comparison.
+%
+\begin{table}[H]
+	\centering
+	\subfloat[\SI{100}{\micro\farad} Capacitor]{\label{tab:100uFdata}\input{tbl/100uFdata.tex}}
+	\quad
+	\subfloat[\SI{1}{\micro\farad} Capacitor]{\label{tab:1uFdata}\input{tbl/1uFdata.tex}}
+
+	\parbox{.8\textwidth}{
+	\caption[Tables --- Final Oscilloscope Data]{Final oscilloscope data for
+	the completed voltage regulator circuit.}
+	\label{tab:100uFdata}}
+\end{table}

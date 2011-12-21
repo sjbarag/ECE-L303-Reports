@@ -1,0 +1,141 @@
+Students built a full voltage regulator in two preliminary stages: one to test
+the bridge rectifier on its own, and one to test the voltage regulator IC.  The
+design process for each of these stages is explained below.
+
+\subsection{Bridge Rectifier}
+In order to output a constant DC voltage, the AC component of
+the~\SI{120}{\volt} input must first be removed.  After passing the input
+through a~10:1 transformer, the input signal is routed through a configuration
+of PN junctions known as a bridge rectifier.  This configuration allows current
+to flow through its output resistor in only one direction, thus removing the AC
+characteristics from the signal in favor of a varying DC one.  Such a circuit
+is shown in Figure~\ref{fig:bridgeSchem}.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/bridgeRect.tex}
+	\parbox{.6\textwidth}{
+	\caption[Schematic --- Bridge Rectifier]{Bridge rectifier schematic as
+	provided in the lab three instructions.  Note that $C_1$ is added at a
+	later period and is not part of the bridge rectifier circuit.}
+	\label{fig:bridgeSchem}}
+\end{figure}
+%
+The bridge rectifier configuration here was replaced with an IC that contains
+the same parts, and the value of~$R_C$ was provided as~\SI{1}{\kilo\ohm}.  The
+input and output of the bridge rectifier (after the signal passes through the
+transformer) is shown in Figure~\ref{fig:bridgeRectOut} for the case that the
+input signal is defined by~$12 \sin(60t)$.  Note the differences between this
+waveform and the half-wave rectifier built in lab one.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/theory-Bridge1.tex}
+	\parbox{.6\textwidth}{
+	\caption[Plot --- Unfiltered Bridge Rectifier Output]{Theoretical input and
+	output for a bridge rectifier such as the one shown in
+	Figure~\ref{fig:bridgeSchem}.  The input is shown in blue with a solid
+	line, whereas the output is shown in red with a dashed line.}
+	\label{fig:bridgeRectOut}
+	}
+\end{figure}
+%
+As is clearly shown, the period of the output signal is twice that of the
+input, or in this case~$\frac{1}{120}$\si{\second} and the average value of the
+output is, as intuition would dictate, also twice the average of the input,
+at~$V_\text{avg} = \frac{2 V_p}{\pi}$.  Conversely, the peak value of the
+output is calculated using the same method as the input,
+where~$V_P=\sqrt{2}V_\mathrm{RMS}$.
+
+\subsection{Filtered Rectifier}
+The bridge rectifier shown in Figure~\ref{fig:bridgeSchem} does not by any
+means resemble a constant DC voltage.  To fix this, a filtering capacitor
+(drawn in dashed lines) is installed in parallel with the load resistor.  If
+the value of the capacitor is chosen such that the time constant~$RC$ is much
+larger than the period~$T$ of the signal it filters, then a significant
+improvement in output consistency results, as displayed in
+Figure~\ref{fig:bridgeRectOutFilt}.  In the experiment, the value of~$C_1$ was
+provided twice: once as~\SI{1}{\micro\farad} and as~\SI{100}{\micro\farad}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/theory-Bridge2.tex}
+	\parbox{.6\textwidth}{
+	\caption[Plot --- Filtered Bridge Rectifier Output]{Output of the filtered
+	bridge rectifier; waveform A depicts a large~RC value compared to~$T$,
+	while waveform B depicts a small one.}
+	\label{fig:bridgeRectOutFilt}
+	}
+\end{figure}
+%
+Whereas in the unfiltered case the average value of the output was~$\frac{2
+V_p}{\pi}$, the DC level of the filtered signal is measured as halfway between
+the maximum and minimum values shown in Figure~\ref{fig:bridgeRectOutFilt}.
+Additionally, the ``ripple voltage,''~$V_r$ is greatly reduced here, as it is
+calculated by~$V_\text{max} - V_\text{min}$.  This is a tremendous improvement
+over the bridge rectifier alone, but will be improved further by passing this
+output to an~LM723 voltage regulation IC.
+
+\subsection{IC}
+The voltage regulator integrated circuit was provided on a breakout board with
+several of its external components already installed.  Students were provided
+with a nominal value for~$R_2$ of~\SI{10}{\kilo\ohm}, and were told to
+calculate~$R_1$ based on the measured value of~$V_\text{ref}$ and the design
+goal of~$V_\text{out} = $\SI{8}{\volt}, using the equation
+%
+\begin{equation}
+	V_\text{out} = \frac{R_1 + R_2}{R_2} V_\text{ref} \qquad \text{.}
+	\label{eq:calcR1}
+\end{equation}
+%
+After adjusting a~\SI{2}{\kilo\ohm} potentiometer to the correct value, the
+circuit shown in Figure~\ref{fig:icSchem} was built, utilizing the provided
+breakout board for the IC, input and output connections,~$C_1$, and~$R_3$.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/ic.tex}
+	\parbox{.6\textwidth}{
+	\caption[Schematic --- Voltage Regulator IC]{Voltage regulator integrated
+	circuit schematic, as provided by the lab instructions.~$R_1$ was
+	calculated by the student based on the reference voltage of his or her
+	specific breakout board, whereas the value of~$R_2$ was provided
+	as~\SI{2}{\kilo\ohm}.}
+	\label{fig:icSchem}
+	}
+\end{figure}
+%
+This board was initially powered by a constant DC signal of~\SI{18}{\volt} from
+the lab power supply, thus ensuring that the IC functioned correctly with the
+chosen values.  This also allowed the value of~$R_1$ to be tuned further,
+providing an output of~\SI{8}{\volt}.  Once this procedure had been completed,
+a resistor was placed in parallel with both~$R_1$ and~$R_2$ to provide an
+adequate load and the line regulation (change in output per change in input)
+was calculated.  Finally, the load regulation (change in output per change in
+load) was calculated by replacing the varying source for a static one, and the
+static load resistor for a decade box.
+
+The results of both the load and line regulation tests can be seen in
+Figures~\ref{fig:vrLineReg} and~\ref{fig:vrLoadReg}.
+
+\subsection{Full Regulator}
+At this point in the experiment, the completed voltage regulator was ready to
+be constructed by simply wiring the output of the filtered bridge rectifier to
+the input of the IC breakout board.  This circuit is shown in
+Figure~\ref{fig:fullSchem} for clarity.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/combined.tex}
+	\parbox{.6\textwidth}{
+	\caption[Schematic --- Combined Rectifier and IC]{Combined schematic for
+	the voltage regulator.  The initial stage is comprised of the bridge
+	rectifier in Figure~\ref{fig:bridgeSchem}, the output of which goes to the
+	second stage consisting of the IC in Figure~\ref{fig:icSchem}.}
+	\label{fig:fullSchem}
+	}
+\end{figure}
+%
+The load regulation for this circuit was measured, using a decade box across
+resistors one and two to modulate the load.  Results of this resistance sweep
+are plotted in Figure~\ref{fig:fullLoadReg}.
