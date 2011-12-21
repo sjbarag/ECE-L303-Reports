@@ -1,0 +1,199 @@
+In the interest of maintaining the flow and ease of readibility of this
+document, all measured data is tabulated in the Appendix.
+
+\subsection{Free Running Oscillator}
+After completing a full capacitance test, the recorded data was graphed, as
+shown in Figure~\ref{fig:free_run_c}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/free_run_c.tex}
+	\parbox{.6\textwidth}{
+	\caption[Free Running Oscillator --- Varying $C_T$]{Recorded data for the
+	varying capacitance test for a free running oscillator.  Note that the duty
+	cycle remains reasonably constant above~\SI{0.01}{\micro\farad}, while the
+	frequency decreases continuously.}
+	\label{fig:free_run_c}}
+\end{figure}
+%
+As is shown, the measured output frequency decreases linearly as the
+capacitance increases (when plotted on a logarithmic scale), at a rate of
+approximately~\SI{44.5}{\kilo\hertz\per\micro\farad}.  This is in line with the
+expected behavior dictated by~\eqref{eq:t0_even}.  Similarly, the output's duty
+cycle remains roughly constant for values over~\SI{0.01}{\micro\farad}, varying
+at a rate of just~\SI{0.06}{\percent\per\micro\farad}.  Figure~\ref{fig:shot1}
+shows the output signal for both a square wave and a triangular wave where the
+value of~$C_T$ is~\SI{0.01}{\micro\farad}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot1.png}
+	\parbox{.6\textwidth}{
+	\caption[Free Running Oscillator --- Varying~$C_T$ at~\SI{49.9}{\percent}
+	Duty Cycle]{Oscilloscope capture of the triangular and square wave outputs
+	of the VCO for a capacitance of~\SI{0.01}{\micro\farad}.  Note that the
+	maximums of the triangular wave are synchronized with the rising edge of
+	the square wave, implying an equal frequency for each.}
+	\label{fig:shot1}}
+\end{figure}
+%
+It is significant to note that the triangular wave has the same period as the
+square wave in this screenshot, and that this will occur for all configurations
+of the VCO.  As such, the triangular wave is omitted from all future
+screenshots, as instructed by the course director.  While this configuration is
+not an ideal~\SI{50}{\percent} duty cycle, it occurs at the capacitance above which
+the duty cycle changes very little.  Additionally, said capacitance is one
+element below the median value of the tested data set.
+
+Similarly, the results of a varied resistance~$R_A$ can be seen in
+Figure~\ref{fig:free_run_r}, below.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/free_run_r.tex}
+	\parbox{.6\textwidth}{
+	\caption[Free Running Oscillator --- Varying $R_A$]{Measured data for a
+	varied resistance, as measured by an in-lab oscilloscope.}
+	\label{fig:free_run_r}}
+\end{figure}
+%
+In a striking contrast to the varying capacitor, a varying resistor shows a
+consistently varying duty cycle and frequency.  This is expected behavior,
+however, as described by~\eqref{eq:t0}.  It is interesting to note here the
+peak value of the output frequency~(\SI{10.72}{\kilo\hertz} occurred at a
+resistance of~\SI{10}{\kilo\hertz}, as this is also where the duty cycle was
+measured closest to~\SI{50}{\percent}, at~\SI{49.2}{\percent}.
+As~\SI{10}{\kilo\ohm} is the value of~$R_A$ used in the varying-capacitance
+case~(which produced a roughly fifty-percent duty cycle for more than half of
+its test range), this intuitively makes sense.  The waveform at this point can
+be seen in Figure~\ref{fig:shot4}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot4.png}
+	\parbox{.6\textwidth}{
+	\caption[Free Running Oscillator --- Varying $R_A$ at \SI{49.2}{\percent}
+	Duty Cycle]{Screenshot of the free-running oscillator when the timing
+	resistor $R_A$ is set at~\SI{10}{\kilo\ohm}}
+	\label{fig:shot4}}
+\end{figure}
+%
+As is expected, the frequency~(\SI{10.72}{\kilo\ohm} here
+vs.\ \SI{10.97}{\kilo\ohm} previously) and duty cycle~(\SI{49.2}{\percent} here
+vs.\ \SI{48.7}{\percent} previously) match closely the values recorded for the
+system when~$C_T$ was varied, under roughly the same element values.  As an
+extension of this test, students were asked to examine the fringe behavior of a
+varying $R_A$ when it grows to be too large.  A maximum value
+of~\SI{100}{\kilo\ohm} was used, and another oscilloscope screenshot was
+captured.  It is shown here in Figure~\ref{fig:shot3}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot3.png}
+	\parbox{.6\textwidth}{
+	\caption[Free Running Oscillator --- Varying $R_A$ at \SI{95.2}{\percent}
+	Duty Cycle]{Edge-case behavior for a varying~$R_A$, showing a drastic
+	change in duty cycle for a resistance change of just one order of
+	magnitude.}
+	\label{fig:shot3}}
+\end{figure}
+%
+The captured oscilloscope data for the edge case of a varying timing resistor
+shows that the data trends observed in Figure~\ref{fig:free_run_r} continue to
+hold true for a much larger range of values.  What's more, this result shows
+the importance of properly managing the value of the timing resistor.  If it
+grows too large or, by extrapolation of the existing trends, too small, the
+duty cycle of the output wave will extend toward~\SI{100}{\percent}
+or~\SI{0}{\percent}, respectively.
+
+\subsection{DC Sweep}
+Next, the effects of a varying input voltage on the frequency of the output
+square wave were examined.  A graphical representation of the measured results
+can be seen in Figure~\ref{fig:dc_sweep_plot}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/dc_sweep.tex}
+	\parbox{.6\textwidth}{
+	\caption[DC Sweep Results]{Measured results of varying the input
+	voltage~$V+$ on the frequency of the output square wave.}
+	\label{fig:dc_sweep_plot}}
+\end{figure}
+%
+Even without careful consideration, it is quite obvious that the output
+frequency increases linearly with increasing input voltage at a rate
+of~\SI{1.824}{\kilo\hertz\per\volt}.  This intuitively makes sense, as
+varying~$V+$ linearly varies the voltage across each of the~\SI{10}{\kilo\ohm}
+resistors shown in Figure~\ref{fig:dc_sweep} by Ohm's Law.  An oscilloscope
+screenshot for the system fed with a~\SI{5}{\volt} DC signal is shown below in
+Figure~\ref{fig:shot5}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot5.png}
+	\parbox{.6\textwidth}{
+	\caption[DC Sweep at \SI{5}{\volt}]{Oscilloscope capture of the square wave
+	output during the DC sweep test, where the input voltage was set
+	to~\SI{5}{\volt}.  Note that the duty cycle remained
+	roughly~\SI{50}{\percent} across the entire range of input voltages.}
+	\label{fig:shot5}}
+\end{figure}
+%
+The duty cycle of the output square wave remained reasonably close
+to~\SI{50}{\percent} throughout this test, matching the value measured for
+a~\SI{5}{\volt} input.
+
+\subsection{Frequency Modulation}
+After reconfiguring the circuit to match the schematic shown in
+Figure~\ref{fig:freq_mod}, students recorded and measured the variance in
+output period resulting from a sinusoidal input wave.  The results of such a
+test are shown in Figure~\ref{fig:freq_mod_period}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/freq_mod.tex}
+	\parbox{.6\textwidth}{
+	\caption[Frequency Modulation --- Period Variance]{Recorded data for the
+	frequency modulated test.  Note that the period changes more drastically as
+	the amplitude of the signal increases.}
+	\label{fig:freq_mod_period}}
+\end{figure}
+%
+While the output period varied very little~(just~\SI{1.2}{\micro\second}) in
+the case of a~\SI{1}{\volt} sinusoid, the variance increased as the amplitude
+of the signal increased: a~\SI{2}{\volt} signal caused the period to increase
+by~\SI{2.8}{\micro\second}, and a~\SI{3}{\volt} sinusoid caused an increase
+of~\SI{4.6}{\micro\second}.
+%
+Oscilloscope screenshots for each of the three input amplitudes can be seen in
+Figures~\ref{fig:shot7} through~\ref{fig:shot9}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot7.png}
+	\parbox{.6\textwidth}{
+	\caption[Frequency Modulation --- \SI{1}{\volt} peak-to-peak]{Captured
+	output from the FM test, where the amplitude of the signal
+	was~\SI{1}{\volt} peak-to-peak.}
+	\label{fig:shot7}}
+\end{figure}
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot8.png}
+	\parbox{.6\textwidth}{
+	\caption[Frequency Modulation --- \SI{2}{\volt} peak-to-peak]{Captured
+	output from the FM test, where the amplitude of the signal
+	was~\SI{2}{\volt} peak-to-peak.}
+	\label{fig:shot8}}
+\end{figure}
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/shot9.png}
+	\parbox{.6\textwidth}{
+	\caption[Frequency Modulation --- \SI{3}{\volt} peak-to-peak]{Captured
+	output from the FM test, where the amplitude of the signal
+	was~\SI{3}{\volt} peak-to-peak.}
+	\label{fig:shot9}}
+\end{figure}

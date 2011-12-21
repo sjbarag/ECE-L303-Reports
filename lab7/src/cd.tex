@@ -1,0 +1,92 @@
+\subsection{Free Running Oscillator}
+A free-running oscillator was first created by using the schematic shown in
+Figure~\ref{fig:free_run}.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/free_run.tex}
+	\parbox{.6\textwidth}{
+	\caption[Free Running Oscillator Schematic]{Free-running oscilloscope circuit schematic, as provided in Figure~1 of the
+	Intersil datasheet for an ICL8038 integrated circuit [1].}
+	\label{fig:free_run}}
+\end{figure}
+%
+Using this circuit, the period of the output signal can be calculated by using~\eqref{eq:t0}:
+%
+\begin{equation}
+	T_0 = \frac{3}{2} R_A C_T \left[ 1 + \frac{R_B}{2R_A - R_B} \right] \quad \text{,}
+	\label{eq:t0}
+\end{equation}
+%
+where only~$R_A$ and~$C_T$ are external to the provided circuit and available
+to modify.  In the case that~$R_A = R_B$, the duty cycle of the square wave
+output becomes exactly~\SI{50}{\percent}, and the frequency calculation
+simplifies to that shown in~\eqref{eq:t0_even}.
+%
+\begin{equation}
+	T_0 = 3 R_A C_T
+	\label{eq:t0_even}
+\end{equation}
+%
+Testing the possible output frequencies is possible by fixing~$C_T$ at the
+suggested value of~\SI{3.3}{\nano\farad} and varying~$R_A$.  In order to view
+all three cases for $R_A$~(where~$R_A < R_B$,~$R_A = R_B$, and~$R_A > R_B$), it
+should be varied from~\SI{6}{\kilo\ohm} to~\SI{20}{\kilo\ohm} in steps
+of~\SI{2}{\kilo\ohm} while measuring the output frequency and duty cycle at
+each stage.  This allows several steps before and after the critical point
+of~$R_A = R_B$, so that students may view the effects of a varying resistance.
+
+Similarly, $R_A$ can be fixed to~\SI{10}{\kilo\ohm}~(the same as~$R_B$) while
+varying~$C_T$.  This ensures a constant duty cycle of~\SI{50}{\percent} over
+different values for the timing capacitor.  It is suggested that~$C_T$ is
+varied from~\SI{100}{\pico\farad} to~\SI{3.3}{\micro\farad} in three steps per
+order of magnitude, while using an oscilloscope to measure the output frequency
+at each step.  By~\eqref{eq:t0_even}, the frequency will vary linearly with
+changing capacitance.
+
+\subsection{DC Sweep}
+Next, a DC sweep was performed on the circuit to view the effects of input
+voltage on the duty cycle.  This circuit was based on the one shown in
+Figure~\ref{fig:dc_sweep}.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/dc_sweep.tex}
+	\parbox{.6\textwidth}{
+	\caption[DC Sweep Schematic]{DC sweep schematic shown in Figure~5B of the Intersil ICL8038
+	datasheet [1].  All component values are the same as in
+	Figure~\ref{fig:free_run}}
+	\label{fig:dc_sweep}}
+\end{figure}
+%
+In this configuration, the negative lead of a DC voltage was connected to pin~8.
+With all components as defined as in Figure~\ref{fig:dc_sweep}, the DC voltage
+was varied from~\SI{0}{\volt} to~\SI{8}{\volt} in steps of
+roughly~\SI{1}{\volt}.  When the input approaches eight volts, the output
+quality will degrade.
+
+\subsection{FM Modulation}
+Finally, the voltage-controlled oscillator was fed a frequency modulated
+sinusoid.  The results of the DC sweep imply the expected result for
+this test, in which the duty cycle of the output oscillates.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/freq_mod.tex}
+	\parbox{.6\textwidth}{
+	\caption[Frequency Modulation Schematic]{Schematic for a frequency-modulated voltage-controlled oscillator
+	as provided in the Intersil datasheet for an ICL8038 IC [1].  All
+	previously-used components are unchanged, and the new resistor and
+	capacitor are~\SI{10}{\kilo\ohm} and~\SI{10}{\micro\farad}, respectively.}
+	\label{fig:freq_mod}}
+\end{figure}
+%
+For this experiment all previously-used components were unchanged, and the new
+resistor and capacitor are~\SI{10}{\kilo\ohm} and~\SI{10}{\micro\farad},
+respectively.  In this case, the amplitude of the input signal determines the
+frequency of the output, which will vary from~\SI{1}{\volt} to~\SI{3}{\volt} in
+one-volt increments.  For each of these amplitudes, the input frequency
+varied from~\SI{1}{\hertz} to~\SI{2}{\hertz} in half-hertz steps.  This allowed
+students to view the effects of a varying amplitude on the output frequency,
+while observing the effects of a varying input frequency on the rate of change
+of the output's duty cycle.

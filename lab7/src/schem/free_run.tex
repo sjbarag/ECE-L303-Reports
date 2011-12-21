@@ -1,0 +1,41 @@
+\begin{circuitikz}
+	\draw[ultra thick] (-2, -1.5) rectangle (2, 1.5);
+	\draw (0,0) node {ICL8038};
+	\draw[/tikz/circuitikz/bipoles/length=1cm]
+	(-1.5, 1.5) node[below] {4} to [R, l=$R_A$: \SI{10}{\kilo\ohm}] ++(0, 1.5)
+		to [short, -o] (4, 3) node[right] {\SI{+10}{\volt}}
+	(0, 1.5) node[below] {5} to [R, l=\SI{+10}{\kilo\ohm}] ++(0, 1.5)
+	(1.5, 1.5) node[below] {6} to [short] ++(0, 1.5)
+	(3, 3) to [R, l_=\SI{10}{\kilo\ohm}] ++(0, -1.5) to [short] ++(0, -.5)
+
+	(1.5, -1.5) node[above] {12} to [R, l=\SI{82}{\kilo\ohm}] ++(0, -1.5)
+	(0, -1.5) node[above] {11} to [short] ++(0, -1.5)
+	(-1.5, -1.5) node[above] {10} to [C,  l_=$C_T$: \SI{3.3}{\nano\farad}] ++(0, -1.5)
+		to [short, -o] (4, -3) node[right] {\SI{-10}{\volt}}
+
+	(-2, 0) node[right] {8} to [short] ++(-.5, 0)
+		to [short] ++(0, 1) to [short] ++(.5, 0) node[right] {7};
+
+	% short stuff on the side
+	\draw[/tikz/circuitikz/bipoles/length=.75cm]
+	(2, 1) node[left] {9} to [short, -o] ++(2, 0)
+	(2, .5) node[left] {3} to [short, -o] ++(2, 0)
+		(3, .5) to [R, l=$R_\text{TRI}$] ++(0, -1) node[ground] {}
+	(2, -1) node[left] {2} to [short, -o] ++(2, 0)
+		(3, -1) to [R, l=$R_\text{SINE}$] ++(0, -1) node[ground] {};
+
+	% square wave
+	\draw[thick]
+	(4.2, .85) -- ++(.1, 0) -- ++(0, .3)
+		-- ++(.2, 0) -- ++(0, -.3) -- ++(.2, 0) -- ++(0, .3)
+		-- ++(.2, 0) -- ++(0, -.3) -- ++(.1, 0);
+
+	% triangle
+	\draw[thick]
+	(4.2, .5) -- ++(.1, .15) -- ++(.2, -.3) -- ++(.2, .3) -- ++(.2, -.3) --  ++(.1, .15);
+
+	% sinusoid
+	\draw[thick]
+	(4.2, -1) sin ++(.1, .15) cos ++(.1, -.15) sin ++(.1, -.15) cos ++(.1, .15)
+		sin ++(.1, .15) cos ++(.1, -.15) sin ++(.1, -.15) cos ++(.1, .15);
+\end{circuitikz}
