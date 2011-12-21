@@ -1,0 +1,142 @@
+\begin{tikzpicture}[node distance=.5cm, auto, >=latex']
+   \tikzstyle{off}=[rectangle, draw, minimum width=4em, minimum height=1em]
+   \tikzstyle{on} =[rectangle, draw=red, fill=red, minimum width=4em, minimum height=1em]
+
+   % bar one
+   \begin{scope}
+   	% outer box
+   	\draw (-2.5em,1em) rectangle (2.5em,-11em);
+
+   	% labels -- ONLY DO THESE ONCE
+   	\draw (-2.5em, 1em) node[left] {LSB};
+   	\draw (-2.5em,-11em) node[left] {MSB};
+
+   	% led bars
+   	\node[on] (bit0) {};
+   	\node[on,  below of=bit0] (bit1) {};
+   	\node[on,  below of=bit1] (bit2) {};
+   	\node[on, below of=bit2] (bit3) {};
+
+   	\node[on, below of=bit3] (bit4) {};
+   	\node[on, below of=bit4] (bit5) {};
+   	\node[on, below of=bit5] (bit6) {};
+   	\node[on,  below of=bit6] (bit7) {};
+
+   	% voltage
+   	\node[below of=bit7, yshift=-.5em] (voltage) {\SI{0}{\volt}};
+
+   	% bit mask
+   	\node[below of=voltage] (bitMask) {\texttt{0000 0000}};
+   \end{scope}
+
+   \begin{scope}[xshift = 2.5cm]
+   	% outer box
+   	\draw (-2.5em,1em) rectangle (2.5em,-11em);
+
+   	% led bars
+   	\node[off] (bit0) {};
+   	\node[off, below of=bit0] (bit1) {};
+   	\node[on,  below of=bit1] (bit2) {};
+   	\node[on,  below of=bit2] (bit3) {};
+
+   	\node[off, below of=bit3] (bit4) {};
+   	\node[off, below of=bit4] (bit5) {};
+   	\node[on,  below of=bit5] (bit6) {};
+   	\node[on,  below of=bit6] (bit7) {};
+
+   	% voltage
+   	\node[below of=bit7, yshift=-.5em] (voltage) {\SI{1}{\volt}};
+
+   	% bit mask
+   	\node[below of=voltage] (bitMask) {\texttt{0011 0011}};
+   \end{scope}
+
+   \begin{scope}[xshift = 5cm]
+   	% outer box
+   	\draw (-2.5em,1em) rectangle (2.5em,-11em);
+
+   	% led bars
+   	\node[on] (bit0) {};
+   	\node[off, below of=bit0] (bit1) {};
+   	\node[off, below of=bit1] (bit2) {};
+   	\node[on,  below of=bit2] (bit3) {};
+
+   	\node[on,  below of=bit3] (bit4) {};
+   	\node[off, below of=bit4] (bit5) {};
+   	\node[off, below of=bit5] (bit6) {};
+   	\node[on,  below of=bit6] (bit7) {};
+
+   	% voltage
+   	\node[below of=bit7, yshift=-.5em] (voltage) {\SI{2}{\volt}};
+
+   	% bit mask
+   	\node[below of=voltage] (bitMask) {\texttt{0110 0110}};
+   \end{scope}
+
+   \begin{scope}[xshift = 7.5cm]
+   	% outer box
+   	\draw (-2.5em,1em) rectangle (2.5em,-11em);
+
+   	% led bars
+   	\node[on] (bit0) {};
+   	\node[on,  below of=bit0] (bit1) {};
+   	\node[off, below of=bit1] (bit2) {};
+   	\node[off, below of=bit2] (bit3) {};
+
+   	\node[off, below of=bit3] (bit4) {};
+   	\node[off, below of=bit4] (bit5) {};
+   	\node[on,  below of=bit5] (bit6) {};
+   	\node[on,  below of=bit6] (bit7) {};
+
+   	% voltage
+   	\node[below of=bit7, yshift=-.5em] (voltage) {\SI{3}{\volt}};
+
+   	% bit mask
+   	\node[below of=voltage] (bitMask) {\texttt{0011 1100}};
+   \end{scope}
+
+   \begin{scope}[xshift = 10cm]
+   	% outer box
+   	\draw (-2.5em,1em) rectangle (2.5em,-11em);
+
+   	% led bars
+   	\node[on] (bit0) {};
+   	\node[on,  below of=bit0] (bit1) {};
+   	\node[off, below of=bit1] (bit2) {};
+   	\node[off, below of=bit2] (bit3) {};
+
+   	\node[on,  below of=bit3] (bit4) {};
+   	\node[on,  below of=bit4] (bit5) {};
+   	\node[off, below of=bit5] (bit6) {};
+   	\node[off, below of=bit6] (bit7) {};
+
+   	% voltage
+   	\node[below of=bit7, yshift=-.5em] (voltage) {\SI{4}{\volt}};
+
+   	% bit mask
+   	\node[below of=voltage] (bitMask) {\texttt{1100 1100}};
+   \end{scope}
+
+   \begin{scope}[xshift = 12.5cm]
+   	% outer box
+   	\draw (-2.5em,1em) rectangle (2.5em,-11em);
+
+   	% led bars
+   	\node[off] (bit0) {};
+   	\node[on,  below of=bit0] (bit1) {};
+   	\node[on,  below of=bit1] (bit2) {};
+   	\node[off, below of=bit2] (bit3) {};
+
+   	\node[on,  below of=bit3] (bit4) {};
+   	\node[off, below of=bit4] (bit5) {};
+   	\node[off, below of=bit5] (bit6) {};
+   	\node[off, below of=bit6] (bit7) {};
+
+   	% voltage
+   	\node[below of=bit7, yshift=-.5em] (voltage) {\SI{5}{\volt}};
+
+   	% bit mask
+   	\node[below of=voltage] (bitMask) {\texttt{1110 1001}};
+   \end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,37 @@
+An $n$-bit analog-to-digital converter functions --- at least at a high level --- by mapping a capped range of input voltages~(typically starting at zero and ending at some full-scale voltage~$V_\text{FS}$) into~$2^n$ discrete, non-intersecting values, sometimes labeled~$V_i$.  The output voltage is simply the largest discretized voltage that the input exceeds.  Because an analog input voltage is being represented by one of a finite set of discrete values, the index~$i$ of the corresponding output~$V_i$ can be expressed as a series of~$2^n$ binary bits.
+
+When the input is a time-varying signal, the converter samples the input at a regular frequency~$f_s$, producing a new output as previously described for each sample.  An example of such a sampling and the digital output signal can be seen in Figure~\ref{fig:theory}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[Analog input]{\label{fig:theoryAnalog}\input{img/theoryA.tex}}
+	\subfloat[Discrete output]{\label{fig:theoryDiscrete}\input{img/theoryB.tex}}
+
+	\parbox{.8\textwidth}{
+	\caption[Theory Plots]{Theoretical input and output for an analog-to-digital signal.  This is not a very accurate representation as the sampling frequency~$f_s$ and resolution are fairly large, leading to a loss of information.}
+	\label{fig:theory}}
+\end{figure}
+%
+While the digital output of this arbitrary signal resembles the input, it is clearly not very accurate.  This is a combined result of the resolution and sampling frequency being far too low.  An increased resolution~(here only 3-bits, or~$2^3 = 8$ possible values) would allow the maximum value of the signal located at~$t_4$ to be represented, eliminating the flat region between~$t_2$ and~$t_7$.  Likewise, increasing the sampling frequency would prevent a value from being skipped as~$V_3$ is at~$t_{10}$.
+
+In order to simplify the process of using an ADC integrated circuit~(IC), a preconstructed circuit was provided to students~(the schematic for which is shown in Figure~\ref{fig:adcSchem}).
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/adc.tex}
+	\parbox{.8\textwidth}{
+	\caption[ADC Schematic]{Provided schematic for implenting an ADC0804 IC to construct a correctly-functioning analog-to-digital converter.  This system was available as a pre-assembled circuit.  As such, students were only responsible for operating the converter correctly.}
+	\label{fig:adcSchem}}
+\end{figure}
+%
+While this circuit looks daunting at first, there were primarily four things students were required to understand:  pin~6~($V_\text{IN}+$), pin~9~($V_\text{REF}$), pins~11 through~18~(the LED outputs), and pin~20~($V_\text{CC}$).
+
+\begin{description}
+	\item[Pin 6]{Pin six is the interface between the ADC and the input signal.  For this experiment it was either a DC voltage supply or a function generator.}
+
+	\item[Pin 9]{The voltage at~$V_\text{REF}$ is used to determine the full-scale voltage, previously defined as~$V_\text{FS}$.  If left un-connected,~$V_\text{FS}$ defaults to~$V_\text{CC}$, or the ADC's drive voltage; if connected to a voltage source,~$V_\text{FS}$ is set to twice the voltage measured at pin nine.  This allows the circuit to be driven at a TTL-compliant~\SI{5}{\volt} while measuring voltages that are comparatively much lower, ensuring that the device does not turn off.}
+
+	\item[Pins 11-18]{Pins eleven through eighteen represent the LED outputs of the system, used to display a binary value corresponding to the sampled input voltage~(where pin 11 is the least-significant bit.) The configuration of the LEDs is notable here, as they share a common~\SI{5}{\volt} source and are turned on by pulling the corresponding pin to ground.  While this is counter-intuitive as far as binary logic is concerned, it is necessary.  Had the LEDs been installed with a common ground in place of the~\SI{5}{\volt} source, the ADC IC would not be able to source enough current~(roughly~\SI{40}{\milli\ampere}) for the case that all LEDs would be on.  By using the IC to sink said current, all devices will remain undamaged.}
+
+	\item[Pin 20]{Pin twenty is the source voltage~$V_\text{CC}$ of the entire system, used to drive both the IC and the LEDs.  It was tuned in-lab for the given experiment to ensure that all elements function properly.}
+\end{description}
