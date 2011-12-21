@@ -1,0 +1,75 @@
+\subsection{Design}
+Students designed the appropriate circuit during the pre-lab phase of the
+experiment.  Given a target corner frequency~$f_c$ of~\SI{363}{\hertz} and
+a~\SI{100}{\milli\henry} inductor, students calculated values for the
+capacitors~$C_1$ and~$C_2$ and the resistor~$R_0$ from the provided layout
+shown in Figure~\ref{f:prelabSchem}.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/filter.tex}
+	\parbox{.6\textwidth}{
+	\caption[Prelab Circuit Diagram]{Provided circuit schematic for a third-order low pass filter.}
+	\label{f:prelabSchem}}
+\end{figure}
+%
+After students completed their computation,~$R_0$ was found to
+be~\SI{513}{\ohm}, $C_1$ to be~\SI{142}{\nano\farad}, and~$C_2$ to
+be~\SI{427}{\nano\farad}.
+
+\subsection{Simulation}
+Students next obtained circuit components that were as close to the required
+values as possible.  The measured and required values are tabulated below in
+Table~\ref{t:components}.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/components.tex}
+	\parbox{.6\textwidth}{
+	\caption[Required and Measured Element Values]{Measured and required
+	element values for the circuit shown in Figure~\ref{f:prelabSchem}.  The
+	element~$R_L$ refers to the intrinsic resistance of the inductor.}
+	\label{t:components}}
+\end{table}
+%
+These element values were used to create a PSpice simulation, the schematic for
+which is shown in Figure~\ref{f:pspiceSchem}.  Note the presence of the
+element~$R_L$, which was used in PSpice to simulate the intrinsic resistance of
+the inductor.  This is reflected in the circuit schematic.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/pspice.tex}
+	\parbox{.6\textwidth}{
+	\caption[PSpice Circuit Diagram]{Circuit diagram used to produce the PSpice
+	simulations for the system's pulse response and its frequency response.}
+	\label{f:pspiceSchem}}
+\end{figure}
+%
+This circuit was tested with two inputs: a five volt square wave with a
+frequency equal to the target corner frequency~(\SI{363}{\hertz}), and a
+sinusoidal signal of varying frequency.
+
+\subsection{Measurement}
+When the simulation was complete, students first supplied a five-volt square
+wave at~\SI{363}{\hertz} to the system while measuring the input and output
+waveforms on the oscilloscope.  A~\SI{50}{\ohm} resistor was placed across the
+input terminals as shown in Figure~\ref{f:realSchem} in order to improve the
+input waveform, and it remained in place for the remaining tests.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/filter2.tex}
+	\parbox{.6\textwidth}{
+	\caption[Constructed Circuit Diagram]{Circuit schematic used for all
+	measurements.  Note that $R_\text{in}$ was initially not used, but was
+	placed in the circuit after the initial square wave test.}
+	\label{f:realSchem}}
+\end{figure}
+%
+Next, a one-volt sinusoidal wave was placed at the input terminals.  First with
+a frequency equal to~$f_c$, then with a frequency of~$10 \times f_c$ and
+finally with a frequency of~$\frac{1}{10} \times f_c$.  At each of the input
+frequencies, the input and output waveforms were measured and the gain of the
+system was calculated.  Finally, the frequency response of the low-pass filter
+was measured using the LabView Virtual Instrument~(VI) on the in-lab PC.

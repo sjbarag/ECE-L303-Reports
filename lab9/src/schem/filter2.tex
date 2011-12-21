@@ -1,0 +1,20 @@
+\begin{circuitikz}
+	\draw
+	(-1.25, 0) to [short, o-] (0, 0)
+	to [R, l=\SI{502}{\ohm}] ++(2.25, 0) coordinate (j1)
+	to [L, l=\SI{97.6}{\milli\henry}] ++(2.0, 0) coordinate (j2)
+	to [short, -o] ++(2.0, 0)
+	% yeah, it's the golden ratio on the next uncommented line.  What are you
+	% gonna do about it?
+	to [open, v^=$V_o$, o-o] ++(0, -1.53)
+
+	(-1.25, 0) to [open, v=$V_i$, o-o] ++(0, -1.53)
+	to [short, o-o] ++(7.25, 0)
+
+	(j1) to [C, l_=\small\SI{147.24}{\nano\farad}] ++(0, -1.53)
+	(j2) to [C, l^=\small\SI{420.2}{\nano\farad}] ++(0, -1.53);
+
+	\draw[dashed, color=gray] (-.25, 0) to [R, l_=\footnotesize\SI{48.2}{\ohm}] ++(0, -1.53);
+	% want more dashes?  Uncomment the next line and comment the previous one.
+%	\draw[densely dashed, color=gray] (-.25, 0) to [R, l_=$R_\text{in}$] ++(0, -1.53);
+\end{circuitikz}

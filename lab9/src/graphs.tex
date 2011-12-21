@@ -1,0 +1,114 @@
+\subsection{Step Response}
+After completing a simulation of the system's step response, the plot shown
+in Figure~\ref{f:stepSim} was produced by PSpice.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/impulsePlotSim.tex}
+	\parbox{.6\textwidth}{
+	\caption[Simulated Step Response]{PSpice representation of the step
+	response for the circuit shown in Figure~\ref{f:pspiceSchem}.  Note that
+	the square signal in red is the input to the system, whereas the green
+	curved signal is the output.}
+	\label{f:stepSim}}
+\end{figure}
+%
+This same test was repeated for the constructed circuit shown in
+Figure~\ref{f:realSchem}, while measuring the output on the in-lab
+oscilloscope.  The resulting waveforms are shown in Figure~\ref{f:stepReal}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.8\textwidth]{img/shot/squareWaveShot.png}
+	\parbox{.6\textwidth}{
+	\caption[Measured Step Response]{Results of the step response for a
+	square wave input, as measured by an oscilloscope.  In this screenshot, the
+	upper signal~(A1) is the input, while the lower~(A2) is the output.}
+	\label{f:stepReal}}
+\end{figure}
+%
+While there are similarities between the two resulting output signals, it is
+significant to note that the simulated response exhibits Gibbs phenomena on the
+leading transition of every wave, while the measured output does not show any
+effects of Gibbs' phenomena, in fact failing to exceed the amplitude of the
+input.
+
+\subsection{Frequency Response}
+% -117.523 - -57.519 dB/dec
+The frequency sweep simulation described above produced the plot shown in
+Figure~\ref{f:bodePlotSim}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/bodePlotSim.tex}
+	\parbox{.6\textwidth}{
+	\caption[Simulated Bode Plot]{Resulting data from the PSpice simulation of
+	the third-order low pass filter for a sweeping input frequency.}
+	\label{f:bodePlotSim}}
+\end{figure}
+%
+As can be seen, the system's frequency response represents a low pass filter
+with a corner frequency near the target~$f_c$ of~\SI{363}{\hertz}.  The
+terminal slope of the linear region is equal
+to~\SI{-60.004}{\decibel\per dec}, which aligns with the expected behavior
+of an ideal third-order filter~(i.e.~\SI{20}{\decibel\per dec} for
+first-order,~\SI{40}{\decibel\per dec} for second-order, etc.).
+
+When considering the calculated properties of the third-order low pass filter,
+MATLAB produces the plot shown in Figure~\ref{f:bodePlotCalc}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/bodePlotCalc.tex}
+	\parbox{.6\textwidth}{
+	\caption[Calculated Bode Plot]{MATLAB-generated Bode plot for the
+	third-order low pass filter.  Note the similarities to the PSpice-generated
+	one.}
+	\label{f:bodePlotCalc}}
+\end{figure}
+%
+% - 60.0141
+Similar to the PSpice-produced plot, MATLAB's resulting Bode plot has a
+terminal slope of~\SI{-60.0141}{\decibel\per dec}.  As explained above, this is
+reasonably close to the expected behavior of~\SI{-60}{\decibel\per dec} for a
+third-order filter.  Additionally, the corner frequency appears to be near the
+target value of~\SI{363}{\hertz}.
+
+Finally, the LabView output~(shown in Figure~\ref{f:bodePlotMeas} was
+examined to determine if the physical filter's characteristics matched the
+simulated and calculated ones.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/bodePlotMeas.tex}
+	\parbox{.6\textwidth}{
+	\caption[Measured Bode Plot]{LabView-produced data for the constructed
+	third-order low pass filter.  It is significant to note that the in-lab
+	oscilloscope is not capable of measuring values with sufficient precision,
+	resulting in the flat portion just below~\SI{30}{\decibel}.}
+	\label{f:bodePlotMeas}}
+\end{figure}
+%
+The frequency response of the system shown above is limited by the in-lab
+equipment, which can not measure the output voltage with sufficient precision
+to continue the negative trend to the upper bound of the testing range.  This
+results in a horizontal component to the gain trend for frequencies above a
+certain value, and a decreased slope of only~\SI{-22.1166}{\decibel\per dec}
+for the linear region that remains.  This slope suggests that the circuit is
+actually first-order, despite the designed characteristics.
+
+When considering all three sources of frequency response on a single set of
+axes, Figure~\ref{f:bodePlotComposite} results.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/bodePlotComposite.tex}
+	\parbox{.6\textwidth}{
+	\caption[Composite Bode Plot]{Composite plot of all frequency responses.
+	Note the discrepancy between the measured and calculated curves.}
+	\label{f:bodePlotComposite}}
+\end{figure}
+%
+As is clear, the resulting curves are all similar until
+roughly~\SI{3000}{\hertz}, above which the measured values no longer decrease.
+This is a result of the limited precision of the oscilloscopes.
