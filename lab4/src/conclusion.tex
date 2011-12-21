@@ -1,0 +1,18 @@
+In conclusion, a functioning --- albeit slightly limited --- sine wave
+generator was successfully constructed.  While it can output a wide range of
+amplitudes while changing the frequency by
+just~\SI{0.027}{\kilo\hertz\per\volt}, the frequency of the signal is very much
+fixed limited by the constant-value elements that were used.  Despite changing
+the load resistance, no significant variance in output frequency was achieved,
+though this did serve to modulate the output amplitude.  It should be noted
+that the circuit is not safe for loads less than~\SI{1}{\kilo\ohm}, as the
+feedback voltage is not large enough to maintain a stable comparison by the
+opamp.
+
+In order to vary the frequency, either all of the capcitors or all of the
+fixed-value resistors in this circuit would need to be adjusted simultaneously.
+However, the constructed system produced a sinusoidal signal with a frequency
+just~\SI{2.87}{\percent} below the designed value at~\SI{3.205}{\kilo\hertz},
+likely as a result of the use of a non-ideal operational amplifier and the
+small capacitance that exists in the coaxial oscilloscope cables, as well as
+the minor difference between ideally-matched element values.

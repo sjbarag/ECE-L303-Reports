@@ -1,0 +1,169 @@
+After confirming that the operational amplifier circuit was functioning
+correctly, students built the circuit in Figure~\ref{fig:weinBridgeSchem},
+using resistors of size~\SI{10}{\kilo\ohm} for all elements except~$R_3$, which
+was represented by a~\SI{25}{\kilo\ohm} potentiometer.  The specific value
+of~$R_4$ was measured on the in-lab digital voltage meters, allowing students
+to tune~$R_3$ to exactly twice the value of~$R_4$ via the same meter.  While it
+was not possible to dynamically tune the capacitance to a required value,
+students used an assortment of capacitor combinations to create a balanced pair
+of elements as near the calculated~\SI{4.822}{\nano\farad} as possible.
+
+Once constructed, the output of the circuit was monitored on an oscilloscope.
+It was expected to not be functioning properly, so the value of~$R_3$ was
+adjusted further until an accurate sine waveform was produced.  The resulting
+output with a correctly-tuned system is shown in Figure~\ref{fig:goodShot}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/pt2shot.png}
+	\parbox{.6\textwidth}{
+	\caption[Oscilloscope Screenshot --- Functioning System]{Oscilloscope
+	screenshot of a correctly-tuned sine wave generator, based on the system
+	shown in Figures~\ref{fig:blockDiag} and~\ref{fig:weinBridgeSchem}.  Note
+	the frequency of~\SI{3.205}{\kilo\hertz}, which is just~\SI{2.87}{\percent}
+	below the expected value.}
+	\label{fig:goodShot}}
+\end{figure}
+%
+The output voltage was measured peak-to-peak to be~\SI{21.56}{\volt}, below the
+logical upper-limit of the~\SI{25}{\volt} supply.  Similarly, the output
+frequency was just below the~\SI{3.3}{\kilo\hertz} frequency for which the
+system was designed at~\SI{3.205}{\kilo\hertz}  By using~\eqref{eq:frequency}
+with the average of the measured values, the expected frequency was
+re-calculated:
+%
+\begin{align*}
+	R_\text{avg} &= \frac{R_1 + R_2 + R_4}{3}
+	             = \frac{\SI{9.97}{\kilo\ohm} + \SI{9.96}{\kilo\ohm} + \SI{9.95}{\kilo\ohm}}{3}
+				 = \SI{9.96}{\kilo\ohm}\\
+	C_\text{avg} &= \frac{C_1 + C_2}{2}
+				 = \frac{\SI{4.839}{\nano\farad} + \SI{4.808}{\nano\farad}}{2}
+				 = \SI{4.823}{\nano\farad}
+\end{align*}
+thus
+\begin{equation*}
+	f_0 = \frac{1}{2 \pi R_\text{avg} C_\text{avg}}
+		= \frac{1}{2 \pi (\SI{9.96}{\kilo\ohm}) (\SI{4.823}{\nano\farad})}
+		= \SI{3.312}{\kilo\hertz}
+\end{equation*}
+%
+Because this value is so close to the designed value, it is clear that the
+aforementioned element variance had only a very minor effect on the output
+frequency.  In fact, students subsequently varied the resistance across the
+potentiometer~$R_3$ to monitor its contribution to the output waveform.
+Oscilloscope screenshots were captured when the potentiometer was adjusted both
+higher and lower than its correctly-tuned resistance of~\SI{20.149}{\kilo\ohm},
+and can be seen in Figure~\ref{fig:badPotShots}.
+%
+\begin{figure}[H]
+	\centering
+	\subfloat[Potentiometer too low]{\label{fig:badPotLow}\includegraphics[width=.4\textwidth]{img/shot/pt3lowShot.png}}
+	\quad
+	\subfloat[Potentiometer too high]{\label{fig:badPotHigh}\includegraphics[width=.4\textwidth]{img/shot/pt3hiShot.png}}
+
+	\parbox{.8\textwidth}{
+	\caption{Output of two improperly-tuned~$R_3$ potentiometers.  Note in the
+	case of~\subref{fig:badPotLow} that the output only momentarily looks like
+	this, as it becomes simply noise soon after.  Also note the clipping that
+	occurs in~\subref{fig:badPotHigh}.}
+	\label{fig:badPotShots}}
+\end{figure}
+%
+When the potentiometer was tuned too low, the output amplitude shrinks very
+quickly to merely noise, resembling only momentarily the wave shown in
+Figure~\ref{fig:badPotLow}.  When the potentiometer was tuned too high as in
+Figure~\ref{fig:badPotHigh}, a wave of proper frequency was created, but the
+waveform became clipped due to the limited supply voltage.
+
+Much as it was important in experiment three for the voltage regulator to
+function properly at different source voltages, it is equally important for the
+sine wave generator to create a usable signal for varying sources.  This was
+tested by varying the opamp's DC power supply voltage~(shown as a
+static~\SI{25}{\volt} in Figure~\ref{fig:weinBridgeSchem}'s schematic)
+from~\SI{30}{\volt} down to~\SI{5}{\volt} and monitoring the effects of the
+output frequency and voltage.  Results of this voltage sweep are shown in
+Table~\ref{tab:vSweepData} and Figure~\ref{fig:vSweepPlot}.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/vSweepData.tex}\\
+	\parbox{.6\textwidth}{
+	\caption[Voltage Sweep Data]{Data recorded from the voltage sweep,
+		measuring the peak-to-peak voltage~($V_\mathrm{P-P}$) and
+		frequency~($f$) on an oscilloscope as a function of the power supply
+		voltage~($V_\mathrm{PS}$).}
+	\label{tab:vSweepData}}
+\end{table}
+%
+This data shows that regardless of the input voltage, the output frequency will
+remain roughly unchanged, increasing just~\SI{0.68}{\kilo\hertz} over the
+course of the voltage sweep, or~\SI{-0.027}{\kilo\hertz\per\volt}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/plot/vSweep.tex}
+	\parbox{4.25in}{
+	\caption[Voltage Sweep Plot]{Plotted measurements from a supply voltage
+	sweep.  The measured values from this test are in
+	Table~\ref{tab:vSweepData}.  Note that the output voltage increases
+	linearly with the supply voltage, while the frequency remains nearly
+	constant.}
+	\label{fig:vSweepPlot}}
+\end{figure}
+%
+As is expected, the peak-to-peak voltage of the output signal decreases with
+the supply voltage.  This is a direct result of the characteristics of an
+operational amplifier, a device that outputs a voltage somewhere between its
+two supply nodes ---~$V_\text{PS}$ and~0, in this case.  An oscilloscope
+screenshot was captured for each step of the sween, some of which are shown in
+Figure~\ref{fig:vSweepPlots} this document's appendix.
+
+The effects of an increase in resistance for resistor~$R_1$ were examined as
+well.  Since this was a fixed-value element, its resistance was increased by
+simply warming it between the student's fingers.  As its temperature (and thus
+resistance) increased, the output voltage decreased by roughly~\SI{0.5}{\volt}
+and the output signal's frequency increased by roughly~\SI{0.02}{\kilo\hertz}.
+While these are not major changes, their existence shows the importance of
+using stable and accurate resistors.
+
+Just as the load regulation was tested for the voltage regulator, the effect of
+a varying load on the sine wave generator was tested.  Using a decade box to
+provide the resistance, the value of~$R_L$ between node~$V_2$ and ground was
+varied from~\SI{100}{\kilo\ohm} down to~\SI{100}{\ohm}.  The results of this
+resistance sweep, measuring the output voltage and frequency at each step, are
+shown in Table~\ref{tab:rSweepData}.
+%
+\begin{table}[H]
+	\centering
+	\input{tbl/rSweepData.tex}\\
+	\parbox[Resistance Sweep Data]{.6\textwidth}{
+	\caption{Measured values from the load regulation tests.  Note that at a
+	load of~\SI{100}{\ohm}, a sine wave is not actually produced, but the
+	output does oscillate.}
+	\label{tab:rSweepData}
+	}
+\end{table}
+%
+As is shown, the frequency again remains nearly constant, while the
+peak-to-peak output voltage decreases with decreasing load.  It is interesting
+to note, however, the case of a~\SI{100}{\ohm} resistor.  In this
+configuration, the output no longer resembles a sine function, but instead the
+signal shown in Figure~\ref{fig:lowLoad}.
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/shot/pt5_100Shot.png}
+	\parbox{.6\textwidth}{
+	\caption[Oscilloscope Screenshot --- Insufficient Load]{Oscilloscope output
+	for an insufficient load resistance.  Note that while the signal does not
+	greatly resemble a sine wave, it does oscillate.}
+	\label{fig:lowLoad}
+	}
+\end{figure}
+%
+This abnormal and unexpected output is the result of a detrimnetal feedback
+loop.  Because the load is low, the output will also be low, forcing a low
+feedback signal; because the feedback signal is low, the output must be again
+lowered.  As a result, this circuit is not suitable for loads
+below~\SI{1}{\kilo\ohm}.  Oscilloscope captures of the other resistor
+configurations are shown in Figure~\ref{fig:rSweepPlots} of the appendix.

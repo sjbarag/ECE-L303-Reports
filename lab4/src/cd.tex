@@ -1,0 +1,83 @@
+The generation of a sine wave signal is based on the properties of the feedback
+loop generally described in Figure~\ref{fig:blockDiag}.  When the forward and
+feedback circuits are balanced properly, an evenly formed sine wave will be
+produced.  However, when they are out of balance, the two stages will not
+oscillate at an even rate and will create a malformed signal.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/block.tex}\\
+	\parbox{.6\textwidth}{
+	\caption[Feedback Block Diagram]{Block diagram of the feedback system being
+		used to create a sine wave generator.  Signal~$A(s)$ will later be
+		represeted by the opamp and resistors~$R_3$ and~$R_4$;~$B(s)$ will be
+		provided by the two resistor-capacitor combinations (one series and one
+		parallel) forming the positive feedback loop.}
+	\label{fig:blockDiag}}
+\end{figure}
+%
+To build the actual oscillator, signal~$V_1$ was replaced by a constant voltage
+source.  Blocks~$A(s)$ and~$B(s)$ were created by separate parts of the opamp
+circuit shown in Figure~\ref{fig:weinBridgeSchem}.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/weinBridge.tex}\\
+	\parbox{.6\textwidth}{
+	\caption[Wein Bridge Feedback Oscillator]{Circuit schematic for the Wein
+		Bridge feedback oscillator, as provided in the lab four instructions.}
+	\label{fig:weinBridgeSchem}}
+\end{figure}
+%
+The negative feedback loop formed by resistors~$R_3$ and~$R_4$ represents
+the~``forward circuit''~$A(s)$ in the block diagram.  Similarly, the positive
+feedback loop comprised of the two~RC combinations is represented by
+the~``feedback circuit''~$B(s)$ in the block diagram.  Because of the
+properties of an operational amplifier, we show the device as the summing
+function in Figure~\ref{fig:blockDiag}.
+
+In order to properly balance such a circuit, the lab instructions provide
+that~$K$, the forward voltage gain of~$A(s)$, must be equal to three.
+Because~$K$ is also equal to one plus the ratio of~$R_3$ to~$R_4$, the
+resulting ratio of~$R_3$ to~$R_4$ is defined by
+%
+\begin{align}
+	K = 3 &= 1 + \frac{R_3}{R_4} \nonumber
+\intertext{or }
+	R_3 &= 2 R_4 \quad \text{.} \label{eq:r3-r4}
+\intertext{It is is also provided that resistors~$R_1$,~$R_2$, and~$R_4$ will
+all have a common resistance~$R$, so that}
+	R_1 = R_2 &= R_4 = R \quad \text{,} \nonumber
+\intertext{thus}
+	R_3 &= 2 R	\label{eq:r3-r} \quad \text{.}
+\end{align}
+%
+The resistance of~$R$ was given as~\SI{10}{\kilo\ohm} in the lab instructions,
+with the specific tolerance of~1\%, and~$R_3$ was replaced with
+a~\SI{25}{\kilo\ohm} potentiometer, allowing for a precise balance of
+resistance.  These details are significant because any difference in resistance
+will decrease the symmetry of oscillation, resulting in a malformed --- or even
+non-existent --- output sine waveform.
+
+The frequency of oscillation was provided to students as being calculated by
+%
+\begin{equation}
+	f_0 = \frac{1}{2 \pi R C} (\si{\hertz}) \quad \text{,}
+	\label{eq:frequency}
+\end{equation}
+%
+where~$R$ is as described above and~$C$ represents the value of either of the
+two capacitors included in Figure~\ref{fig:weinBridgeSchem}.  As the design
+goal for this experiment was~$f_0 =
+$\SI{3.3}{\kilo\hertz},~\eqref{eq:frequency} can be used to determine the
+correct capacitance required:
+%
+\begin{align*}
+	C &= \frac{1}{2 \pi R f_0} \\
+	  &= \frac{1}{2 \pi \left(10\times10^3\right) \left(3.3\times10^3\right)} \\
+	  &= \SI{4.822}{\nano\farad} \quad \text{.}
+\end{align*}
+%
+Students were tasked with finding a pair of capacitors that would match this
+value as close as possible, using parallel combinations of different sizes if
+necessary.
