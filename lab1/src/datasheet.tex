@@ -1,0 +1,100 @@
+\subsection{Rectifier}
+The half wave rectifier was built according to the provided schematic (recreated
+in Figure~\ref{fig:schem1}, where the value of the resistor was provided
+as~\SI{1}{\kilo\ohm} in the instructions.  The input voltage was calculated by
+multiplying the specified average voltage of~\SI{5.6}{\volt}DC by~$\pi$ as
+shown in Equation~\ref{eq:v_avg}.  This resulted in a peak voltage
+of~\SI{17.6}{\volt}DC.
+%
+\begin{equation}
+	V_\text{avg} = \frac{V_p}{\pi}
+	\label{eq:v_avg}
+\end{equation}
+%
+To calculate the AC signal's root-mean-square (RMS) value, the peak voltage was
+then divided by~$\sqrt{2}$, as shown in Equation~\ref{eq:rms}.
+%
+\begin{equation}
+	V_\text{RMS} = \frac{V_p}{\sqrt{2}}
+	\label{eq:rms}
+\end{equation}
+%
+The resulting calculations provided a designed input of~\SI{12.2}{\volt} (RMS).
+Using an oscilloscope in combination with a variac transformer, the input was
+adjusted to be as close to this value as possible. Data for the half-wave
+rectifier was captured by the oscilloscope.  Due to the large number of
+measurements taken, it is available by request to
+\texttt{sean.barag@gmail.com}.  Additionally, an I-V curve was traced in the
+lab and can be found in Figure~\ref{fig:diodeCurve}.
+
+\subsection{Logic Indicator}
+The logic indicator was built entirely to the specifications provided by the
+course instructors.  Using a~\SI{300}{\ohm} resistor in series with the LED
+allows for the required current of~\SI{15}{\milli\ampere} to flow when the
+input voltage is between four and five volts.  That this resistance is correct
+can be confirmed via Ohm's law.
+
+In testing the logic indicator, the DC input voltage was stepped from zero to
+five volts, while recording the brightness of the LED subjectively at each
+step.  The results are listed in Table~\ref{tab:ckt2data}.
+%
+\begin{figure}[H]
+	\centering
+	\input{tbl/circuit2.tex}\\
+	\parbox{4.5in}{
+	\caption{Brightness observations for the circuit shown in
+		Figure~\ref{fig:schem2}.}
+	\label{tab:ckt2data}}
+\end{figure}
+%
+It is interesting to note that for inputs of both~\SI{2}{\volt}
+and~\SI{3}{\volt}, the diode appears to be on, albeit dim.  The~\SI{3}{\volt}
+case, while brighter than at two volts, is not yet at the full brightness of
+the diode.  Full brightness for this diode occurs in the
+designed~4--\SI{5}{\volt} range, showing that the final design is adequate in
+functioning as a logic level indicator.
+
+\subsection{Voltage Regulator}
+As with the rectifier and logic indicator, the voltage regulator was built
+according to the provided design.  The value of the~\SI{400}{\ohm} resistor is
+mostly irrelevant, as its sole purpose is to drop the difference between the
+zener diode's reverse breakdown voltage and the input voltage.  As long as the
+resistor is large enough to limit the current through the diode to safe levels
+(as indicated by the part's datasheet), its specific value does not affect the
+output drastically.  To confirm that a given resistor ensures diode safety,
+Ohm's law again becomes useful.  Recorded values for the voltage regulator
+circuit are shown in Table~\ref{tab:ckt3data}.
+%
+\begin{figure}[H]
+	\centering
+	\input{tbl/circuit3.tex}\\
+	\parbox{4.5in}{
+	\caption{Output measurements of the zener diode voltage
+		regulator described in Figure~\ref{fig:schem3}.}
+	\label{tab:ckt3data}}
+\end{figure}
+%
+The reverse breakdown voltage of the zener diode was tested in a curve tracer
+prior to the experiment, the results of which are shown in
+Figure~\ref{fig:zenerCurve}.  For this specific diode, $V_z$ is
+approximately~\SI{1.9}{\volt}.  As was expected, the data captured indicates
+that the voltage was regulated at roughly~\SI{10.2}{\volt}.  The zener diode is
+not a perfect regulator however, hence the variation in output voltage.  This
+is mostly due to variances as the package temperature increases and the innate
+properties of the zener diode as a device.
+
+\subsection{Constant Current Source}
+There were no calculations required to build the constant current source
+circuit, as the resistance was set by a decade box, and the drain voltage was
+determined by the experiment instructions.  The curve tracer output for the
+JFET used is shown in Figure~\ref{fig:jfetCurve}.
+%
+\begin{figure}[H]
+	\centering
+	\input{tbl/circuit4.tex}\\
+	\parbox{4.5in}{
+	\caption{Measured current with a variable resistance.  The experiment was
+		performed with a source voltage of both~\SI{16}{\volt}
+		and~\SI{32}{\volt}, as depicted in Figure~\ref{fig:schem4}}
+	\label{tab:ckt4data}}
+\end{figure}
