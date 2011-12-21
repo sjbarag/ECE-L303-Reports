@@ -1,0 +1,69 @@
+\begin{circuitikz}
+	% body
+	\draw[ultra thick] (-2, -4) rectangle (2, 4);
+
+	% chip name
+	\draw (0,0) node[rotate=90] {DAC0808};
+
+	% -------------------- top --------------------
+	\draw
+	(0, 4) node[above left] {13} node[below] {$V_\text{CC}$}
+		to [short, -o] ++(0, 1) node[above] {+\SI{5}{\volt}};
+
+
+	% -------------------- left pins --------------------
+
+	% resistors, LEDs, and pin ames
+	\foreach \y in {7, ..., 0}
+	{
+		\draw (-2, \y-3.5) node[right] (b\y) {B\y}
+		to [short, -o] ++(-0.5, 0);
+	}
+
+	% pin numbers
+	\foreach \pin in {5,...,12}
+	{
+		\draw (-2, 8.5-\pin) node[above left] {\pin};
+	}
+
+	% LSB and MSB
+	\draw (b7) node[right=4.5pt] {(MSB)}
+	(b0) node[right=4.5pt] {(LSB)};
+
+	% digital inputs label
+	\path[draw, text centered ] (-3, 4) -- node[rectangle, fill=white, rotate=90] {Digital Inputs} (-3, -4);
+	\draw
+	(-3, 4)  -- ++(.5, 0)
+	(-3, -4) -- ++(.5, 0);
+
+	% -------------------- right pins --------------------
+
+	% Vee and cap
+	\draw
+	(0, -4) node[below right] {3} node[above]{$V_\text{EE}$}
+		to [short, -o] ++(0, -1.5) node[below] {\SI{-15}{\volt}}
+	(2, -3.5) node[above right] {16} node[left] {CMP} to [short] ++(1, 0)
+		to [C, l=\SI{0.1}{\micro\farad}] ++(0, -1.5)
+		to [short] ++(-3, 0);
+
+	% pin 4
+	\draw
+	(2, -1) node[above right] {4} node[left] {$V_\text{OUT}$} to [short] ++(1, 0)
+		to [R, l=\SI{5}{\kilo\ohm}] ++(0, -1.5) node[ground] {}
+	(4, -1) to [short, i_=$I_0$, o-] ++(-1, 0);
+
+	% pins 15 & 2
+	\draw
+	(2, .5) node[above right] {2} node[left] {GND} to [short] ++(2.5, 0) node[ground] {}
+		to [short] ++(0, 1)
+	(2, 1.5) node[above right] {15} node[left] {$V_\text{REF}-$}
+		to [short] ++(.5, 0) to [R, l=\SI{5}{\kilo\ohm}] ++(2, 0);
+
+	% pin 14
+	\draw
+	(2, 3.5) node[above right] {14} node[left] {$V_\text{REF}+$} to [short] ++(.5, 0)
+		to [R, l=\SI{5}{\kilo\ohm}, -o] ++(2, 0) node[above] {+\SI{5}{\volt}};
+
+
+	% = - V_\text{REF} \left( \frac{A_1}{2} + \frac{A_2}{4} + \ldots + \frac{A_8}{256} \right)$}
+\end{circuitikz}

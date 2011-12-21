@@ -1,0 +1,35 @@
+\begin{tikzpicture}[xscale=.9]
+		% samples
+		\draw[xstep=.5, ystep=.6, thin, color=gray, dotted] (0,0) grid (6, 4.2);
+
+		% path
+		\draw[thick]
+		(0, 3)
+		-- (.5, 3) -- (1, 3)
+		-- (1, 3.6) -- (1.5, 3.6) -- (2, 3.6) -- (2.5, 3.6) -- (3, 3.6) -- (3.5, 3.6)
+		-- (3.5, 3) -- (4, 3) -- (4.5, 3)
+		-- (4.5, 2.4) -- (5, 2.4)
+		-- (5, 1.2) -- (5.5, 1.2)
+		-- (5.5, 0.6) -- (6.0, 0.6)
+		-- (6.0, 0);
+
+		% xtics
+		\foreach \x in {0, ..., 12}
+		{
+			\draw ({\x/2}, 0) node[below] {$t_{\x}$};
+		}
+
+		% ytics
+		\foreach \y in {0, 1, ..., 7.1}
+		{
+			\draw[thick] (0, .6*\y) node[left] {$V_{\num[round-mode=places, round-precision=1]{\y}}$};
+		}
+
+		% axes
+    	\draw[->, very thick] (-0.1,0) -- (6.2,0) node[right] {Time};
+    	\draw[->, very thick] (0,-.1) -- (0,4.4) node[above] {Volts};
+
+		% data input
+		\draw
+		(0, 2.1) node[left=.5cm]{\texttt{\small 101 101 110 110 $\ldots \rightarrow$}};
+\end{tikzpicture}

@@ -1,0 +1,32 @@
+Unlike the analog-to-digital converter (ADC) explored in lab five, a digital-to-analog converter (DAC) attempts to take a stream of binary values and convert it into a continuous waveform.  Because there is a limited set of~$2^n$ values that can possibly be described by an~$n$-bit DAC, the resulting signal appears to be quantized as in the example in Figure~\ref{fig:theory}.
+%
+\begin{figure}[H]
+	\centering
+	\input{img/theory.tex}
+	\parbox{.6\textwidth}{
+	\caption[Theory Plot]{Theoretical input and output for a~3-bit digital-to-analog converter.  Note that while the output is a sequence of discrete values, they form an analog voltage signal.}
+	\label{fig:theory}}
+\end{figure}
+%
+While the output signal is not continuous as a~``traditional'' analog signal would be, it is still considered analog because of its varying voltage.  Additionally, consider the case of a higher-quality DAC with faster clock frequency and higher resolution.  As the difference between any two time steps~$t_i$ and~$T_{i+1}$ approaches zero and the difference between any two voltages~$V_i$ and~$V_{i+1}$ approaches zero, the output more greatly resembles a continuous and~``traditional'' analog signal.
+
+As with the ADC, a pre-constructed DAC circuit was provided to students in order to simplify the process of exploring the properties of such a system.  A schematic for the pre-built DAC is shown below in Figure~\ref{fig:dacSchem}.
+%
+\begin{figure}[H]
+	\centering
+	\input{schem/dac.tex}
+	\parbox{.6\textwidth}{
+	\caption[Digital-to-Analog IC schematic]{Circuit schematic provided in the
+	lab instructions, describing the layout of the pre-built circuit used in
+	experiment six.}
+	\label{fig:dacSchem}}
+\end{figure}
+%
+To make the process even simpler for students, the digital inputs were wired directly to the corresponding bits of a known-working ADC, such as the one used in the previous week.  Since every other pin has been properly connected, students must only focus on the voltage that appears at pin~4.  Note that because of the configuration of the~\SI{5}{\kilo\ohm} resistor, the output voltage will always be negative, as given in the lab instructions by~\eqref{eq:vout}:
+%
+\begin{equation}
+	V_\text{out} = - V_\text{REF} \left( \frac{A_0}{2} + \frac{A_1}{4} + \ldots + \frac{A_7}{256} \right) \quad \text{,}
+	\label{eq:vout}
+\end{equation}
+%
+where~$A_0$ through~$A_7$ represent the eight bits of input to the DAC.  Regardless, pin four was wired directly to an input of an oscilloscope was measured throughout the experiment.
